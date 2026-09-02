@@ -9,6 +9,11 @@
   <title>Kaldy Digital — Estratégia, conteúdo e presença</title>
   <link rel="icon" href="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png"
     type="image/png">
+  <!-- Performance: Preconnect & Font Preload -->
+  <link rel="preconnect" href="https://kaldy-digital-preview.hugo0412victor.chatgpt.site" crossorigin>
+  <link rel="dns-prefetch" href="https://kaldy-digital-preview.hugo0412victor.chatgpt.site">
+  <link rel="preload" href="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/fonts/craos.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/fonts/wilonah.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
   <style>
     @font-face {
@@ -380,11 +385,11 @@
 
       .influencerProfile {
         position: absolute !important;
-        width: 175px !important;
-        max-width: 175px !important;
-        height: 250px !important;
+        width: 206px !important;
+        max-width: 206px !important;
+        height: 295px !important;
         min-height: 0 !important;
-        max-height: 250px !important;
+        max-height: 295px !important;
         padding: 0 !important;
         border-radius: 20px !important;
         background: transparent !important;
@@ -396,14 +401,7 @@
         overflow: hidden !important;
         box-sizing: border-box !important;
         opacity: 0 !important;
-        -webkit-backface-visibility: hidden !important;
-        backface-visibility: hidden !important;
-        -webkit-transform-style: flat !important;
-        transform-style: flat !important;
-        isolation: isolate !important;
-        -webkit-mask-image: -webkit-radial-gradient(white, black) !important;
         transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease !important;
-        transform: translateZ(0);
       }
 
       .influencerCardAmbient {
@@ -416,15 +414,11 @@
         z-index: 2 !important;
         width: 100% !important;
         height: 100% !important;
-        aspect-ratio: auto !important;
         border-radius: inherit !important;
         overflow: hidden !important;
         box-shadow: none !important;
         border: none !important;
         background: transparent !important;
-        -webkit-backface-visibility: hidden !important;
-        backface-visibility: hidden !important;
-        transform: translateZ(0);
       }
 
       .influencerCardSharp {
@@ -435,9 +429,8 @@
         display: block !important;
         border-radius: inherit !important;
         border: none !important;
-        -webkit-backface-visibility: hidden !important;
-        backface-visibility: hidden !important;
-        transform: translateZ(0);
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: auto;
       }
 
       .influencerTopBadge {
@@ -500,40 +493,40 @@
 
       /* Mobile 3D Fan Arc — Padrão Foto 02 */
       .influencerProfile.card-center {
-        transform: translate3d(0, 0, 0) rotate(0deg) scale(1.18) !important;
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1) !important;
         z-index: 10 !important;
         opacity: 1 !important;
         box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 6px 16px rgba(89, 10, 22, 0.2) !important;
       }
 
       .influencerProfile.card-left-1 {
-        transform: translate3d(-78px, 16px, 0) rotate(-10deg) scale(0.85) !important;
+        transform: translate3d(-78px, 16px, 0) rotate(-10deg) scale(0.72) !important;
         z-index: 4 !important;
         opacity: 0.88 !important;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
       }
 
       .influencerProfile.card-left-2 {
-        transform: translate3d(-135px, 36px, 0) rotate(-18deg) scale(0.70) !important;
+        transform: translate3d(-135px, 36px, 0) rotate(-18deg) scale(0.59) !important;
         z-index: 2 !important;
         opacity: 0.5 !important;
       }
 
       .influencerProfile.card-right-1 {
-        transform: translate3d(78px, 16px, 0) rotate(10deg) scale(0.85) !important;
+        transform: translate3d(78px, 16px, 0) rotate(10deg) scale(0.72) !important;
         z-index: 4 !important;
         opacity: 0.88 !important;
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
       }
 
       .influencerProfile.card-right-2 {
-        transform: translate3d(135px, 36px, 0) rotate(18deg) scale(0.70) !important;
+        transform: translate3d(135px, 36px, 0) rotate(18deg) scale(0.59) !important;
         z-index: 2 !important;
         opacity: 0.5 !important;
       }
 
       .influencerProfile.card-hidden {
-        transform: translate3d(0, 50px, 0) scale(0.3) !important;
+        transform: translate3d(0, 50px, 0) scale(0.25) !important;
         z-index: 0 !important;
         opacity: 0 !important;
         visibility: hidden !important;
@@ -1012,6 +1005,11 @@
 
     .influencerProfile {
       position: absolute !important;
+      width: 236px !important;
+      max-width: 236px !important;
+      height: 338px !important;
+      min-height: 0 !important;
+      max-height: 338px !important;
       background: transparent !important;
       border: none !important;
       padding: 0 !important;
@@ -1024,14 +1022,7 @@
       opacity: 0 !important;
       transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease !important;
       transform-origin: center bottom !important;
-      will-change: transform, opacity !important;
-      -webkit-backface-visibility: hidden !important;
-      backface-visibility: hidden !important;
-      -webkit-transform-style: flat !important;
-      transform-style: flat !important;
-      isolation: isolate !important;
-      -webkit-mask-image: -webkit-radial-gradient(white, black) !important;
-      transform: translateZ(0);
+      border-radius: 20px !important;
     }
 
     .influencerCardAmbient {
@@ -1049,9 +1040,6 @@
       box-shadow: none !important;
       border: none !important;
       background: transparent !important;
-      -webkit-backface-visibility: hidden !important;
-      backface-visibility: hidden !important;
-      transform: translateZ(0);
     }
 
     .influencerCardSharp {
@@ -1061,9 +1049,8 @@
       display: block !important;
       border-radius: inherit !important;
       border: none !important;
-      -webkit-backface-visibility: hidden !important;
-      backface-visibility: hidden !important;
-      transform: translateZ(0);
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: auto;
     }
 
     .influencerTopBadge {
@@ -1139,7 +1126,7 @@
       }
 
       .influencerProfile.card-center {
-        transform: translate3d(0, -18px, 0) rotate(0deg) scale(1.35) !important;
+        transform: translate3d(0, -18px, 0) rotate(0deg) scale(1) !important;
         z-index: 10 !important;
         opacity: 1 !important;
         box-shadow: 0 30px 65px rgba(14, 18, 17, 0.35), 0 12px 28px rgba(89, 10, 22, 0.25) !important;
@@ -1147,35 +1134,35 @@
       }
 
       .influencerProfile.card-left-1 {
-        transform: translate3d(-155px, 24px, 0) rotate(-10deg) scale(0.85) !important;
+        transform: translate3d(-155px, 24px, 0) rotate(-10deg) scale(0.63) !important;
         z-index: 6 !important;
         opacity: 0.9 !important;
         box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12) !important;
       }
 
       .influencerProfile.card-left-2 {
-        transform: translate3d(-275px, 58px, 0) rotate(-19deg) scale(0.70) !important;
+        transform: translate3d(-275px, 58px, 0) rotate(-19deg) scale(0.52) !important;
         z-index: 3 !important;
         opacity: 0.72 !important;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
       }
 
       .influencerProfile.card-right-1 {
-        transform: translate3d(155px, 24px, 0) rotate(10deg) scale(0.85) !important;
+        transform: translate3d(155px, 24px, 0) rotate(10deg) scale(0.63) !important;
         z-index: 6 !important;
         opacity: 0.9 !important;
         box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12) !important;
       }
 
       .influencerProfile.card-right-2 {
-        transform: translate3d(275px, 58px, 0) rotate(19deg) scale(0.70) !important;
+        transform: translate3d(275px, 58px, 0) rotate(19deg) scale(0.52) !important;
         z-index: 3 !important;
         opacity: 0.72 !important;
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
       }
 
       .influencerProfile.card-hidden {
-        transform: translate3d(0, 100px, 0) scale(0.35) !important;
+        transform: translate3d(0, 100px, 0) scale(0.25) !important;
         z-index: 0 !important;
         opacity: 0 !important;
         visibility: hidden !important;
@@ -1358,7 +1345,6 @@
           <div class="influencerFanViewport" id="influencerFanViewport">
             <!-- 01. Jade Picon -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="fotos/Jade Picon.jpg" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
                 <img class="influencerCardSharp" src="fotos/Jade Picon.jpg" alt="Jade Picon" decoding="async">
                 <div class="influencerTopBadge"><span>@jadepicon <i>✓</i></span></div>
@@ -1371,7 +1357,6 @@
 
             <!-- 02. Tainá Costa -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="fotos/Taina Costa.jpg" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
                 <img class="influencerCardSharp" src="fotos/Taina Costa.jpg" alt="Tainá Costa" decoding="async">
                 <div class="influencerTopBadge"><span>@taina <i>✓</i></span></div>
@@ -1384,7 +1369,6 @@
 
             <!-- 03. MC Hariel -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mc-hariel-hq.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
                 <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mc-hariel-hq.png" alt="MC Hariel" decoding="async">
                 <div class="influencerTopBadge"><span>@mchariel <i>✓</i></span></div>
@@ -1397,7 +1381,6 @@
 
             <!-- 04. Matuê -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/matue-new.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
                 <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/matue-new.png" alt="Matuê" decoding="async">
                 <div class="influencerTopBadge"><span>@matue <i>✓</i></span></div>
@@ -1410,7 +1393,6 @@
 
             <!-- 05. Mau Mau -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mau-mau.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
                 <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mau-mau.png" alt="Mau Mau" decoding="async">
                 <div class="influencerTopBadge"><span>@maumauzk <i>✓</i></span></div>
@@ -1423,9 +1405,8 @@
 
             <!-- 06. Sthe Carvalho -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/sthe-carvalho-new.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/sthe-carvalho-new.png" alt="Sthe Carvalho" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/sthe-carvalho-new.png" alt="Sthe Carvalho" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@sthefannycvoficial</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1436,9 +1417,8 @@
 
             <!-- 07. Gabi Lopes -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-lopes-hq.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-lopes-hq.png" alt="Gabi Lopes" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-lopes-hq.png" alt="Gabi Lopes" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@gabilopess <i>✓</i></span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1449,9 +1429,8 @@
 
             <!-- 08. Kaynna Barbaresco -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/kaynna-hq.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/kaynna-hq.png" alt="Kaynna Barbaresco" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/kaynna-hq.png" alt="Kaynna Barbaresco" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@kaynnab</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1462,9 +1441,8 @@
 
             <!-- 09. Renata Schneider -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/renata-schneider-new.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/renata-schneider-new.png" alt="Renata Schneider" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/renata-schneider-new.png" alt="Renata Schneider" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@renata.c.schneider</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1475,9 +1453,8 @@
 
             <!-- 10. Thalya Da Silva -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/thalya-da-silva.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/thalya-da-silva.png" alt="Thalya Da Silva" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/thalya-da-silva.png" alt="Thalya Da Silva" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@thalyadasilva_</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1488,9 +1465,8 @@
 
             <!-- 11. Alan Possamai -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/alan-possamai.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/alan-possamai.png" alt="Alan Possamai" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/alan-possamai.png" alt="Alan Possamai" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@alanpossamai</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1501,9 +1477,8 @@
 
             <!-- 12. Nina Santos -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/nina-santos.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/nina-santos.png" alt="Nina Santos" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/nina-santos.png" alt="Nina Santos" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@nina_sant0s <i>✓</i></span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1514,9 +1489,8 @@
 
             <!-- 13. Gabriel Rocha -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabriel-rocha.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabriel-rocha.png" alt="Gabriel Rocha" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabriel-rocha.png" alt="Gabriel Rocha" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@gabrielrocha</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1527,9 +1501,8 @@
 
             <!-- 14. Gabi Magsan -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-magsan-hq.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-magsan-hq.png" alt="Gabi Magsan" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-magsan-hq.png" alt="Gabi Magsan" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@gabimagsan</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1540,9 +1513,8 @@
 
             <!-- 15. Aline Braga -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/aline-braga-new.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/aline-braga-new.png" alt="Aline Braga" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/aline-braga-new.png" alt="Aline Braga" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@alinebragaa</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1553,9 +1525,8 @@
 
             <!-- 16. Julya Freitas -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/julya-freitas.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/julya-freitas.png" alt="Julya Freitas" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/julya-freitas.png" alt="Julya Freitas" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@julyafreitass</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1566,9 +1537,8 @@
 
             <!-- 17. Gordinho Bololô -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gordinho-bololo.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gordinho-bololo.png" alt="Gordinho Bololô" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gordinho-bololo.png" alt="Gordinho Bololô" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@gordinhobololooriginal</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1579,9 +1549,8 @@
 
             <!-- 18. Hanna Carvalho -->
             <article class="influencerProfile">
-              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/han-carvalho-hq.png" alt="" aria-hidden="true">
               <div class="influencerCardMedia">
-                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/han-carvalho-hq.png" alt="Hanna Carvalho" decoding="async">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/han-carvalho-hq.png" alt="Hanna Carvalho" loading="lazy" decoding="async">
                 <div class="influencerTopBadge"><span>@han.carvalho</span></div>
               </div>
               <div class="influencerCardMeta">
@@ -1966,11 +1935,11 @@
           <div class="photoStack">
             <div class="photoCard back">
               <img src="fotos/Brenda 04 - Ensaio.jpg" alt="Brenda Kaldy (Bastidores & Direção)" loading="eager" fetchpriority="high"
-                onerror="this.onerror=null; this.src='brenda-kaldy-02.jpg';">
+                onerror="this.onerror=null; this.src='brenda-kaldy-02.jpg';" loading="lazy" decoding="async">
             </div>
             <div class="photoCard front">
               <img src="fotos/Brenda 01 - Ensaio.jpg" alt="Brenda Kaldy - CEO & Fundadora" loading="eager" fetchpriority="high"
-                onerror="this.onerror=null; this.src='brenda-kaldy.jpg';">
+                onerror="this.onerror=null; this.src='brenda-kaldy.jpg';" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -2095,42 +2064,42 @@
       <div class="projectGrid shell reveal-group">
         <figure class="wide reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-01.png"
-            alt="Campanha — Produto em cena">
+            alt="Campanha — Produto em cena" loading="lazy" decoding="async">
           <figcaption><small>Campanha</small><strong>Produto em cena</strong></figcaption>
         </figure>
         <figure class="reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-02.png"
-            alt="Casamentos — Elegância em cada detalhe">
+            alt="Casamentos — Elegância em cada detalhe" loading="lazy" decoding="async">
           <figcaption><small>Casamentos</small><strong>Elegância em cada detalhe</strong></figcaption>
         </figure>
         <figure class="reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-03.png"
-            alt="Família — Momentos que ficam">
+            alt="Família — Momentos que ficam" loading="lazy" decoding="async">
           <figcaption><small>Família</small><strong>Momentos que ficam</strong></figcaption>
         </figure>
         <figure class="reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-04.png"
-            alt="Shows — A energia do palco">
+            alt="Shows — A energia do palco" loading="lazy" decoding="async">
           <figcaption><small>Shows</small><strong>A energia do palco</strong></figcaption>
         </figure>
         <figure class="wide reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-05.png"
-            alt="Celebrações — Histórias de amor">
+            alt="Celebrações — Histórias de amor" loading="lazy" decoding="async">
           <figcaption><small>Celebrações</small><strong>Histórias de amor</strong></figcaption>
         </figure>
         <figure class="reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-06.png"
-            alt="Experiências — Atmosfera e personalidade">
+            alt="Experiências — Atmosfera e personalidade" loading="lazy" decoding="async">
           <figcaption><small>Experiências</small><strong>Atmosfera e personalidade</strong></figcaption>
         </figure>
         <figure class="reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-07.png"
-            alt="Produção — Bastidores que contam">
+            alt="Produção — Bastidores que contam" loading="lazy" decoding="async">
           <figcaption><small>Produção</small><strong>Bastidores que contam</strong></figcaption>
         </figure>
         <figure class="wide reveal-item"><img
             src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-08.png"
-            alt="Eventos — Uma noite inesquecível">
+            alt="Eventos — Uma noite inesquecível" loading="lazy" decoding="async">
           <figcaption><small>Eventos</small><strong>Uma noite inesquecível</strong></figcaption>
         </figure>
       </div>
@@ -2150,7 +2119,7 @@
       <div class="videoGrid reveal-group">
         <article class="reveal-item">
           <div class="videoFrame">
-            <video muted loop playsinline preload="metadata" style="cursor: pointer;">
+            <video muted loop playsinline preload="none" style="cursor: pointer;">
               <source
                 src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/media/eternize-seu-evento.mp4#t=3.0"
                 type="video/mp4">
@@ -2174,7 +2143,7 @@
         </article>
         <article class="reveal-item">
           <div class="videoFrame">
-            <video muted loop playsinline preload="metadata" style="cursor: pointer;">
+            <video muted loop playsinline preload="none" style="cursor: pointer;">
               <source
                 src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/media/por-que-storymaker.mp4#t=3.0"
                 type="video/mp4">
