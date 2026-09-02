@@ -1,4 +1,34 @@
 {
   "trailingSlash": true,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/marketing/"
+    },
+    {
+      "source": "/styles.css",
+      "destination": "/marketing/styles.css"
+    },
+    {
+      "source": "/script.js",
+      "destination": "/marketing/script.js"
+    },
+    {
+      "source": "/logo-kaldy.png",
+      "destination": "/marketing/logo-kaldy.png"
+    },
+    {
+      "source": "/fotos/:path*",
+      "destination": "/marketing/fotos/:path*"
+    },
+    {
+      "source": "/Brenda Kaldy.jpg",
+      "destination": "/marketing/Brenda Kaldy.jpg"
+    },
+    {
+      "source": "/Brenda Kaldy 02.jpg",
+      "destination": "/marketing/Brenda Kaldy 02.jpg"
+    }
+  ]
 }
