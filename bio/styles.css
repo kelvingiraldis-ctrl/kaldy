@@ -1,0 +1,682 @@
+/* ==========================================================================
+   KALDY DIGITAL — LINK DA BIO OFICIAL (BASEADO NO MODELO SALVATORE)
+   Paleta: Vinho Nobre (#590A16), Fundo Cream (#F9F3DB), Dourado & Deep Black
+   ========================================================================== */
+
+:root {
+    /* Cores Oficiais da Kaldy Digital */
+    --color-bg-base: #FFFFFF;
+    --color-bg-light: #FAFAFC;
+    --color-bg-card: rgba(255, 255, 255, 0.92);
+    --color-bg-card-hover: rgba(255, 255, 255, 1);
+    --color-bg-card-border: rgba(89, 10, 22, 0.14);
+    --color-bg-card-border-hover: rgba(89, 10, 22, 0.40);
+    
+    --color-primary: #590A16;        /* Vinho Oficial Kaldy */
+    --color-secondary: #7e1223;      /* Vinho Médio Elegante */
+    --color-accent: #C5A059;         /* Dourado Nobre */
+    --color-accent-gold: #D4AF37;    /* Dourado Metálico */
+    --color-text-dark: #0E1211;      /* Deep Black */
+    --color-text-muted: #5C4A4D;     /* Texto Secundário */
+    --color-icon-bg: #590A16;        /* Fundo dos Círculos dos Ícones */
+    --color-icon-color: #FFFFFF;
+    
+    /* Tipografia Oficial Kaldy (Outfit sem serifa fina) */
+    --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    /* Sombras & Efeitos */
+    --shadow-card: 0 10px 25px -5px rgba(89, 10, 22, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 16px 32px -4px rgba(89, 10, 22, 0.18), 0 6px 14px -2px rgba(0, 0, 0, 0.06);
+    --shadow-badge: 0 4px 14px rgba(89, 10, 22, 0.3);
+    
+    --radius-pill: 50px;
+    --radius-card: 28px;
+    --radius-inner: 20px;
+    
+    --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+    --transition-fast: all 0.2s ease;
+}
+
+/* Reset & Box Sizing */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-base);
+    color: var(--color-text-dark);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: hidden;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   LAYOUT PRINCIPAL
+   ========================================================================== */
+
+.bio-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+/* Camadas de Fundo / Ambient */
+.bg-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.bg-overlay {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.55) 35%,
+        rgba(255, 255, 255, 0.92) 70%,
+        rgba(255, 255, 255, 1) 100%
+    );
+    z-index: 1;
+}
+
+.bg-glow {
+    background: radial-gradient(
+        circle at 50% 25%,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    z-index: 3;
+}
+
+/* ==========================================================================
+   IMAGEM DEGRADÊ SUPERIOR (HERO DEGRADÊ)
+   ========================================================================== */
+.top-hero-degrade {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 480px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.hero-degrade-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    filter: saturate(1.05) brightness(1.02);
+    -webkit-mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.8) 15%,
+        rgba(0, 0, 0, 0.95) 35%,
+        rgba(0, 0, 0, 0.55) 65%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.8) 15%,
+        rgba(0, 0, 0, 0.95) 35%,
+        rgba(0, 0, 0, 0.55) 65%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.hero-degrade-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        ellipse at 50% 38%,
+        rgba(255, 255, 255, 0.2) 0%,
+        rgba(255, 255, 255, 0.65) 55%,
+        rgba(255, 255, 255, 1) 95%
+    );
+    z-index: 2;
+}
+
+/* Container Mobile-First */
+.bio-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 440px;
+    padding: 34px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   CABEÇALHO (HEADER)
+   ========================================================================== */
+
+.bio-header {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+/* Logo Redonda Limpa com Borda Fina */
+.brand-logo-wrapper {
+    position: relative;
+    width: 86px;
+    height: 86px;
+    margin: 0 auto 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-logo-ring {
+    display: none; /* Remove borda grossa externa */
+}
+
+.brand-logo-circle {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: transparent;
+    padding: 0; /* Remove sobra branca */
+    border: 1.5px solid rgba(89, 10, 22, 0.35); /* Borda fina e sofisticada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(89, 10, 22, 0.15);
+}
+
+.brand-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Preenche todo o círculo com nitidez */
+    border-radius: 50%;
+}
+
+.welcome-box {
+    margin-top: 32px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0) 80%
+    );
+}
+
+.welcome-title {
+    font-family: var(--font-sans);
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin-bottom: 4px;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.welcome-text {
+    font-family: var(--font-sans);
+    font-size: 0.84rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    max-width: 320px;
+    margin: 0 auto;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.welcome-text strong {
+    color: var(--color-primary);
+    font-weight: 600;
+    display: block;
+    margin-top: 2px;
+}
+
+/* ==========================================================================
+   CARDS DE LINKS / BOTÕES
+   ========================================================================== */
+
+.bio-links {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    margin-top: 38px;
+    margin-bottom: 24px;
+}
+
+.bio-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 11px 18px 11px 12px;
+    background: linear-gradient(135deg, #590A16 0%, #74101F 100%);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 10px 25px -4px rgba(89, 10, 22, 0.35), 0 4px 10px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    user-select: none;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* Efeito de Luz / Shimmer passando no botão (Nítido sobre o fundo Vinho) */
+.bio-card::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: -70% auto -70% -42%;
+    width: 28%;
+    transform: rotate(18deg);
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.75) 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+    animation: ctaLight 4.5s ease-in-out infinite;
+}
+
+/* Delays escalonados para cada botão emitir o brilho em harmonia */
+.bio-card:nth-child(1)::before { animation-delay: 0.2s; }
+.bio-card:nth-child(2)::before { animation-delay: 0.9s; }
+.bio-card:nth-child(3)::before { animation-delay: 1.6s; }
+.bio-card:nth-child(4)::before { animation-delay: 2.3s; }
+.bio-card:nth-child(5)::before { animation-delay: 3.0s; }
+
+@keyframes ctaLight {
+    0%, 65% { left: -42%; }
+    100% { left: 125%; }
+}
+
+.bio-card:hover, .bio-card:focus-visible {
+    background: linear-gradient(135deg, #6c0d1c 0%, #871526 100%);
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 14px 34px -4px rgba(89, 10, 22, 0.5), 0 6px 14px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px) scale(1.015);
+}
+
+.bio-card:active {
+    transform: translateY(0) scale(0.99);
+}
+
+/* Círculo do Ícone */
+.card-icon-wrapper {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: var(--transition-smooth);
+}
+
+.bio-card:hover .card-icon-wrapper {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.24);
+    border-color: #FFFFFF;
+}
+
+.card-icon-wrapper svg,
+.card-icon-wrapper i {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+/* Destaque especial do WhatsApp */
+.btn-orcamento .card-icon-wrapper.whatsapp-icon {
+    background: #25D366;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
+}
+
+.btn-orcamento:hover .card-icon-wrapper.whatsapp-icon {
+    background: #1fb855;
+}
+
+/* Conteúdo de Texto do Card */
+.card-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.card-title {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    line-height: 1.25;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-subtitle {
+    font-family: var(--font-sans);
+    font-size: 0.73rem;
+    font-weight: 400;
+    color: rgba(249, 243, 219, 0.88);
+    line-height: 1.2;
+    margin-top: 2px;
+}
+
+/* Indicador de Ação (Seta / Chevron) */
+.card-action-indicator {
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: var(--color-accent-gold);
+    opacity: 0.85;
+    transition: var(--transition-smooth);
+}
+
+/* ==========================================================================
+   ACORDEON / FAQ EXPANSÍVEL (ENTENDA MAIS SOBRE)
+   ========================================================================== */
+
+.bio-accordion-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-trigger {
+    width: 100%;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    text-align: left;
+}
+
+.accordion-arrow {
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.bio-accordion-item.active .accordion-arrow {
+    transform: rotate(180deg);
+    color: #FFFFFF;
+    opacity: 1;
+}
+
+.bio-accordion-item.active .accordion-trigger {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-color: rgba(255, 255, 255, 0.45);
+    background: linear-gradient(135deg, #6c0d1c 0%, #871526 100%);
+}
+
+/* Container Expansível */
+.accordion-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    width: 100%;
+}
+
+.accordion-inner {
+    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(89, 10, 22, 0.2);
+    border-radius: var(--radius-card);
+    padding: 20px 16px;
+    box-shadow: 0 12px 32px rgba(89, 10, 22, 0.14);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.about-header {
+    text-align: center;
+}
+
+.about-tag {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.about-title {
+    font-family: var(--font-sans);
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: var(--color-text-dark);
+    line-height: 1.25;
+    margin-bottom: 6px;
+}
+
+.about-text {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+}
+
+.about-text strong {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.about-services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.service-mini-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #F9FAFB;
+    border: 1px solid rgba(89, 10, 22, 0.10);
+    border-radius: 14px;
+    padding: 10px 12px;
+}
+
+.mini-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    box-shadow: 0 2px 6px rgba(89, 10, 22, 0.2);
+}
+
+.mini-icon svg,
+.mini-icon i {
+    width: 16px;
+    height: 16px;
+    font-size: 16px;
+}
+
+.mini-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.mini-info strong {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.mini-info span {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    line-height: 1.35;
+}
+
+.btn-about-full {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--color-primary);
+    color: #ffffff;
+    border-radius: var(--radius-pill);
+    padding: 11px 16px;
+    text-decoration: none;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 14px rgba(89, 10, 22, 0.25);
+    transition: var(--transition-fast);
+    margin-top: 2px;
+}
+
+.btn-about-full:hover, .btn-about-full:active {
+    background: var(--color-secondary);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(89, 10, 22, 0.35);
+}
+
+.btn-about-full svg,
+.btn-about-full i {
+    width: 15px;
+    height: 15px;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+
+.bio-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-badge {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(89, 10, 22, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(89, 10, 22, 0.12);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    text-align: center;
+}
+
+.footer-brand {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--color-primary);
+    text-transform: uppercase;
+}
+
+.footer-location {
+    font-family: var(--font-sans);
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--color-secondary);
+    text-transform: uppercase;
+}
+
+/* ==========================================================================
+   ANIMAÇÕES DE ENTRADA SUAVE
+   ========================================================================== */
+
+.animate-fade-down {
+    animation: fadeDown 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-fade-up {
+    animation: fadeUp 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-card {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: cardEntrance 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-card:nth-child(1) { animation-delay: 0.1s; }
+.animate-card:nth-child(2) { animation-delay: 0.2s; }
+.animate-card:nth-child(3) { animation-delay: 0.3s; }
+.animate-card:nth-child(4) { animation-delay: 0.4s; }
+.animate-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes cardEntrance {
+    to { opacity: 1; transform: translateY(0); }
+}
