@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Diagnóstico Estratégico | Kaldy Digital</title>
+    <link rel="icon" href="logo-kaldy.png" type="image/png">
+    <meta name="description"
+        content="Diagnóstico personalizado da Kaldy Digital para empresas (Social Media & Tráfego Pago) e eventos (Cobertura, Storymaker, Filmmaker & Fotografia).">
+
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header Minimalista -->
+    <header class="form-header">
+        <div class="header-container">
+            <a href="../index.html" class="brand-link" title="Voltar ao início">
+                <img src="logo-kaldy.png" alt="Kaldy Digital" class="brand-logo-img">
+                <span class="brand-name">Kaldy Digital</span>
+                <span class="brand-badge">Diagnóstico</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="form-main">
+        <div class="form-wrapper">
+
+            <!-- Barra de Progresso elegante e limpa logo acima do card -->
+            <div class="form-card-progress" id="formCardProgress">
+                <div class="card-progress-track">
+                    <div class="card-progress-fill" id="cardProgressFill"></div>
+                </div>
+            </div>
+
+            <form id="leadForm" novalidate>
+
+                <!-- ================= ETAPA 1: BOAS-VINDAS HERO EDITORIAL COM BRENDA NO FUNDO ================= -->
+                <div class="step-card step-welcome-hero active" data-step="1">
+                    <div class="welcome-hero-media">
+                        <img src="fotos/Brenda 01 - Ensaio.jpg" alt="Brenda Kaldy - Kaldy Digital" class="hero-photo-cover">
+                        <div class="hero-dark-overlay"></div>
+                    </div>
+
+                    <div class="welcome-hero-body">
+                        <div class="hero-brand-tag">KALDY DIGITAL • DIAGNÓSTICO ESTRATÉGICO</div>
+                        <h1 class="hero-title">
+                            Estratégia que transforma a presença e as vendas da sua marca.
+                        </h1>
+
+                        <p class="hero-description">
+                            Descubra o plano ideal de <strong>social media, tráfego pago ou cobertura de eventos</strong> para acelerar seus resultados.
+                        </p>
+
+                        <div class="hero-features-grid">
+                            <div class="hero-feat-chip">
+                                <i data-lucide="zap"></i>
+                                <span>Leva menos de 2 minutos</span>
+                            </div>
+                            <div class="hero-feat-chip">
+                                <i data-lucide="target"></i>
+                                <span>Diagnóstico 100% sob medida</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-actions-container">
+                            <button type="button" class="btn-primary btn-hero-start" id="btnStart">
+                                <span>Começar Diagnóstico</span>
+                                <i data-lucide="arrow-right"></i>
+                            </button>
+                            <span class="hero-keyboard-hint desktop-only">pressione <strong>Enter ↵</strong></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ================= ETAPA 2: NOME ================= -->
+                <div class="step-card" data-step="2">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="1">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Como podemos te chamar?
+                    </h2>
+                    <p class="step-description">
+                        Informe seu nome completo ou como prefere ser chamado(a).
+                    </p>
+
+                    <div class="input-field-group">
+                        <input type="text" id="inputNome" name="nome" class="form-input" placeholder="Digite seu nome..." autocomplete="name" required autofocus>
+                    </div>
+                    <div class="error-message" id="errorNome">Informe seu nome para continuar.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="3">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ================= ETAPA 3: WHATSAPP ================= -->
+                <div class="step-card" data-step="3">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="2">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual o seu número de WhatsApp com DDD?
+                    </h2>
+                    <p class="step-description">
+                        Para enviarmos a proposta e tirarmos eventuais dúvidas.
+                    </p>
+
+                    <div class="input-field-group">
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">🇧🇷</span>
+                            <input type="tel" id="inputWhatsapp" name="whatsapp" class="form-input" placeholder="(11) 99999-9999" autocomplete="tel" inputmode="numeric" required>
+                        </div>
+                    </div>
+                    <div class="error-message" id="errorWhatsapp">Insira um número de WhatsApp com DDD válido.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="4">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ================= ETAPA 4: BIFURCAÇÃO (EMPRESA OU EVENTO) ================= -->
+                <div class="step-card" data-step="4">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="3">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual é o foco do seu projeto?
+                    </h2>
+                    <p class="step-description">
+                        Selecione a opção que melhor descreve a sua necessidade atual:
+                    </p>
+
+                    <div class="segment-cards-grid" role="radiogroup" aria-label="Segmento do Projeto">
+                        <label class="segment-choice-card" for="segmentoEmpresa">
+                            <input type="radio" name="segmento" id="segmentoEmpresa" value="empresa" required>
+                            <div class="segment-icon-box">
+                                <i data-lucide="building-2"></i>
+                            </div>
+                            <div class="segment-info">
+                                <h3 class="segment-name">Empresa / Negócio</h3>
+                                <p class="segment-desc">Social Media, Tráfego Pago, Captação de Imagem e Estratégia de Vendas</p>
+                            </div>
+                            <span class="segment-arrow"><i data-lucide="chevron-right"></i></span>
+                        </label>
+
+                        <label class="segment-choice-card" for="segmentoEvento">
+                            <input type="radio" name="segmento" id="segmentoEvento" value="evento" required>
+                            <div class="segment-icon-box">
+                                <i data-lucide="party-popper"></i>
+                            </div>
+                            <div class="segment-info">
+                                <h3 class="segment-name">Cobertura de Evento</h3>
+                                <p class="segment-desc">Storymaker em Tempo Real, Filmmaker, Fotógrafo e Melhores Momentos</p>
+                            </div>
+                            <span class="segment-arrow"><i data-lucide="chevron-right"></i></span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="errorSegmento">Selecione se o foco é Empresa ou Evento para prosseguir.</div>
+                </div>
+
+                <!-- ========================================================================= -->
+                <!-- ========================= RAMO EMPRESA (STEPS 5E - 9E) =================== -->
+                <!-- ========================================================================= -->
+
+                <!-- ETAPA 5E: INSTAGRAM EMPRESA -->
+                <div class="step-card" data-step="5e" data-branch="empresa">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="4">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual é o @ do Instagram da sua empresa?
+                    </h2>
+                    <p class="step-description">
+                        Isso nos ajuda a analisar seu posicionamento e conteúdo atual.
+                    </p>
+
+                    <div class="input-field-group">
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">@</span>
+                            <input type="text" id="inputInstagramEmpresa" name="instagram_empresa" class="form-input" placeholder="seunegocio" autocomplete="off" autocapitalize="none">
+                        </div>
+                    </div>
+                    <div class="error-message" id="errorInstagramEmpresa">Informe o @ do Instagram da sua empresa.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="6e">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 6E: SERVIÇOS EMPRESA (MULTI-SELEÇÃO) -->
+                <div class="step-card" data-step="6e" data-branch="empresa">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="5e">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Quais serviços sua empresa mais precisa?
+                    </h2>
+                    <p class="step-description">
+                        Você pode selecionar mais de uma opção:
+                    </p>
+
+                    <div class="options-grid multi-select-grid" role="group" aria-label="Serviços para Empresa">
+                        <label class="option-card checkbox-card" for="srvEmpSocial">
+                            <input type="checkbox" name="servicos_empresa" id="srvEmpSocial" value="Social Media & Estratégia de Conteúdo">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">Gestão de Redes Sociais (Social Media)</span>
+                        </label>
+
+                        <label class="option-card checkbox-card" for="srvEmpTrafego">
+                            <input type="checkbox" name="servicos_empresa" id="srvEmpTrafego" value="Tráfego Pago (Anúncios Meta/Google)">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">Tráfego Pago (Meta Ads & Google Ads)</span>
+                        </label>
+
+                        <label class="option-card checkbox-card" for="srvEmpFilmmaker">
+                            <input type="checkbox" name="servicos_empresa" id="srvEmpFilmmaker" value="Captação de Imagem / Filmmaker Profissional">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">Captação de Imagem & Produção de Vídeos</span>
+                        </label>
+
+                        <label class="option-card checkbox-card" for="srvEmpCompleto">
+                            <input type="checkbox" name="servicos_empresa" id="srvEmpCompleto" value="Assessoria Completa (Social Media + Tráfego + Captação)">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">Assessoria Completa (Social Media + Tráfego + Vídeos)</span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="errorServicosEmpresa">Selecione ao menos um serviço para continuar.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="7e">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 7E: FATURAMENTO MENSAL EMPRESA -->
+                <div class="step-card" data-step="7e" data-branch="empresa">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="6e">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual o faturamento médio mensal da sua empresa?
+                    </h2>
+                    <p class="step-description">
+                        Essa informação nos ajuda a dimensionar a escala da operação.
+                    </p>
+
+                    <div class="options-grid" role="radiogroup" aria-label="Faturamento Mensal">
+                        <label class="option-card" for="fatA">
+                            <input type="radio" name="faturamento" id="fatA" value="R$ 5.000 a R$ 10.000">
+                            <span class="option-key">A</span>
+                            <span class="option-text">R$ 5.000 a R$ 10.000</span>
+                        </label>
+
+                        <label class="option-card" for="fatB">
+                            <input type="radio" name="faturamento" id="fatB" value="R$ 10.000 a R$ 20.000">
+                            <span class="option-key">B</span>
+                            <span class="option-text">R$ 10.000 a R$ 20.000</span>
+                        </label>
+
+                        <label class="option-card" for="fatC">
+                            <input type="radio" name="faturamento" id="fatC" value="R$ 20.000 a R$ 50.000">
+                            <span class="option-key">C</span>
+                            <span class="option-text">R$ 20.000 a R$ 50.000</span>
+                        </label>
+
+                        <label class="option-card" for="fatD">
+                            <input type="radio" name="faturamento" id="fatD" value="R$ 50.000 a R$ 100.000">
+                            <span class="option-key">D</span>
+                            <span class="option-text">R$ 50.000 a R$ 100.000</span>
+                        </label>
+
+                        <label class="option-card" for="fatE">
+                            <input type="radio" name="faturamento" id="fatE" value="Acima de R$ 100.000">
+                            <span class="option-key">E</span>
+                            <span class="option-text">Acima de R$ 100.000</span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="errorFaturamento">Selecione uma das opções acima ou clique em pular.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-skip" id="btnSkipFaturamento">
+                            <span>Pular</span>
+                        </button>
+                        <button type="button" class="btn-primary btn-next" data-next="8e">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 8E: INVESTIMENTO ANÚNCIOS EMPRESA -->
+                <div class="step-card" data-step="8e" data-branch="empresa">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="7e">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual o valor que você tem disponível para investir em anúncios nos <span class="highlight-accent">primeiros 30 dias</span>?
+                    </h2>
+                    <p class="step-description">
+                        (Verba de mídia destinada diretamente às plataformas Meta e Google)
+                    </p>
+
+                    <div class="options-grid" role="radiogroup" aria-label="Investimento em Anúncios">
+                        <label class="option-card" for="invA">
+                            <input type="radio" name="investimento" id="invA" value="R$ 500 a R$ 1.000">
+                            <span class="option-key">A</span>
+                            <span class="option-text">R$ 500 a R$ 1.000</span>
+                        </label>
+
+                        <label class="option-card" for="invB">
+                            <input type="radio" name="investimento" id="invB" value="R$ 1.000 a R$ 2.000">
+                            <span class="option-key">B</span>
+                            <span class="option-text">R$ 1.000 a R$ 2.000</span>
+                        </label>
+
+                        <label class="option-card" for="invC">
+                            <input type="radio" name="investimento" id="invC" value="R$ 2.000 a R$ 4.000">
+                            <span class="option-key">C</span>
+                            <span class="option-text">R$ 2.000 a R$ 4.000</span>
+                        </label>
+
+                        <label class="option-card" for="invD">
+                            <input type="radio" name="investimento" id="invD" value="R$ 4.000 a R$ 7.000">
+                            <span class="option-key">D</span>
+                            <span class="option-text">R$ 4.000 a R$ 7.000</span>
+                        </label>
+
+                        <label class="option-card" for="invE">
+                            <input type="radio" name="investimento" id="invE" value="R$ 7.000 a R$ 10.000">
+                            <span class="option-key">E</span>
+                            <span class="option-text">R$ 7.000 a R$ 10.000</span>
+                        </label>
+
+                        <label class="option-card" for="invF">
+                            <input type="radio" name="investimento" id="invF" value="+ R$ 10.000">
+                            <span class="option-key">F</span>
+                            <span class="option-text">+ R$ 10.000</span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="errorInvestimento">Selecione uma das opções de investimento para continuar.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="9e">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 9E: EMAIL EMPRESA -->
+                <div class="step-card" data-step="9e" data-branch="empresa">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="8e">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Quase lá! Qual é o seu melhor e-mail?
+                    </h2>
+                    <p class="step-description">
+                        Enviaremos o resumo e o plano estratégico por aqui.
+                    </p>
+
+                    <div class="input-field-group">
+                        <input type="email" id="inputEmailEmpresa" name="email_empresa" class="form-input" placeholder="nome@empresa.com.br" autocomplete="email" inputmode="email" required>
+                    </div>
+                    <div class="error-message" id="errorEmailEmpresa">Digite um e-mail válido para continuar.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="10e">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 10E: SITE OU PÁGINA EMPRESA -->
+                <div class="step-card" data-step="10e" data-branch="empresa">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="9e">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Sua empresa já possui site ou página de vendas?
+                    </h2>
+                    <p class="step-description">
+                        Se tiver um site, landing page ou catálogo online, insira o link abaixo. Caso não tenha, basta clicar em "Não tenho site".
+                    </p>
+
+                    <div class="input-field-group">
+                        <input type="text" id="inputSiteEmpresa" name="site_empresa" class="form-input" placeholder="ex: suaempresa.com.br" autocomplete="url">
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-skip" id="btnSkipSiteEmpresa">
+                            <span>Não tenho site</span>
+                        </button>
+                        <button type="submit" class="btn-primary btn-submit" id="btnSubmitEmpresa">
+                            <span>Finalizar Diagnóstico</span>
+                            <i data-lucide="check"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========================================================================= -->
+                <!-- ========================= RAMO EVENTO (STEPS 5V - 9V) ==================== -->
+                <!-- ========================================================================= -->
+
+                <!-- ETAPA 5V: TIPO DE EVENTO & INSTAGRAM -->
+                <div class="step-card" data-step="5v" data-branch="evento">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="4">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual é o tipo do seu evento?
+                    </h2>
+                    <p class="step-description">
+                        Selecione a categoria e informe o @ do Instagram do evento/anfitrião se houver:
+                    </p>
+
+                    <div class="options-grid" role="radiogroup" aria-label="Tipo de Evento">
+                        <label class="option-card" for="evtTipoCasamento">
+                            <input type="radio" name="tipo_evento" id="evtTipoCasamento" value="Casamento">
+                            <span class="option-key">A</span>
+                            <span class="option-text">Casamento</span>
+                        </label>
+
+                        <label class="option-card" for="evtTipoCorporativo">
+                            <input type="radio" name="tipo_evento" id="evtTipoCorporativo" value="Corporativo / Palestra / Treinamento">
+                            <span class="option-key">B</span>
+                            <span class="option-text">Corporativo / Palestra / Treinamento</span>
+                        </label>
+
+                        <label class="option-card" for="evtTipoAniversario">
+                            <input type="radio" name="tipo_evento" id="evtTipoAniversario" value="Aniversário / 15 Anos / Festa Privada">
+                            <span class="option-key">C</span>
+                            <span class="option-text">Aniversário / 15 Anos / Festa Privada</span>
+                        </label>
+
+                        <label class="option-card" for="evtTipoShow">
+                            <input type="radio" name="tipo_evento" id="evtTipoShow" value="Show / Festival / Balada">
+                            <span class="option-key">D</span>
+                            <span class="option-text">Show / Festival / Balada</span>
+                        </label>
+
+                        <label class="option-card" for="evtTipoLancamento">
+                            <input type="radio" name="tipo_evento" id="evtTipoLancamento" value="Lançamento de Marca / Inauguração">
+                            <span class="option-key">E</span>
+                            <span class="option-text">Lançamento de Marca / Inauguração</span>
+                        </label>
+
+                        <label class="option-card" for="evtTipoOutro">
+                            <input type="radio" name="tipo_evento" id="evtTipoOutro" value="Outro formato de evento">
+                            <span class="option-key">F</span>
+                            <span class="option-text">Outro formato</span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="errorTipoEvento">Selecione o tipo de evento para continuar.</div>
+
+                    <div class="input-field-group" style="margin-top: 1rem;">
+                        <label class="field-mini-label" for="inputInstagramEvento">@ do Instagram do evento ou anfitrião (opcional):</label>
+                        <div class="input-with-prefix">
+                            <span class="input-prefix">@</span>
+                            <input type="text" id="inputInstagramEvento" name="instagram_evento" class="form-input" placeholder="seuevento" autocomplete="off" autocapitalize="none">
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="6v">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 6V: PROFISSIONAIS & SERVIÇOS DO EVENTO -->
+                <div class="step-card" data-step="6v" data-branch="evento">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="5v">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Quais serviços e profissionais você deseja para o evento?
+                    </h2>
+                    <p class="step-description">
+                        Selecione todos os serviços necessários:
+                    </p>
+
+                    <div class="options-grid multi-select-grid" role="group" aria-label="Serviços para Evento">
+                        <label class="option-card checkbox-card" for="srvEvtStorymaker">
+                            <input type="checkbox" name="servicos_evento" id="srvEvtStorymaker" value="Storymaker em Tempo Real (Stories instantâneos)">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">📲 Storymaker (Stories dinâmicos e postados em tempo real)</span>
+                        </label>
+
+                        <label class="option-card checkbox-card" for="srvEvtFilmmaker">
+                            <input type="checkbox" name="servicos_evento" id="srvEvtFilmmaker" value="Filmmaker Profissional (Vídeo Oficial / Reels / Melhores Momentos)">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">🎬 Filmmaker (Vídeo Oficial, Reels & Melhores Momentos)</span>
+                        </label>
+
+                        <label class="option-card checkbox-card" for="srvEvtFotografo">
+                            <input type="checkbox" name="servicos_evento" id="srvEvtFotografo" value="Fotógrafo Profissional (Fotos em alta resolução)">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">📸 Fotógrafo Profissional (Registros tratados em alta resolução)</span>
+                        </label>
+
+                        <label class="option-card checkbox-card" for="srvEvtEquipeCompleta">
+                            <input type="checkbox" name="servicos_evento" id="srvEvtEquipeCompleta" value="Equipe Completa (Storymaker + Filmmaker + Fotografia)">
+                            <span class="option-checkbox-indicator"><i data-lucide="check"></i></span>
+                            <span class="option-text">⭐ Equipe Completa de Cobertura (Todos os serviços)</span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="errorServicosEvento">Selecione ao menos um serviço para continuar.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="7v">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 7V: DATA & DURAÇÃO DO EVENTO -->
+                <div class="step-card" data-step="7v" data-branch="evento">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="6v">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual a data e duração prevista do evento?
+                    </h2>
+                    <p class="step-description">
+                        Para verificarmos a disponibilidade na agenda da equipe:
+                    </p>
+
+                    <div class="input-field-group">
+                        <label class="field-mini-label" for="inputDataEvento">Data prevista do evento:</label>
+                        <input type="date" id="inputDataEvento" name="data_evento" class="form-input">
+                    </div>
+                    <div class="error-message" id="errorDataEvento">Informe a data do evento (ou selecione a opção a combinar).</div>
+
+                    <div class="input-field-group" style="margin-top: 1.5rem;">
+                        <label class="field-mini-label">Duração estimada de cobertura:</label>
+                        <div class="options-grid" role="radiogroup" aria-label="Duração do Evento">
+                            <label class="option-card" for="durA">
+                                <input type="radio" name="duracao_evento" id="durA" value="Até 4 horas">
+                                <span class="option-key">A</span>
+                                <span class="option-text">Até 4 horas</span>
+                            </label>
+                            <label class="option-card" for="durB">
+                                <input type="radio" name="duracao_evento" id="durB" value="4 a 8 horas (Diária completa)">
+                                <span class="option-key">B</span>
+                                <span class="option-text">4 a 8 horas (Diária padrão)</span>
+                            </label>
+                            <label class="option-card" for="durC">
+                                <input type="radio" name="duracao_evento" id="durC" value="Mais de 8 horas / Múltiplos dias">
+                                <span class="option-key">C</span>
+                                <span class="option-text">Mais de 8 horas / Múltiplos dias</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="8v">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 8V: PORTE / CONVIDADOS & LOCAL DO EVENTO -->
+                <div class="step-card" data-step="8v" data-branch="evento">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="7v">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Qual o tamanho estimado e a cidade do evento?
+                    </h2>
+                    <p class="step-description">
+                        Para dimensionarmos a quantidade ideal de profissionais:
+                    </p>
+
+                    <div class="options-grid" role="radiogroup" aria-label="Porte de Convidados">
+                        <label class="option-card" for="porteA">
+                            <input type="radio" name="porte_evento" id="porteA" value="Até 50 convidados (Íntimo / VIP)">
+                            <span class="option-key">A</span>
+                            <span class="option-text">Até 50 convidados (Íntimo / VIP)</span>
+                        </label>
+
+                        <label class="option-card" for="porteB">
+                            <input type="radio" name="porte_evento" id="porteB" value="50 a 150 convidados">
+                            <span class="option-key">B</span>
+                            <span class="option-text">50 a 150 convidados</span>
+                        </label>
+
+                        <label class="option-card" for="porteC">
+                            <input type="radio" name="porte_evento" id="porteC" value="150 a 500 convidados">
+                            <span class="option-key">C</span>
+                            <span class="option-text">150 a 500 convidados</span>
+                        </label>
+
+                        <label class="option-card" for="porteD">
+                            <input type="radio" name="porte_evento" id="porteD" value="Mais de 500 convidados (Grande Porte)">
+                            <span class="option-key">D</span>
+                            <span class="option-text">Mais de 500 convidados (Grande Porte)</span>
+                        </label>
+                    </div>
+                    <div class="error-message" id="errorPorteEvento">Selecione uma estimativa de público.</div>
+
+                    <div class="input-field-group" style="margin-top: 1.25rem;">
+                        <label class="field-mini-label" for="inputLocalEvento">Cidade e/ou Local do Evento:</label>
+                        <input type="text" id="inputLocalEvento" name="local_evento" class="form-input" placeholder="ex: São Paulo - SP / Espaço Villa" required>
+                    </div>
+                    <div class="error-message" id="errorLocalEvento">Informe a cidade/local do evento.</div>
+
+                    <div class="step-actions">
+                        <button type="button" class="btn-primary btn-next btn-full-action" data-next="9v">
+                            <span>Avançar</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ETAPA 9V: EMAIL DO EVENTO -->
+                <div class="step-card" data-step="9v" data-branch="evento">
+                    <div class="step-top-nav">
+                        <button type="button" class="btn-prev" data-prev="8v">
+                            <i data-lucide="chevron-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                    </div>
+
+                    <h2 class="step-title">
+                        Perfeito! Qual é o seu melhor e-mail?
+                    </h2>
+                    <p class="step-description">
+                        Enviaremos o orçamento detalhado e a disponibilidade de agenda por e-mail e WhatsApp.
+                    </p>
+
+                    <div class="input-field-group">
+                        <input type="email" id="inputEmailEvento" name="email_evento" class="form-input" placeholder="seuemail@exemplo.com" autocomplete="email" inputmode="email" required>
+                    </div>
+                    <div class="error-message" id="errorEmailEvento">Digite um e-mail válido.</div>
+
+                    <div class="step-actions">
+                        <button type="submit" class="btn-primary btn-submit btn-full-action" id="btnSubmitEvento">
+                            <span>Finalizar Solicitação de Evento</span>
+                            <i data-lucide="check"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- ========================================================================= -->
+                <!-- ========================= ETAPA 10: SUCESSO & WHATSAPP =================== -->
+                <!-- ========================================================================= -->
+                <div class="step-card step-success-hero" data-step="10">
+                    <div class="success-hero-media">
+                        <img src="fotos/Brenda 04 - Ensaio.jpg" alt="Brenda Kaldy - Kaldy Digital" class="success-photo-cover">
+                        <div class="success-dark-overlay"></div>
+                        <div class="success-floating-pill">
+                            <span class="pill-dot-green"></span>
+                            <span>Diagnóstico Enviado com Sucesso</span>
+                        </div>
+                    </div>
+
+                    <div class="success-hero-body">
+                        <div class="success-brand-tag">KALDY DIGITAL • ANÁLISE INICIADA</div>
+                        
+                        <h1 class="success-hero-title">
+                            Recebemos suas respostas! ✨
+                        </h1>
+
+                        <p class="success-hero-description">
+                            Nossa equipe já está analisando o seu momento e <strong>em breve entraremos em contato</strong> com a sua proposta estratégica.
+                        </p>
+
+                        <div class="success-fast-contact-box">
+                            <div class="fast-contact-title">
+                                <i data-lucide="zap"></i>
+                                <span>Quer agilizar seu atendimento?</span>
+                            </div>
+                            <p class="fast-contact-text">
+                                Se preferir acelerar, você já pode nos chamar diretamente no WhatsApp pelo botão abaixo:
+                            </p>
+                        </div>
+
+                        <!-- Botão WhatsApp com Mensagem Formatada -->
+                        <div class="final-actions">
+                            <a href="#" id="whatsappDirectBtn" class="btn-whatsapp-cta" target="_blank" rel="noopener noreferrer">
+                                <svg class="whatsapp-svg-icon" viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                    <path d="M17.472 14.382c-.301-.15-1.781-.879-2.057-.98-.276-.1-.477-.15-.678.15-.2.301-.778.98-.954 1.18-.176.2-.352.226-.653.075-.301-.15-1.272-.469-2.423-1.496-.896-.799-1.501-1.786-1.677-2.087-.176-.301-.019-.464.132-.614.135-.135.301-.352.452-.528.15-.176.2-.301.301-.502.1-.201.05-.377-.025-.528-.075-.15-.678-1.634-.929-2.238-.244-.588-.493-.509-.678-.518-.176-.009-.377-.01-.578-.01s-.528.075-.804.377c-.276.301-1.055 1.03-1.055 2.511s1.08 2.913 1.231 3.114c.15.201 2.125 3.245 5.148 4.552.719.311 1.28.497 1.718.636.722.23 1.378.197 1.897.12.578-.087 1.781-.728 2.032-1.431.251-.703.251-1.306.176-1.431-.075-.125-.276-.201-.577-.351zM12.05 21.785h-.002c-1.761 0-3.486-.474-5.004-1.372l-.359-.213-3.722.976.993-3.627-.234-.372c-.987-1.57-1.508-3.385-1.508-5.244 0-5.489 4.467-9.957 9.96-9.957 2.66 0 5.16 1.037 7.039 2.918 1.88 1.88 2.914 4.382 2.914 7.045 0 5.49-4.468 9.954-9.96 9.954zM20.52 3.483C18.258 1.22 15.247 0 12.049 0 5.462 0 .098 5.364.095 11.953c0 2.106.55 4.162 1.595 5.973L0 24l6.236-1.636c1.742.95 3.702 1.451 5.808 1.451h.005c6.586 0 11.95-5.364 11.953-11.954 0-3.195-1.244-6.199-3.482-8.438z"/>
+                                </svg>
+                                <span>Chamar no WhatsApp Agora</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- Rodapé com Aviso Legal & Não Afiliação -->
+    <footer class="form-footer">
+        <div class="footer-container">
+            <p class="footer-disclaimer">
+                Este site não é parte do YouTube, Google ou Meta/Facebook. Google Inc. e Meta Platforms Inc. Este site não é endossado por essas empresas de nenhuma forma.
+            </p>
+            <div class="footer-bottom">
+                <span class="footer-copyright">© 2026 Kaldy Digital. Todos os direitos reservados.</span>
+                <div class="footer-links">
+                    <a href="../index.html" class="footer-link">Site Oficial</a>
+                    <span class="dot">•</span>
+                    <span class="safe-badge"><i data-lucide="lock"></i> Ambiente Seguro</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+# Versões antigas / individuais
+/LP social media/
+/Lp WSX Trafego Pago/
+
+# Backups e configurações do editor
+/_pgbackup/
+pinegrow.json
+scratch_history.txt
+.agents/
+GEMINI.md
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+*.tmp

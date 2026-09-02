@@ -1,0 +1,2302 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description"
+    content="Kaldy Digital — gestão de redes sociais, produção de conteúdo, tráfego pago e cobertura de eventos.">
+  <title>Kaldy Digital — Estratégia, conteúdo e presença</title>
+  <link rel="icon" href="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png"
+    type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face {
+      font-family: "Craos";
+      src: url("https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/fonts/craos.otf") format("opentype");
+      font-display: swap
+    }
+
+    @font-face {
+      font-family: "Wilonah";
+      src: url("https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/fonts/wilonah.woff2") format("woff2");
+      font-display: swap
+    }
+  </style>
+
+  <style>
+    /* ---------------------------------
+   WINE THEME OVERRIDES (FORCING STATIC)
+   --------------------------------- */
+    :root {
+      --wine: #590A16;
+      --wine-light: #7a1523;
+      --cream: #ffffff;
+      --deep: #0e1211;
+      --line: rgba(89, 10, 22, 0.14);
+    }
+
+    body {
+      background-color: #ffffff;
+      color: var(--deep);
+    }
+
+    .nav,
+    .nav.scrolled {
+      background-color: rgba(89, 10, 22, 0.85) !important;
+      backdrop-filter: blur(16px) saturate(1.2) !important;
+      -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 8px 32px rgba(89, 10, 22, 0.2) !important;
+    }
+
+    .nav nav a,
+    .brand {
+      color: #ffffff !important;
+    }
+
+    .brand img {
+      border-radius: 50% !important;
+      border: 2px solid #ffffff !important;
+      object-fit: cover !important;
+    }
+
+    .navCta {
+      color: #ffffff !important;
+      border-color: #ffffff !important;
+    }
+
+    .instagramBio {
+      background-color: #ffffff !important;
+    }
+  </style>
+
+  <style>
+    /* Ocultar setas, contador e barra de dots dos influenciadores */
+    #influencerPrev,
+    #influencerNext,
+    #influencerCount,
+    #influencerDots {
+      display: none !important;
+    }
+
+    /* ---------------------------------
+   GLOBAL BIDIRECTIONAL SCROLL REVEAL (FADE IN + SLIDE UP)
+   --------------------------------- */
+    .reveal {
+      opacity: 0 !important;
+      transform: translateY(32px) !important;
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .reveal-group .reveal-item {
+      opacity: 0 !important;
+      transform: translateY(28px) !important;
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      will-change: opacity, transform;
+    }
+
+    .reveal-group.is-visible .reveal-item {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(1) {
+      transition-delay: 0.04s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(2) {
+      transition-delay: 0.11s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(3) {
+      transition-delay: 0.18s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(4) {
+      transition-delay: 0.25s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(5) {
+      transition-delay: 0.32s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(6) {
+      transition-delay: 0.39s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(7) {
+      transition-delay: 0.46s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(8) {
+      transition-delay: 0.53s !important;
+    }
+  </style>
+
+  <style>
+    /* Typewriter Cursor */
+    .cursor {
+      display: inline-block;
+      width: 2.5px;
+      height: 0.9em;
+      background-color: #590A16;
+      margin-left: 4px;
+      vertical-align: -0.05em;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    #typewriter {
+      color: #590A16;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: 0.12em;
+    }
+
+    .mobile-br {
+      display: none;
+    }
+
+    .desktop-br {
+      display: block;
+    }
+  </style>
+
+  <style>
+    /* Hero 100% Preenchida (Desktop e Mobile Otimizado) */
+    .hero {
+      min-height: calc(100vh - 100px) !important;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) !important;
+      gap: 40px !important;
+      align-items: center !important;
+      padding: 40px 0 20px !important;
+      overflow: visible !important;
+    }
+
+    .heroAuthorityCopy {
+      min-width: 0 !important;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 4.3vw, 68px) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.04em !important;
+      margin: 18px 0 24px !important;
+    }
+
+    .hero h1 .h1-line {
+      display: block !important;
+      white-space: nowrap !important;
+    }
+
+    .influencerShowcase {
+      min-width: 0 !important;
+    }
+
+    .heroBtnMobile {
+      display: none !important;
+    }
+
+    .heroBtnDesktop {
+      display: inline-flex !important;
+    }
+
+    .eyebrow {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      font-size: 11px !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase !important;
+      font-weight: 600 !important;
+      color: #590A16 !important;
+      background: rgba(89, 10, 22, 0.05) !important;
+      backdrop-filter: blur(12px) saturate(1.2) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(1.2) !important;
+      border: 1px solid rgba(89, 10, 22, 0.16) !important;
+      border-radius: 999px !important;
+      padding: 6px 18px !important;
+      box-shadow: 0 4px 16px rgba(89, 10, 22, 0.06) !important;
+      margin-bottom: 20px !important;
+      width: fit-content !important;
+    }
+
+    @media (max-width: 900px) {
+
+      .nav,
+      .nav.scrolled {
+        display: none !important;
+      }
+
+      .mobile-br {
+        display: block !important;
+      }
+
+      .desktop-br {
+        display: none !important;
+      }
+
+      /* =========================================================================
+     ESPACAMENTO GERAL DA HERO NO MOBILE
+     ========================================================================= */
+      .hero {
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        padding: 24px 16px 28px !important;
+        margin-bottom: 36px !important;
+        gap: 20px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+      }
+
+      /* Bloco de Textos da Hero */
+      .heroAuthorityCopy {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* 01. BADGE NO TOPO ALINHADO À ESQUERDA */
+      .heroAuthorityCopy .eyebrow {
+        font-size: 9.5px !important;
+        letter-spacing: 0.08em !important;
+        margin: 0 0 24px 0 !important;
+        padding: 6px 14px !important;
+        border-radius: 999px !important;
+        background: rgba(89, 10, 22, 0.05) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(89, 10, 22, 0.16) !important;
+        box-shadow: 0 4px 12px rgba(89, 10, 22, 0.06) !important;
+        color: #590A16 !important;
+        text-align: left !important;
+        white-space: nowrap !important;
+        max-width: 100% !important;
+        display: inline-flex !important;
+        justify-content: flex-start !important;
+        align-self: flex-start !important;
+      }
+
+      /* 02. HEADLINE (TÍTULO PRINCIPAL) ALINHADO À ESQUERDA */
+      .heroAuthorityCopy h1 {
+        font-size: clamp(26px, 7.6vw, 36px) !important;
+        line-height: 1.12 !important;
+        margin: 0 0 14px 0 !important;
+        letter-spacing: -0.03em !important;
+        text-align: left !important;
+        width: 100% !important;
+      }
+
+      .heroAuthorityCopy .heroBottom {
+        margin: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+      }
+
+      /* 03. SUBHEADLINE (TEXTO EXPLICATIVO) ALINHADO À ESQUERDA */
+      .heroAuthorityCopy .heroSubtitleText {
+        font-size: 14px !important;
+        line-height: 1.55 !important;
+        max-width: 350px !important;
+        margin: 0 0 10px 0 !important;
+        text-align: left !important;
+        color: #634b4f !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+      }
+
+      .heroBtnDesktop {
+        display: none !important;
+      }
+
+      /* 04. CARROSSEL 3D FAN ARC NO MOBILE (VERTICAL) */
+      .influencerShowcase {
+        margin: 12px auto 6px !important;
+        width: 100% !important;
+        max-width: 360px !important;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+      }
+
+      .influencerHeaderKicker {
+        font-size: 9.5px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        color: #590A16 !important;
+        background: rgba(89, 10, 22, 0.06) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(89, 10, 22, 0.14) !important;
+        border-radius: 999px !important;
+        padding: 4px 14px !important;
+        margin-bottom: 10px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        gap: 5px !important;
+        box-shadow: 0 4px 12px rgba(89, 10, 22, 0.04) !important;
+      }
+
+      .influencerStageBg {
+        height: 350px !important;
+        border-radius: 24px !important;
+        background-size: 16px 16px !important;
+      }
+
+      .influencerFanViewport {
+        perspective: none !important;
+        -webkit-perspective: none !important;
+      }
+
+      .influencerProfile {
+        position: absolute !important;
+        width: 175px !important;
+        max-width: 175px !important;
+        height: 250px !important;
+        min-height: 0 !important;
+        max-height: 250px !important;
+        padding: 0 !important;
+        border-radius: 20px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        opacity: 0 !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-transform-style: flat !important;
+        transform-style: flat !important;
+        isolation: isolate !important;
+        -webkit-mask-image: -webkit-radial-gradient(white, black) !important;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease !important;
+        transform: translateZ(0);
+      }
+
+      .influencerCardAmbient {
+        display: none !important;
+      }
+
+      .influencerCardMedia {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 2 !important;
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: auto !important;
+        border-radius: inherit !important;
+        overflow: hidden !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        transform: translateZ(0);
+      }
+
+      .influencerCardSharp {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center 15% !important;
+        display: block !important;
+        border-radius: inherit !important;
+        border: none !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        transform: translateZ(0);
+      }
+
+      .influencerTopBadge {
+        display: none !important;
+      }
+
+      .influencerCardMeta {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        position: absolute !important;
+        bottom: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 16px) !important;
+        background: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 6px 10px !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22) !important;
+        z-index: 10 !important;
+        box-sizing: border-box !important;
+        gap: 1.5px !important;
+        pointer-events: none !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+      }
+
+      .influencerCardTitle {
+        display: block !important;
+        font-family: var(--font-display), "Craos", sans-serif !important;
+        font-size: 9.5px !important;
+        font-weight: 800 !important;
+        color: #111111 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.01em !important;
+        margin: 0 !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        max-width: 100% !important;
+        text-shadow: none !important;
+      }
+
+      .influencerCardSub {
+        display: inline-block !important;
+        font-family: var(--font-base), "Inter", sans-serif !important;
+        font-size: 7.5px !important;
+        font-weight: 600 !important;
+        color: #590A16 !important;
+        margin: 0 !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        letter-spacing: 0 !important;
+        text-shadow: none !important;
+      }
+
+      /* Mobile 3D Fan Arc — Padrão Foto 02 */
+      .influencerProfile.card-center {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1.18) !important;
+        z-index: 10 !important;
+        opacity: 1 !important;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 6px 16px rgba(89, 10, 22, 0.2) !important;
+      }
+
+      .influencerProfile.card-left-1 {
+        transform: translate3d(-78px, 16px, 0) rotate(-10deg) scale(0.85) !important;
+        z-index: 4 !important;
+        opacity: 0.88 !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      .influencerProfile.card-left-2 {
+        transform: translate3d(-135px, 36px, 0) rotate(-18deg) scale(0.70) !important;
+        z-index: 2 !important;
+        opacity: 0.5 !important;
+      }
+
+      .influencerProfile.card-right-1 {
+        transform: translate3d(78px, 16px, 0) rotate(10deg) scale(0.85) !important;
+        z-index: 4 !important;
+        opacity: 0.88 !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      .influencerProfile.card-right-2 {
+        transform: translate3d(135px, 36px, 0) rotate(18deg) scale(0.70) !important;
+        z-index: 2 !important;
+        opacity: 0.5 !important;
+      }
+
+      .influencerProfile.card-hidden {
+        transform: translate3d(0, 50px, 0) scale(0.3) !important;
+        z-index: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+
+      #influencerDots {
+        display: none !important;
+      }
+
+      /* 05. BOTÃO NA BASE INFERIOR DA HERO */
+      .heroBtnMobile {
+        display: inline-flex !important;
+        margin: 12px auto 0 !important;
+        /* [TESTAR]: Espaço acima do Botão */
+        width: 90% !important;
+        min-width: 280px !important;
+        max-width: 330px !important;
+        padding: 15px 26px !important;
+        font-size: 11.5px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.1em !important;
+        justify-content: center !important;
+        border-radius: 999px !important;
+        box-shadow: 0 12px 28px rgba(89, 10, 22, 0.35) !important;
+      }
+
+      .whatsappFloat b {
+        display: none !important;
+      }
+
+      .whatsappFloat {
+        right: 16px !important;
+        bottom: 16px !important;
+      }
+    }
+  </style>
+
+  <style>
+    /* Layout e Estilização para Serviços */
+    .statement {
+      padding: 70px 0 30px !important;
+      text-align: center;
+    }
+
+    .authority {
+      padding: 0 0 40px !important;
+    }
+
+    .authorityFacts {
+      display: grid !important;
+      grid-template-columns: repeat(4, 1fr) !important;
+      gap: 20px !important;
+    }
+
+    @media (max-width: 850px) {
+      .authorityFacts {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .authorityFacts {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .portfolio {
+      margin-top: 120px !important;
+      padding: 80px 0 !important;
+    }
+
+    .services.shell {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 16px !important;
+      border: none !important;
+      padding: 0 !important;
+      margin-top: 10px !important;
+      margin-bottom: 60px !important;
+    }
+
+    .services article {
+      display: flex !important;
+      flex-direction: column !important;
+      background: #590A16 !important;
+      border-radius: 16px !important;
+      padding: 26px 22px !important;
+      box-shadow: 0 10px 28px rgba(89, 10, 22, 0.2) !important;
+      opacity: 0.15 !important;
+      transform: translateY(16px) !important;
+      transition: opacity 0.5s ease, transform 0.5s ease !important;
+      cursor: default !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    }
+
+    .services article.active {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      box-shadow: 0 16px 36px rgba(89, 10, 22, 0.35) !important;
+    }
+
+    .services article:hover {
+      background: #590A16 !important;
+      padding: 26px 22px !important;
+    }
+
+    .services article:not(.active):hover {
+      opacity: 0.15 !important;
+      transform: translateY(16px) !important;
+    }
+
+    .services article>span {
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+      opacity: 0.9 !important;
+      margin-bottom: 12px !important;
+      display: block !important;
+    }
+
+    .services article>div {
+      flex-grow: 1 !important;
+    }
+
+    .services article h3 {
+      margin: 0 0 8px 0 !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+      letter-spacing: -0.02em !important;
+      line-height: 1.2 !important;
+    }
+
+    .services article p {
+      color: #ffffff !important;
+      font-weight: 400 !important;
+      font-size: 13.5px !important;
+      line-height: 1.5 !important;
+      opacity: 0.95 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+    }
+
+    .services article>b,
+    .services article>b .arrowIcon {
+      margin-top: 14px !important;
+      align-self: flex-start !important;
+      color: #ffffff !important;
+    }
+
+    @media (max-width: 950px) {
+      .services.shell {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+      }
+
+      .services article {
+        padding: 18px 14px !important;
+        border-radius: 14px !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+
+      .services article>span {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .services article h3 {
+        font-size: 17px !important;
+        margin-bottom: 6px !important;
+        line-height: 1.15 !important;
+      }
+
+      .services article p {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+      }
+
+      .services article>b {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .services.shell {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      .services article {
+        padding: 14px 10px !important;
+        border-radius: 12px !important;
+      }
+
+      .services article h3 {
+        font-size: 15px !important;
+      }
+
+      .services article p {
+        font-size: 11px !important;
+      }
+    }
+  </style>
+
+  <style>
+    /* 04 - Seção Transparência Total — Design Ultra-Premium 3x2 */
+    .transparency {
+      padding: 110px 0 80px !important;
+      background: #ffffff !important;
+    }
+
+    .transparencyHead {
+      text-align: center;
+      max-width: 960px;
+      margin: 0 auto 60px;
+    }
+
+    .transparencyHead h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      margin: 18px 0 20px;
+      line-height: 1.15;
+    }
+
+    .transparencyHead .t-line {
+      display: block;
+    }
+
+    .transparencyHead em {
+      color: #590A16;
+      font-family: var(--font-accent);
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: -0.035em;
+    }
+
+    .transparencyHead p {
+      font-size: 16px;
+      line-height: 1.65;
+      color: #745e61;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .transparencyGrid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 24px !important;
+    }
+
+    .transparencyCard {
+      background: #F7EFF1 !important;
+      color: #0e1211 !important;
+      border-radius: 20px !important;
+      padding: 36px 30px !important;
+      box-shadow: 0 6px 24px rgba(89, 10, 22, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+      border: 1.5px solid rgba(89, 10, 22, 0.14) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      position: relative !important;
+      overflow: hidden !important;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease !important;
+    }
+
+    .transparencyCard::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #590A16, #b85a65);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .transparencyCard:hover {
+      transform: translateY(-5px) !important;
+      background: #F1E5E8 !important;
+      box-shadow: 0 18px 40px rgba(89, 10, 22, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+      border-color: rgba(89, 10, 22, 0.32) !important;
+    }
+
+    .transparencyCard:hover::before {
+      opacity: 1;
+    }
+
+    .transparencyIconWrap {
+      width: 52px !important;
+      height: 52px !important;
+      border-radius: 14px !important;
+      background: #590A16 !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      display: grid !important;
+      place-items: center !important;
+      margin-bottom: 22px !important;
+      box-shadow: 0 6px 16px rgba(89, 10, 22, 0.2) !important;
+      transition: background 0.3s ease, transform 0.3s ease !important;
+    }
+
+    .transparencyIconWrap svg {
+      stroke: #ffffff !important;
+    }
+
+    .transparencyCard:hover .transparencyIconWrap {
+      background: #730d1d !important;
+      transform: scale(1.06) !important;
+    }
+
+    .transparencyCard h3 {
+      font-family: var(--font-display) !important;
+      font-size: 21px !important;
+      font-weight: 700 !important;
+      color: #590A16 !important;
+      margin: 0 0 12px 0 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .transparencyCard p {
+      color: #4a2c31 !important;
+      font-size: 14.5px !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 950px) {
+      .transparencyGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+
+      .transparencyCard {
+        padding: 26px 20px !important;
+        border-radius: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .transparency {
+        padding: 70px 0 50px !important;
+      }
+
+      .transparencyHead {
+        margin: 0 auto 36px !important;
+      }
+
+      .transparencyGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+
+      .transparencyCard {
+        padding: 20px 14px !important;
+        border-radius: 14px !important;
+      }
+
+      .transparencyIconWrap {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 10px !important;
+        margin-bottom: 14px !important;
+      }
+
+      .transparencyIconWrap svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      .transparencyCard h3 {
+        font-size: 15px !important;
+        margin: 0 0 8px 0 !important;
+        line-height: 1.2 !important;
+      }
+
+      .transparencyCard p {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+      }
+    }
+  </style>
+
+  <style>
+    /* Emojis Cursor Customizado */
+    .customCursor {
+      display: block !important;
+      position: fixed !important;
+      z-index: 9999 !important;
+      pointer-events: none !important;
+      font-size: 46px !important;
+      border: none !important;
+      background: none !important;
+      width: auto !important;
+      height: auto !important;
+      left: 0 !important;
+      top: 0 !important;
+      transform: translate(-100px, -100px);
+      transition: none !important;
+    }
+
+    .customCursor::after {
+      content: "📷";
+    }
+
+    body.clicking .customCursor::after {
+      content: "📸";
+    }
+
+    @media (max-width: 1024px), (hover: none), (pointer: coarse) {
+      .customCursor {
+        display: none !important;
+      }
+    }
+
+    /* =========================================================================
+       INFLUENCER CAROUSEL 3D FAN ARC / COVERFLOW (BASE & DESKTOP)
+       ========================================================================= */
+    .influencerShowcase {
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      margin: 0 auto !important;
+    }
+
+    .influencerHeaderKicker {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.16em !important;
+      text-transform: uppercase !important;
+      color: #590A16 !important;
+      background: rgba(89, 10, 22, 0.05) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(89, 10, 22, 0.14) !important;
+      border-radius: 999px !important;
+      padding: 5px 16px !important;
+      margin-bottom: 14px !important;
+      box-shadow: 0 4px 12px rgba(89, 10, 22, 0.04) !important;
+    }
+
+    /* Stage box with dot grid pattern */
+    .influencerStageBg {
+      position: relative !important;
+      width: 100% !important;
+      background-color: rgba(255, 255, 255, 0.7) !important;
+      background-image: radial-gradient(rgba(89, 10, 22, 0.16) 1.5px, transparent 1.5px) !important;
+      background-size: 20px 20px !important;
+      border-radius: 32px !important;
+      border: 1px solid rgba(89, 10, 22, 0.12) !important;
+      box-shadow: 0 20px 50px rgba(89, 10, 22, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: visible !important;
+    }
+
+    .influencerFanViewport {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      perspective: 1000px !important;
+    }
+
+    .influencerProfile {
+      position: absolute !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
+      cursor: pointer !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease !important;
+      transform-origin: center bottom !important;
+      will-change: transform, opacity !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+      -webkit-transform-style: flat !important;
+      transform-style: flat !important;
+      isolation: isolate !important;
+      -webkit-mask-image: -webkit-radial-gradient(white, black) !important;
+      transform: translateZ(0);
+    }
+
+    .influencerCardAmbient {
+      display: none !important;
+    }
+
+    .influencerCardMedia {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 2 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: inherit !important;
+      overflow: hidden !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: transparent !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+      transform: translateZ(0);
+    }
+
+    .influencerCardSharp {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      border-radius: inherit !important;
+      border: none !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+      transform: translateZ(0);
+    }
+
+    .influencerTopBadge {
+      display: none !important;
+    }
+
+    @media (min-width: 901px) {
+      .influencerShowcase {
+        max-width: 560px !important;
+      }
+
+      .influencerStageBg {
+        height: 460px !important;
+      }
+
+      .influencerProfile {
+        width: 235px !important;
+        height: 320px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 16px 36px rgba(14, 18, 17, 0.25) !important;
+      }
+
+      .influencerCardMeta {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        position: absolute !important;
+        bottom: 12px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 24px) !important;
+        background: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 8px 10px !important;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+        z-index: 10 !important;
+        box-sizing: border-box !important;
+        gap: 2px !important;
+        pointer-events: none !important;
+      }
+
+      .influencerCardTitle {
+        display: block !important;
+        font-family: var(--font-display), "Craos", sans-serif !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        color: #111111 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.01em !important;
+        margin: 0 !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        max-width: 100% !important;
+        text-shadow: none !important;
+      }
+
+      .influencerCardSub {
+        display: inline-block !important;
+        font-family: var(--font-base), "Inter", sans-serif !important;
+        font-size: 9px !important;
+        font-weight: 600 !important;
+        color: #590A16 !important;
+        margin: 0 !important;
+        line-height: 1.1 !important;
+        white-space: nowrap !important;
+        letter-spacing: 0.01em !important;
+        text-shadow: none !important;
+      }
+
+      .influencerProfile.card-center {
+        transform: translate3d(0, -18px, 0) rotate(0deg) scale(1.35) !important;
+        z-index: 10 !important;
+        opacity: 1 !important;
+        box-shadow: 0 30px 65px rgba(14, 18, 17, 0.35), 0 12px 28px rgba(89, 10, 22, 0.25) !important;
+        pointer-events: auto !important;
+      }
+
+      .influencerProfile.card-left-1 {
+        transform: translate3d(-155px, 24px, 0) rotate(-10deg) scale(0.85) !important;
+        z-index: 6 !important;
+        opacity: 0.9 !important;
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .influencerProfile.card-left-2 {
+        transform: translate3d(-275px, 58px, 0) rotate(-19deg) scale(0.70) !important;
+        z-index: 3 !important;
+        opacity: 0.72 !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .influencerProfile.card-right-1 {
+        transform: translate3d(155px, 24px, 0) rotate(10deg) scale(0.85) !important;
+        z-index: 6 !important;
+        opacity: 0.9 !important;
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .influencerProfile.card-right-2 {
+        transform: translate3d(275px, 58px, 0) rotate(19deg) scale(0.70) !important;
+        z-index: 3 !important;
+        opacity: 0.72 !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .influencerProfile.card-hidden {
+        transform: translate3d(0, 100px, 0) scale(0.35) !important;
+        z-index: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+    }
+
+      .services article {
+        padding: 28px 24px !important;
+      }
+
+      .services h3 {
+        font-size: 26px !important;
+        text-align: center !important;
+      }
+
+      .services p {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        text-align: center !important;
+      }
+
+      .services article>span {
+        font-size: 16px !important;
+        align-self: center !important;
+        margin-bottom: 16px !important;
+      }
+
+      .services article>b {
+        align-self: center !important;
+        margin-top: 16px !important;
+      }
+    }
+
+    /* Center Play Button */
+    .centerPlayBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 10;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .videoFrame.is-playing .centerPlayBtn {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .playToggle.bigPlayBtn {
+      pointer-events: auto;
+      position: relative !important;
+      width: 72px !important;
+      height: 72px !important;
+      background: var(--wine) !important;
+      border: none !important;
+      border-radius: 50% !important;
+      display: grid !important;
+      place-items: center !important;
+      cursor: pointer !important;
+    }
+
+    .playToggle.bigPlayBtn .iconPlay {
+      border-left-color: var(--cream) !important;
+      border-top-width: 10px !important;
+      border-bottom-width: 10px !important;
+      border-left-width: 15px !important;
+      margin-left: 5px !important;
+    }
+
+    .pulseRing {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      border: 2px solid var(--wine);
+      animation: pulseAnim 2s infinite cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    @keyframes pulseAnim {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(1.6);
+        opacity: 0;
+      }
+    }
+
+    .centerPlayBtn span {
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 11px;
+      font-weight: 500;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+    }
+
+    /* Lenis Fixes */
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="customCursor" aria-hidden="true"></div>
+    <header class="nav shell">
+      <a href="#top" class="brand"><img
+          src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png"
+          alt="Kaldy Digital"><span>KALDY<br>DIGITAL</span></a>
+      <nav aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#sobre-fundadora">Quem Somos</a><a
+          href="#portfolio">Portfólio</a><a href="#processo">Processo</a></nav>
+      <a class="navCta btn-primary whatsappLink" href="#">Fale com a Kaldy <span class="arrowIcon"
+          aria-hidden="true"></span></a>
+    </header>
+
+    <!-- ====================================================================
+       05 - HERO SECTION 100% PREENCHIDA (DESKTOP & MOBILE COM BOTÃO ABAIXO)
+       ==================================================================== -->
+    <section class="hero shell" id="top">
+      <div class="heroAuthorityCopy">
+        <div class="eyebrow">Social media · Tráfego Pago · Storymaker · Filmmaker</div>
+
+        <h1>
+          <span class="h1-line">Construindo o</span>
+          <span class="h1-line"><em>próximo nível</em></span>
+          <span class="h1-line">da sua presença</span>
+          <span class="h1-line">digital.</span>
+        </h1>
+
+        <div class="heroBottom" style="flex-direction: column; align-items: flex-start; gap: 24px; margin-top: 10px;">
+          <p class="heroSubtitleText"
+            style="margin: 0; width: min(480px, 100%); font-size: 16px; line-height: 1.65; color: #594348;">
+            Unimos estratégia visual de alto padrão e tráfego pago com inteligência para posicionar a sua marca e atrair
+            clientes qualificados todos os dias.
+          </p>
+
+          <!-- Botão Desktop -->
+          <a class="btn-primary whatsappLink heroBtnDesktop" href="#" target="_blank"
+            style="padding: 16px 32px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 999px; background: #590A16; color: #fff; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 25px rgba(89,10,22,0.3); align-items: center; gap: 10px;">
+            Solicitar Diagnóstico Estratégico <span class="arrowIcon" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="influencerShowcase" aria-label="Nomes presentes nos destaques da Kaldy">
+        <div class="influencerHeaderKicker">
+          <span>✦ Grandes players atendidos ✦</span>
+        </div>
+        <div class="influencerStageBg">
+          <div class="influencerFanViewport" id="influencerFanViewport">
+            <!-- 01. Jade Picon -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="fotos/Jade Picon.jpg" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="fotos/Jade Picon.jpg" alt="Jade Picon" decoding="async">
+                <div class="influencerTopBadge"><span>@jadepicon <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">JADE PICON</h3>
+                <span class="influencerCardSub">20,6 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 02. Tainá Costa -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="fotos/Taina Costa.jpg" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="fotos/Taina Costa.jpg" alt="Tainá Costa" decoding="async">
+                <div class="influencerTopBadge"><span>@taina <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">TAINÁ COSTA</h3>
+                <span class="influencerCardSub">17,3 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 03. MC Hariel -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mc-hariel-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mc-hariel-hq.png" alt="MC Hariel" decoding="async">
+                <div class="influencerTopBadge"><span>@mchariel <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">MC HARIEL</h3>
+                <span class="influencerCardSub">15,9 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 04. Matuê -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/matue-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/matue-new.png" alt="Matuê" decoding="async">
+                <div class="influencerTopBadge"><span>@matue <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">MATUÊ</h3>
+                <span class="influencerCardSub">10,2 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 05. Mau Mau -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mau-mau.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mau-mau.png" alt="Mau Mau" decoding="async">
+                <div class="influencerTopBadge"><span>@maumauzk <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">MAU MAU</h3>
+                <span class="influencerCardSub">3,1 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 06. Sthe Carvalho -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/sthe-carvalho-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/sthe-carvalho-new.png" alt="Sthe Carvalho" decoding="async">
+                <div class="influencerTopBadge"><span>@sthefannycvoficial</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">STHE CARVALHO</h3>
+                <span class="influencerCardSub">2,9 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 07. Gabi Lopes -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-lopes-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-lopes-hq.png" alt="Gabi Lopes" decoding="async">
+                <div class="influencerTopBadge"><span>@gabilopess <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GABI LOPES</h3>
+                <span class="influencerCardSub">2,4 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 08. Kaynna Barbaresco -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/kaynna-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/kaynna-hq.png" alt="Kaynna Barbaresco" decoding="async">
+                <div class="influencerTopBadge"><span>@kaynnab</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">KAYNNA BARBARESCO</h3>
+                <span class="influencerCardSub">2 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 09. Renata Schneider -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/renata-schneider-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/renata-schneider-new.png" alt="Renata Schneider" decoding="async">
+                <div class="influencerTopBadge"><span>@renata.c.schneider</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">RENATA SCHNEIDER</h3>
+                <span class="influencerCardSub">1,5 milhão de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 10. Thalya Da Silva -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/thalya-da-silva.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/thalya-da-silva.png" alt="Thalya Da Silva" decoding="async">
+                <div class="influencerTopBadge"><span>@thalyadasilva_</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">THALYA DA SILVA</h3>
+                <span class="influencerCardSub">864 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 11. Alan Possamai -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/alan-possamai.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/alan-possamai.png" alt="Alan Possamai" decoding="async">
+                <div class="influencerTopBadge"><span>@alanpossamai</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">ALAN POSSAMAI</h3>
+                <span class="influencerCardSub">827 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 12. Nina Santos -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/nina-santos.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/nina-santos.png" alt="Nina Santos" decoding="async">
+                <div class="influencerTopBadge"><span>@nina_sant0s <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">NINA SANTOS</h3>
+                <span class="influencerCardSub">657 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 13. Gabriel Rocha -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabriel-rocha.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabriel-rocha.png" alt="Gabriel Rocha" decoding="async">
+                <div class="influencerTopBadge"><span>@gabrielrocha</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GABRIEL ROCHA</h3>
+                <span class="influencerCardSub">581 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 14. Gabi Magsan -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-magsan-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-magsan-hq.png" alt="Gabi Magsan" decoding="async">
+                <div class="influencerTopBadge"><span>@gabimagsan</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GABI MAGSAN</h3>
+                <span class="influencerCardSub">530 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 15. Aline Braga -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/aline-braga-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/aline-braga-new.png" alt="Aline Braga" decoding="async">
+                <div class="influencerTopBadge"><span>@alinebragaa</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">ALINE BRAGA</h3>
+                <span class="influencerCardSub">515 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 16. Julya Freitas -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/julya-freitas.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/julya-freitas.png" alt="Julya Freitas" decoding="async">
+                <div class="influencerTopBadge"><span>@julyafreitass</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">JULYA FREITAS</h3>
+                <span class="influencerCardSub">467 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 17. Gordinho Bololô -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gordinho-bololo.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gordinho-bololo.png" alt="Gordinho Bololô" decoding="async">
+                <div class="influencerTopBadge"><span>@gordinhobololooriginal</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GORDINHO BOLOLÔ</h3>
+                <span class="influencerCardSub">268 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 18. Hanna Carvalho -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/han-carvalho-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/han-carvalho-hq.png" alt="Hanna Carvalho" decoding="async">
+                <div class="influencerTopBadge"><span>@han.carvalho</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">HANNA CARVALHO</h3>
+                <span class="influencerCardSub">134 mil seguidores</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão Mobile (Posicionado embaixo da foto dos influencers) -->
+      <a class="btn-primary whatsappLink heroBtnMobile" href="#" target="_blank"
+        style="padding: 14px 24px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 999px; background: #590A16; color: #fff; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 25px rgba(89,10,22,0.3); align-items: center; gap: 8px;">
+        Solicitar Diagnóstico Estratégico <span class="arrowIcon" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <div class="ticker">
+      <div>ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦ VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦ ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦
+        VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦ ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦ VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦
+        ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦ VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦ </div>
+    </div>
+
+    <!-- ====================================================================
+       01 & 04 - SEÇÃO "O ECOSSISTEMA COMPLETO KALDY" COM CARD "+R$ MILHÕES"
+       ==================================================================== -->
+    <section class="statement shell reveal">
+      <p class="kicker">O Ecossistema Completo Kaldy</p>
+      <h2>Conteúdo que<br class="mobile-br">atrai e posiciona.<br><em>Tráfego que converte<br class="mobile-br">e
+          multiplica.</em></h2>
+      <p class="statementText">A maioria das empresas comete dois erros: ou investe apenas em posts bonitos que não
+        trazem novos clientes, ou coloca dinheiro em tráfego pago sem uma estrutura e um conteúdo que convençam o
+        visitante a comprar. Na Kaldy Digital, unimos a sensibilidade criativa e o audiovisual ao tráfego estratégico
+        com a metodologia de vendas WSX — entregando uma operação completa de ponta a ponta.</p>
+    </section>
+
+    <section class="authority shell" aria-label="Experiência e atuação da Kaldy Digital">
+      <div class="authorityFacts reveal-group">
+        <article class="reveal-item"><b>+980</b><span>clientes<br>atendidos</span></article>
+        <article class="reveal-item"><b>+R$ Milhões</b><span>gerenciados em<br>anúncios e campanhas</span></article>
+        <article class="reveal-item"><b>360°</b><span>conteúdo, estratégia<br>e tráfego pago</span></article>
+        <article class="reveal-item"><b>Ao vivo</b><span>cobertura de eventos<br>em tempo real</span></article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       03 - OS 6 CARDS DE SERVIÇOS (INCLUINDO 06 · COMERCIAL)
+       ==================================================================== -->
+    <section class="services shell reveal-group" id="servicos">
+      <!-- 01 - Social Media -->
+      <article class="reveal-item">
+        <span>01</span>
+        <div>
+          <h3>Social Media</h3>
+          <p>Estratégia, direção criativa e conteúdo consistente para transformar presença em posicionamento.</p>
+        </div>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 02 - Tráfego Pago -->
+      <article class="reveal-item">
+        <span>02</span>
+        <div>
+          <h3>Tráfego Pago</h3>
+          <p>Captação ativa de novos clientes através de anúncios cirúrgicos no Meta Ads (Instagram/Facebook) e Google
+            Ads. Páginas de alta conversão e inteligência de vendas.</p>
+        </div>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 03 - Storymaker -->
+      <article class="reveal-item">
+        <span>03</span>
+        <div>
+          <h3>Storymaker</h3>
+          <p>Seu evento acontecendo também no digital: bastidores, emoção e publicações em tempo real.</p>
+        </div>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 04 - Filmmaker -->
+      <article class="reveal-item">
+        <span>04</span>
+        <div>
+          <h3>Filmmaker</h3>
+          <p>Filmes e conteúdos verticais com ritmo, estética e narrativa que fazem o momento permanecer.</p>
+        </div>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 05 - Criativos de Conversão -->
+      <article class="reveal-item">
+        <span>05</span>
+        <div>
+          <h3>Criativos de Conversão</h3>
+          <p>Filmes institucionais e vídeos verticais (Reels/TikTok) com ritmo dinâmico, estética refinada e ganchos
+            persuasivos pensados para engajar e vender.</p>
+        </div>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 06 - Comercial -->
+      <article class="reveal-item">
+        <span>06</span>
+        <div>
+          <h3>Comercial</h3>
+          <p>Alinhamento e estruturação de processos comerciais para transformar os contatos e leads em clientes
+            pagantes no seu caixa.</p>
+        </div>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+    </section>
+
+    <!-- ====================================================================
+       02 - SEÇÃO "A FUNDADORA" (SESSÃO COMPLETA E INDEPENDENTE)
+       ==================================================================== -->
+    <style>
+      .founderSection {
+        padding: 130px 0 120px !important;
+        margin-top: 70px !important;
+        margin-bottom: 30px !important;
+        border-top: 1px solid rgba(89, 10, 22, 0.12) !important;
+        position: relative !important;
+        background: #ffffff !important;
+      }
+
+      .founder {
+        padding: 0 !important;
+        display: grid !important;
+        grid-template-columns: 1.08fr 0.92fr !important;
+        gap: 80px !important;
+        align-items: center !important;
+      }
+
+      .founder h2 {
+        font-size: clamp(32px, 4vw, 48px);
+        margin: 20px 0 30px;
+      }
+
+      .founder p {
+        color: #745e61;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .founderImageContainer {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      .photoStack {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        min-height: 380px;
+      }
+
+      @keyframes led-spin {
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .photoCard {
+        position: absolute;
+        width: 65%;
+        aspect-ratio: 4 / 5;
+        border-radius: 20px;
+        padding: 7px;
+        background: #2b0409;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .photoCard::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250%;
+        height: 250%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        background: conic-gradient(transparent 0deg, transparent 120deg,
+            #feda75 160deg, #fa7e1e 210deg, #d62976 260deg, #962fbf 310deg, #4f5bd5 360deg);
+        animation: led-spin 3s linear infinite;
+        z-index: -2;
+      }
+
+      .photoCard::after {
+        content: '';
+        position: absolute;
+        inset: 5px;
+        background: #590A16;
+        border-radius: 15px;
+        z-index: -1;
+      }
+
+      .photoCard img {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+        object-position: center 12%;
+        background: #fff;
+        display: block;
+        filter: saturate(0.95);
+        transition: filter 0.4s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      .photoCard.back {
+        top: 0;
+        left: 0;
+        transform: rotate(-12deg);
+        z-index: 1;
+        opacity: 0.9;
+      }
+
+      .photoCard.front {
+        bottom: 0;
+        right: 0;
+        transform: rotate(8deg);
+        z-index: 2;
+      }
+
+      .founderImageContainer:hover .photoCard.back {
+        transform: rotate(-16deg) translate(-15px, -5px);
+        opacity: 1;
+      }
+
+      .founderImageContainer:hover .photoCard.back img {
+        filter: saturate(1.1);
+      }
+
+      .founderImageContainer:hover .photoCard.front {
+        transform: rotate(12deg) translate(15px, 5px);
+      }
+
+      .founderImageContainer:hover .photoCard.front img {
+        filter: saturate(1.1);
+      }
+
+      .founderNameBox {
+        margin: 15px 0 30px;
+        border-left: 3px solid #590A16;
+        padding-left: 18px;
+      }
+
+      .founderNameBox h3 {
+        font-family: var(--font-display);
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--deep);
+        margin: 0 0 5px;
+        letter-spacing: -0.02em;
+      }
+
+      .founderNameBox span {
+        font-family: var(--font-body);
+        font-size: 11px;
+        color: #a64c58;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-weight: 600;
+      }
+
+      @media (max-width: 850px) {
+        .founderSection {
+          padding: 70px 0 60px !important;
+          margin-top: 40px !important;
+          margin-bottom: 20px !important;
+        }
+
+        .founder {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 24px !important;
+          padding: 0 !important;
+        }
+
+        .founderContent {
+          display: contents !important;
+        }
+
+        .founderHead {
+          order: 1 !important;
+          width: 100% !important;
+        }
+
+        .founderHead h2 {
+          margin: 15px 0 20px !important;
+        }
+
+        .founderImageContainer {
+          order: 2 !important;
+          max-width: 100% !important;
+          padding: 10px 0 20px !important;
+        }
+
+        .founderBioText {
+          order: 3 !important;
+          width: 100% !important;
+        }
+
+        .photoStack {
+          position: relative;
+          width: 100%;
+          max-width: 420px;
+          aspect-ratio: auto;
+          min-height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
+          margin: 0 auto;
+          padding: 15px 10px;
+        }
+
+        .photoCard {
+          position: relative;
+          width: calc(50% - 10px);
+          max-width: 195px;
+          aspect-ratio: 4 / 5;
+          padding: 6px;
+        }
+
+        .photoCard.back {
+          top: auto;
+          left: auto;
+          transform: rotate(-4deg) translateY(-10px);
+          opacity: 1;
+          z-index: 1;
+        }
+
+        .photoCard.front {
+          bottom: auto;
+          right: auto;
+          transform: rotate(4deg) translateY(10px);
+          z-index: 2;
+        }
+
+        .founderImageContainer:hover .photoCard.back {
+          transform: rotate(-6deg) translateY(-12px);
+        }
+
+        .founderImageContainer:hover .photoCard.front {
+          transform: rotate(6deg) translateY(12px);
+        }
+      }
+    </style>
+
+    <section class="founderSection reveal" id="sobre-fundadora">
+      <div class="founder shell">
+        <div class="founderContent">
+          <div class="founderHead">
+            <p class="kicker">A Fundadora</p>
+            <div class="founderNameBox">
+              <h3>Brenda Kaldy</h3>
+              <span>CEO & Fundadora</span>
+            </div>
+            <h2>A visão de quem<br><em>movimenta tudo.</em></h2>
+          </div>
+          <div class="founderBioText">
+            <p>A Kaldy Digital nasceu da paixão por conectar marcas e pessoas através de narrativas autênticas.
+              Acreditamos que cada projeto tem uma essência única que merece ser traduzida em conteúdo e posicionamento.
+            </p>
+            <p>Nossa fundadora lidera a equipe com um olhar apurado para a estética e um pensamento estratégico focado
+              em resultados, garantindo que sua presença digital não apenas exista, mas seja sentida.</p>
+          </div>
+        </div>
+        <div class="founderImageContainer">
+          <div class="photoStack">
+            <div class="photoCard back">
+              <img src="fotos/Brenda 04 - Ensaio.jpg" alt="Brenda Kaldy (Bastidores & Direção)" loading="eager" fetchpriority="high"
+                onerror="this.onerror=null; this.src='brenda-kaldy-02.jpg';">
+            </div>
+            <div class="photoCard front">
+              <img src="fotos/Brenda 01 - Ensaio.jpg" alt="Brenda Kaldy - CEO & Fundadora" loading="eager" fetchpriority="high"
+                onerror="this.onerror=null; this.src='brenda-kaldy.jpg';">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       04 - TRANSPARÊNCIA TOTAL COM CARDS BRANCOS
+       ==================================================================== -->
+    <section class="transparency shell" id="transparencia">
+      <div class="transparencyHead reveal">
+        <p class="kicker">Transparência Total</p>
+        <h2>
+          <span class="t-line">Por que nosso modelo é diferente</span>
+          <span class="t-line">das <em>agências tradicionais?</em></span>
+        </h2>
+        <p>A maioria das agências precisa inflar a carteira de clientes com processos genéricos. Nós preferimos entrar
+          na sua empresa como verdadeiros parceiros de crescimento.</p>
+      </div>
+
+      <div class="transparencyGrid reveal-group">
+        <!-- 01 - Carteira Seletiva -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3>Carteira Seletiva</h3>
+          <p>Atendemos um número restrito de marcas para garantir profundidade, foco e dedicação máxima em cada projeto.
+          </p>
+        </div>
+
+        <!-- 02 - Atenção na Operação -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+          </div>
+          <h3>Atenção na Operação</h3>
+          <p>Acompanhamento detalhado do seu funil comercial, criativos de conversão e de cada centavo aportado em
+            anúncios.</p>
+        </div>
+
+        <!-- 03 - Comunicação Direta -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <h3>Comunicação Direta</h3>
+          <p>Sem passar por intermediários ou estagiários. Contato ágil, transparente e direto com os estrategistas da
+            sua conta.</p>
+        </div>
+
+        <!-- 04 - Relatórios Focados em Vendas -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+          </div>
+          <h3>Relatórios Focados em Vendas</h3>
+          <p>Nada de métricas vazias de vaidade. Mostramos com clareza quanto foi investido e quanto retornou em
+            faturamento.</p>
+        </div>
+
+        <!-- 05 - Sem Contratos Abusivos -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <polyline points="9 12 11 14 15 10" />
+            </svg>
+          </div>
+          <h3>Sem Contratos Abusivos</h3>
+          <p>Trabalhamos para que sua empresa continue conosco pela rentabilidade e pelo valor real que geramos na sua
+            marca.</p>
+        </div>
+
+        <!-- 06 - Visão Comercial 360° -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </div>
+          <h3>Visão Comercial 360°</h3>
+          <p>Unimos conteúdo, autoridade visual e tráfego pago ao processo comercial para fechar negócios no seu caixa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       PORTFÓLIO EDITORIAL
+       ==================================================================== -->
+    <section class="portfolio" id="portfolio">
+      <div class="shell portfolioHead reveal">
+        <div>
+          <p class="kicker">Trabalhos selecionados</p>
+          <h2>Ideias que saíram<br>do briefing e <em>ganharam vida.</em></h2>
+        </div><a href="https://www.instagram.com/kaldydigital/" target="_blank" rel="noopener">Ver Instagram <span
+            class="arrowIcon" aria-hidden="true"></span></a>
+      </div>
+      <div class="projectGrid shell reveal-group">
+        <figure class="wide reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-01.png"
+            alt="Campanha — Produto em cena">
+          <figcaption><small>Campanha</small><strong>Produto em cena</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-02.png"
+            alt="Casamentos — Elegância em cada detalhe">
+          <figcaption><small>Casamentos</small><strong>Elegância em cada detalhe</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-03.png"
+            alt="Família — Momentos que ficam">
+          <figcaption><small>Família</small><strong>Momentos que ficam</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-04.png"
+            alt="Shows — A energia do palco">
+          <figcaption><small>Shows</small><strong>A energia do palco</strong></figcaption>
+        </figure>
+        <figure class="wide reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-05.png"
+            alt="Celebrações — Histórias de amor">
+          <figcaption><small>Celebrações</small><strong>Histórias de amor</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-06.png"
+            alt="Experiências — Atmosfera e personalidade">
+          <figcaption><small>Experiências</small><strong>Atmosfera e personalidade</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-07.png"
+            alt="Produção — Bastidores que contam">
+          <figcaption><small>Produção</small><strong>Bastidores que contam</strong></figcaption>
+        </figure>
+        <figure class="wide reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-08.png"
+            alt="Eventos — Uma noite inesquecível">
+          <figcaption><small>Eventos</small><strong>Uma noite inesquecível</strong></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       VÍDEOS VERTICAIS / STORIES
+       ==================================================================== -->
+    <section class="videoStories shell">
+      <div class="videoStoriesHead reveal">
+        <div>
+          <p class="kicker">Conteúdo em movimento</p>
+          <h2>Presença que continua<br><em>depois do momento.</em></h2>
+        </div>
+        <p>Do registro emocional ao conteúdo estratégico: histórias verticais prontas para conectar.</p>
+      </div>
+      <div class="videoGrid reveal-group">
+        <article class="reveal-item">
+          <div class="videoFrame">
+            <video muted loop playsinline preload="metadata" style="cursor: pointer;">
+              <source
+                src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/media/eternize-seu-evento.mp4#t=3.0"
+                type="video/mp4">
+            </video>
+            <div class="centerPlayBtn">
+              <button class="playToggle bigPlayBtn" aria-label="Reproduzir vídeo">
+                <div class="pulseRing"></div>
+                <i class="iconPlay"></i>
+              </button>
+              <span>reproduzir</span>
+            </div>
+            <div class="videoControls">
+              <button class="soundToggle" aria-label="Ativar som" aria-pressed="false"><i
+                  class="iconSound muted"></i></button>
+            </div>
+          </div>
+          <div><span>01 · Eventos</span>
+            <h3>Eternize seu evento</h3>
+            <p>Transformamos os momentos que passam rápido em memórias que continuam vivas.</p>
+          </div>
+        </article>
+        <article class="reveal-item">
+          <div class="videoFrame">
+            <video muted loop playsinline preload="metadata" style="cursor: pointer;">
+              <source
+                src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/media/por-que-storymaker.mp4#t=3.0"
+                type="video/mp4">
+            </video>
+            <div class="centerPlayBtn">
+              <button class="playToggle bigPlayBtn" aria-label="Reproduzir vídeo">
+                <div class="pulseRing"></div>
+                <i class="iconPlay"></i>
+              </button>
+              <span>reproduzir</span>
+            </div>
+            <div class="videoControls">
+              <button class="soundToggle" aria-label="Ativar som" aria-pressed="false"><i
+                  class="iconSound muted"></i></button>
+            </div>
+          </div>
+          <div><span>02 · Storymaker</span>
+            <h3>Por que contratar um Storymaker?</h3>
+            <p>Conteúdo pensado, captado e publicado enquanto o seu evento acontece.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       PROCESSO
+       ==================================================================== -->
+    <section class="process shell reveal" id="processo">
+      <div>
+        <p class="kicker">Nosso processo</p>
+        <h2>Estratégia antes do <em>REC.</em><br>Intenção depois do <em>POST.</em></h2>
+      </div>
+      <ol class="reveal-group">
+        <li class="reveal-item"><span>01</span><b>Imersão</b>
+          <p>Entendemos a marca, o momento e o objetivo.</p>
+        </li>
+        <li class="reveal-item"><span>02</span><b>Direção</b>
+          <p>Definimos narrativa, estética e plano de conteúdo.</p>
+        </li>
+        <li class="reveal-item"><span>03</span><b>Produção</b>
+          <p>Captamos, criamos e editamos com olhar estratégico.</p>
+        </li>
+        <li class="reveal-item"><span>04</span><b>Movimento</b>
+          <p>Publicamos, analisamos e fazemos a presença evoluir.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ====================================================================
+       PROVA SOCIAL (COMENTÁRIOS INSTAGRAM)
+       ==================================================================== -->
+    <section class="proof reveal">
+      <div class="shell">
+        <div class="proofIntro">
+          <p class="kicker">Reações do Instagram</p>
+          <h2>Quando o conteúdo<br><em>faz sentir.</em></h2>
+          <p>Comentários públicos em trabalhos da Kaldy.</p>
+        </div>
+        <div class="carouselWrap">
+          <div class="testimonialsTrack" id="testimonialTrack"></div>
+          <div class="carouselNav"><button id="testimonialPrev" aria-label="Comentário anterior"><i
+                class="carouselArrow previous"></i></button>
+            <div id="testimonialDots"></div><span id="testimonialCount">01 / 05</span><button id="testimonialNext"
+              aria-label="Próximo comentário"><i class="carouselArrow next"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       CONTATO FINAL & FOOTER
+       ==================================================================== -->
+    <section class="contact shell reveal" id="contato"
+      style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p class="kicker">Vamos criar juntos?</p>
+      <h2>Sua próxima história<br>começa com uma <em>conversa.</em></h2>
+      <div class="contactRow" style="border: none; padding: 0; display: flex; justify-content: center; width: 100%;"><a
+          class="btn-primary whatsappLink" href="#" target="_blank"
+          style="margin-top: 0; width: 100%; max-width: 340px;">Falar no WhatsApp <span class="arrowIcon"
+            aria-hidden="true"></span></a></div>
+    </section>
+
+    <footer class="shell">
+      <div class="brand"><img
+          src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png"
+          alt=""><span>KALDY<br>DIGITAL</span></div>
+      <p>Estratégia para marcas.<br>Presença para eventos.</p><a href="https://www.instagram.com/kaldydigital/"
+        target="_blank" rel="noopener">@kaldydigital <span class="arrowIcon" aria-hidden="true"></span></a><small>© 2026
+        Kaldy Digital</small>
+    </footer>
+
+    <a class="whatsappFloat whatsappLink" href="#" target="_blank"
+      aria-label="Pedir orçamento pelo WhatsApp"><b><small>Atendimento rápido</small>Peça seu orçamento</b><img
+        src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/whatsapp-logo-cropped.png"
+        alt="WhatsApp"></a>
+  </main>
+
+  <script src="script.js"></script>
+  <script>(function () { function c() { var b = a.contentDocument || (a.contentWindow && a.contentWindow.document); if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'a2b301d50e186272',t:'MTc4Njc0MjQ2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    const customCursor = document.querySelector('.customCursor');
+    if (window.matchMedia('(pointer: fine)').matches && window.innerWidth > 1024) {
+      window.addEventListener("mousemove", (e) => {
+        if (customCursor) {
+          customCursor.style.transform = `translate(${e.clientX - 23}px, ${e.clientY - 50}px)`;
+        }
+      });
+      window.addEventListener("mousedown", () => document.body.classList.add("clicking"));
+      window.addEventListener("mouseup", () => document.body.classList.remove("clicking"));
+    } else if (customCursor) {
+      customCursor.style.display = 'none';
+    }
+  </script>
+</body>
+
+</html>

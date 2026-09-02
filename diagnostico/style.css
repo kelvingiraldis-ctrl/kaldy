@@ -1,0 +1,1377 @@
+/* ==========================================================================
+   KALDY DIGITAL - FORMULÁRIO DE DIAGNÓSTICO ESTRATÉGICO & QUALIFICAÇÃO
+   Design System Exclusivo: Dinâmico, Elegante & Alta Conversão
+   ========================================================================== */
+
+:root {
+    --bg-page: #faf8f5;
+    --bg-card: #ffffff;
+    
+    --border-subtle: #e8e3dc;
+    --border-hover: #d5cdc2;
+    --border-focus: #590A16;
+    
+    --text-primary: #171212;
+    --text-secondary: #4a3e3e;
+    --text-muted: #736565;
+    --text-light: #9c8e8e;
+    
+    /* Kaldy Brand Colors */
+    --brand-wine: #590A16;
+    --brand-wine-hover: #430710;
+    --brand-wine-active: #30040b;
+    --brand-wine-light: #7a1523;
+    --brand-wine-tint: #fcf5f6;
+    --brand-wine-border: #f0d5d9;
+    --brand-cream: #f9f3db;
+    --brand-gold: #c59b27;
+    
+    --whatsapp-green: #25d366;
+    --whatsapp-dark: #128c7e;
+    
+    --red-accent: #dc2626;
+    
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    --radius-pill: 9999px;
+    
+    --shadow-card: 0 14px 35px -8px rgba(89, 10, 22, 0.07), 0 6px 16px -4px rgba(0, 0, 0, 0.04);
+    --shadow-btn: 0 10px 24px -5px rgba(89, 10, 22, 0.35);
+    --shadow-whatsapp: 0 10px 24px -5px rgba(37, 211, 102, 0.4);
+
+    --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-heading: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+    --transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    line-height: 1.5;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Fundo atmosférico suave */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 380px;
+    background: radial-gradient(circle at 50% 0%, rgba(89, 10, 22, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Header Minimalista */
+.form-header {
+    width: 100%;
+    padding: 0.85rem 1.25rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-shrink: 0;
+    box-shadow: 0 2px 12px rgba(89, 10, 22, 0.03);
+}
+
+.header-container {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand-link {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.brand-logo-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(89, 10, 22, 0.2);
+}
+
+.brand-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--brand-wine);
+}
+
+.brand-badge {
+    background: var(--brand-wine-tint);
+    color: var(--brand-wine);
+    border: 1px solid var(--brand-wine-border);
+    font-weight: 700;
+    font-size: 0.74rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-pill);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+/* ================= ETAPA 1: HERO EDITORIAL COM BRENDA NO FUNDO ================= */
+.step-welcome-hero {
+    padding: 0 !important;
+    overflow: hidden;
+    background: #0d0204 !important;
+    border: 1px solid rgba(122, 21, 35, 0.4) !important;
+    box-shadow: 0 25px 60px -10px rgba(13, 2, 4, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    border-radius: var(--radius-lg);
+    position: relative;
+}
+
+.welcome-hero-media {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    background: #0d0204;
+}
+
+.hero-photo-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+    filter: brightness(0.95) contrast(1.05);
+    transform: scale(1.02);
+    transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-welcome-hero.active .hero-photo-cover {
+    transform: scale(1.06);
+}
+
+.hero-dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(13, 2, 4, 0.1) 0%, 
+        rgba(13, 2, 4, 0.3) 40%, 
+        rgba(13, 2, 4, 0.85) 80%, 
+        #0d0204 100%
+    );
+    pointer-events: none;
+}
+
+.hero-top-badge {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(13, 2, 4, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.02em;
+    z-index: 3;
+}
+
+.badge-dot {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.welcome-hero-body {
+    padding: 1.5rem 2rem 2.25rem 2rem;
+    background: #0d0204;
+    position: relative;
+    z-index: 2;
+    margin-top: -30px;
+}
+
+.hero-brand-tag {
+    font-family: var(--font-heading);
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #e2a865;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+}
+
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+}
+
+.hero-description {
+    font-size: 0.95rem;
+    color: #d6cbca;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.hero-description strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.hero-features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.75rem;
+}
+
+.hero-feat-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f5ebe6;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-pill);
+    backdrop-filter: blur(8px);
+}
+
+.hero-feat-chip i {
+    width: 14px;
+    height: 14px;
+    color: #e2a865;
+}
+
+.hero-actions-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-hero-start {
+    width: 100%;
+    padding: 1.05rem 1.8rem;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    background: linear-gradient(135deg, #8a1727 0%, #590A16 100%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 30px rgba(138, 23, 39, 0.55), 0 0 20px rgba(138, 23, 39, 0.35);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-hero-start:hover {
+    background: linear-gradient(135deg, #a11c2f 0%, #6e0c1b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(138, 23, 39, 0.7), 0 0 25px rgba(138, 23, 39, 0.45);
+}
+
+.hero-keyboard-hint {
+    font-size: 0.78rem;
+    color: #a39595;
+    white-space: nowrap;
+}
+
+.hero-keyboard-hint strong {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+}
+
+/* Barra de Progresso elegante */
+.form-card-progress {
+    width: 100%;
+    margin-bottom: 1.25rem;
+    display: none;
+}
+
+.form-card-progress.visible {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.card-progress-track {
+    width: 100%;
+    height: 6px;
+    background-color: var(--border-subtle);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.card-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--brand-wine-light) 0%, var(--brand-wine) 100%);
+    border-radius: 999px;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Main Container Centralizado */
+.form-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.75rem 1.25rem;
+    width: 100%;
+    min-height: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Step Cards */
+.step-card {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2rem;
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.step-card.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInStep 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInStep {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Top Nav dentro do Card */
+.step-top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin-bottom: 1.25rem;
+}
+
+.step-top-nav .btn-prev {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-family);
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.step-top-nav .btn-prev:hover {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+}
+
+.step-top-nav .btn-prev i {
+    width: 14px;
+    height: 14px;
+}
+
+/* Títulos & Descrições */
+.step-title {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 750;
+    color: var(--text-primary);
+    line-height: 1.35;
+    margin-bottom: 0.55rem;
+    letter-spacing: -0.02em;
+}
+
+.highlight-accent {
+    color: var(--brand-wine);
+    font-weight: 700;
+}
+
+.rocket-emoji {
+    display: inline-block;
+}
+
+.step-description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.6rem;
+}
+
+.field-mini-label {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 0.35rem;
+}
+
+/* ================= BIFURCAÇÃO (CARDS DE SEGMENTO) ================= */
+.segment-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.segment-choice-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.15rem 1.25rem;
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    position: relative;
+    user-select: none;
+}
+
+.segment-choice-card input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.segment-icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--brand-wine-tint);
+    color: var(--brand-wine);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.segment-icon-box i {
+    width: 24px;
+    height: 24px;
+}
+
+.segment-info {
+    flex: 1;
+}
+
+.segment-name {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+    transition: var(--transition);
+}
+
+.segment-desc {
+    font-size: 0.84rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.segment-arrow {
+    color: var(--border-hover);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.segment-arrow i {
+    width: 20px;
+    height: 20px;
+}
+
+.segment-choice-card:hover {
+    border-color: var(--brand-wine);
+    background: var(--brand-wine-tint);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(89, 10, 22, 0.08);
+}
+
+.segment-choice-card:hover .segment-icon-box {
+    background: var(--brand-wine);
+    color: #ffffff;
+}
+
+.segment-choice-card:hover .segment-name {
+    color: var(--brand-wine);
+}
+
+.segment-choice-card:hover .segment-arrow {
+    color: var(--brand-wine);
+    transform: translateX(3px);
+}
+
+.segment-choice-card.selected,
+.segment-choice-card:has(input[type="radio"]:checked) {
+    border-color: var(--brand-wine);
+    background: var(--brand-wine-tint);
+    box-shadow: 0 0 0 1px var(--brand-wine);
+}
+
+.segment-choice-card.selected .segment-icon-box,
+.segment-choice-card:has(input[type="radio"]:checked) .segment-icon-box {
+    background: var(--brand-wine);
+    color: #ffffff;
+}
+
+.segment-choice-card.selected .segment-name,
+.segment-choice-card:has(input[type="radio"]:checked) .segment-name {
+    color: var(--brand-wine);
+}
+
+.segment-choice-card.selected .segment-arrow,
+.segment-choice-card:has(input[type="radio"]:checked) .segment-arrow {
+    color: var(--brand-wine);
+}
+
+/* ================= GRUPOS DE INPUT ================= */
+.input-field-group {
+    margin-top: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    font-family: var(--font-family);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--border-subtle);
+    padding: 0.65rem 0.15rem;
+    outline: none;
+    transition: var(--transition);
+    border-radius: 0;
+}
+
+.form-input[type="date"] {
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.form-input::placeholder {
+    color: var(--text-light);
+    font-weight: 400;
+}
+
+.form-input:focus {
+    border-bottom-color: var(--brand-wine);
+}
+
+.input-with-prefix {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 2px solid var(--border-subtle);
+    transition: var(--transition);
+}
+
+.input-with-prefix:focus-within {
+    border-bottom-color: var(--brand-wine);
+}
+
+.input-with-prefix .form-input {
+    border-bottom: none;
+    padding-left: 0;
+}
+
+.input-prefix {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    user-select: none;
+}
+
+/* Mensagens de Erro */
+.error-message {
+    display: none;
+    color: var(--red-accent);
+    font-size: 0.84rem;
+    font-weight: 600;
+    margin-top: 0.45rem;
+}
+
+.error-message.visible {
+    display: block;
+}
+
+/* ================= OPÇÕES DE SELEÇÃO ÚNICA & MÚLTIPLA ================= */
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.15rem;
+    margin-bottom: 1.15rem;
+}
+
+.option-card {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: #ffffff;
+    border: 1.5px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+}
+
+.option-card input[type="radio"],
+.option-card input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option-key {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-page);
+    border: 1px solid var(--border-subtle);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+/* Checkbox Indicator para multi-seleção */
+.option-checkbox-indicator {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 1.5px solid var(--border-hover);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition);
+    background: #ffffff;
+}
+
+.option-checkbox-indicator svg,
+.option-checkbox-indicator i {
+    width: 14px;
+    height: 14px;
+    color: #ffffff;
+    opacity: 0 !important;
+    transform: scale(0.5);
+    transition: var(--transition);
+}
+
+.checkbox-card.selected .option-checkbox-indicator,
+.checkbox-card:has(input[type="checkbox"]:checked) .option-checkbox-indicator {
+    background: var(--brand-wine) !important;
+    border-color: var(--brand-wine) !important;
+}
+
+.checkbox-card.selected .option-checkbox-indicator svg,
+.checkbox-card.selected .option-checkbox-indicator i,
+.checkbox-card:has(input[type="checkbox"]:checked) .option-checkbox-indicator svg,
+.checkbox-card:has(input[type="checkbox"]:checked) .option-checkbox-indicator i {
+    opacity: 1 !important;
+    transform: scale(1);
+}
+
+.option-text {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.option-card:hover {
+    border-color: var(--border-hover);
+    background: var(--bg-page);
+}
+
+.option-card.selected,
+.option-card:has(input[type="radio"]:checked),
+.option-card:has(input[type="checkbox"]:checked) {
+    border-color: var(--brand-wine);
+    background: var(--brand-wine-tint);
+}
+
+.option-card.selected .option-key,
+.option-card:has(input[type="radio"]:checked) .option-key {
+    background: var(--brand-wine);
+    color: #ffffff;
+    border-color: var(--brand-wine);
+}
+
+.option-card.selected .option-text,
+.option-card:has(input[type="radio"]:checked) .option-text,
+.option-card:has(input[type="checkbox"]:checked) .option-text {
+    color: var(--brand-wine);
+}
+
+.option-card.selected .option-key,
+.option-card:has(input[type="radio"]:checked) .option-key {
+    background: var(--brand-wine);
+    color: #ffffff;
+    border-color: var(--brand-wine);
+}
+
+.option-card.selected .option-text,
+.option-card:has(input[type="radio"]:checked) .option-text,
+.option-card:has(input[type="checkbox"]:checked) .option-text {
+    color: var(--brand-wine);
+}
+
+/* ================= BOTÕES DE AÇÃO ================= */
+.step-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 2rem;
+}
+
+.btn-full-action {
+    width: 100%;
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--brand-wine);
+    color: #ffffff;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.85rem 1.6rem;
+    border-radius: var(--radius-md);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-btn);
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background: var(--brand-wine-hover);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-start {
+    font-size: 1.05rem;
+    padding: 0.9rem 2rem;
+    width: auto;
+}
+
+.btn-skip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.85rem 1.25rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-skip:hover {
+    background: var(--bg-page);
+    color: var(--text-primary);
+    border-color: var(--border-hover);
+}
+
+.btn-submit {
+    background: var(--brand-wine);
+}
+
+.btn-submit:hover {
+    background: var(--brand-wine-hover);
+}
+
+.keyboard-hint {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.keyboard-hint strong {
+    color: var(--text-secondary);
+    background: var(--bg-page);
+    border: 1px solid var(--border-subtle);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* ================= ETAPA 10: SUCESSO HERO COM FOTO 04 ================= */
+.step-success-hero {
+    padding: 0 !important;
+    overflow: hidden;
+    background: #0d0204 !important;
+    border: 1px solid rgba(122, 21, 35, 0.4) !important;
+    box-shadow: 0 25px 60px -10px rgba(13, 2, 4, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05) !important;
+    border-radius: var(--radius-lg);
+    position: relative;
+    text-align: center;
+}
+
+.success-hero-media {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    background: #0d0204;
+}
+
+.success-photo-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 12%;
+    filter: brightness(0.95) contrast(1.05);
+    transform: scale(1.02);
+    transition: transform 6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-success-hero.active .success-photo-cover {
+    transform: scale(1.06);
+}
+
+.success-dark-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        180deg, 
+        rgba(13, 2, 4, 0.15) 0%, 
+        rgba(13, 2, 4, 0.35) 45%, 
+        rgba(13, 2, 4, 0.9) 82%, 
+        #0d0204 100%
+    );
+    pointer-events: none;
+}
+
+.success-floating-pill {
+    position: absolute;
+    top: 1.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(13, 2, 4, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.38rem 0.95rem;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    z-index: 3;
+}
+
+.pill-dot-green {
+    width: 7px;
+    height: 7px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #22c55e;
+    animation: pulseDot 2s infinite ease-in-out;
+}
+
+.success-hero-body {
+    padding: 1.5rem 2rem 2.25rem 2rem;
+    background: #0d0204;
+    position: relative;
+    z-index: 2;
+    margin-top: -30px;
+}
+
+.success-brand-tag {
+    font-family: var(--font-heading);
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #e2a865;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.55rem;
+}
+
+.success-hero-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.65rem;
+}
+
+.success-hero-description {
+    font-size: 0.95rem;
+    color: #d6cbca;
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.success-hero-description strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.success-fast-contact-box {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    padding: 0.95rem 1.15rem;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    backdrop-filter: blur(10px);
+}
+
+.fast-contact-title {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #e2a865;
+    margin-bottom: 0.25rem;
+}
+
+.fast-contact-title i,
+.fast-contact-title svg {
+    width: 15px;
+    height: 15px;
+    color: #e2a865;
+}
+
+.fast-contact-text {
+    font-size: 0.82rem;
+    color: #c4b8b6;
+    line-height: 1.45;
+}
+
+.final-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-whatsapp-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    width: 100%;
+    background: #25d366;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 700;
+    padding: 1.05rem 1.6rem;
+    border-radius: var(--radius-md);
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
+    transition: var(--transition);
+}
+
+.btn-whatsapp-cta:hover {
+    background: #1ebd5b;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px rgba(37, 211, 102, 0.48);
+}
+
+.btn-whatsapp-cta:hover {
+    background: #1ebd5b;
+    transform: translateY(-1px);
+}
+
+.whatsapp-svg-icon {
+    flex-shrink: 0;
+}
+
+/* ================= RODAPÉ DISCRETO ================= */
+.form-footer {
+    padding: 0.75rem 1rem;
+    background: #ffffff;
+    border-top: 1px solid var(--border-subtle);
+    flex-shrink: 0;
+}
+
+.footer-container {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    text-align: center;
+}
+
+.footer-disclaimer {
+    font-size: 0.6rem;
+    line-height: 1.4;
+    color: var(--text-light);
+    opacity: 0.85;
+    max-width: 600px;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding-top: 0.3rem;
+    border-top: 1px solid rgba(232, 227, 220, 0.6);
+    font-size: 0.65rem;
+    color: var(--text-light);
+}
+
+.footer-copyright {
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 0.65rem;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.footer-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.65rem;
+    transition: var(--transition);
+}
+
+.footer-link:hover {
+    color: var(--brand-wine);
+    text-decoration: underline;
+}
+
+.dot {
+    color: #cbd5e1;
+    font-size: 0.55rem;
+}
+
+.safe-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 0.65rem;
+}
+
+.safe-badge i {
+    width: 11px;
+    height: 11px;
+    color: var(--text-light);
+}
+
+/* ================= RESPONSIVIDADE MOBILE ================= */
+@media (max-width: 600px) {
+    .form-header {
+        padding: 0.65rem 1rem;
+    }
+
+    .form-main {
+        padding: 1.15rem 0.9rem;
+    }
+
+    .step-card {
+        padding: 1.6rem 1.15rem;
+        border-radius: var(--radius-md);
+    }
+
+    .step-title {
+        font-size: 1.35rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .step-description {
+        font-size: 0.9rem;
+        margin-bottom: 1.25rem;
+    }
+
+    /* Hero Mobile */
+    .welcome-hero-media {
+        height: 320px;
+    }
+
+    .hero-photo-cover {
+        object-position: center 10%;
+    }
+
+    .hero-top-badge {
+        top: 0.85rem;
+        left: 0.85rem;
+        padding: 0.28rem 0.65rem;
+        font-size: 0.7rem;
+    }
+
+    .welcome-hero-body {
+        padding: 1.15rem 1.15rem 1.6rem 1.15rem;
+        margin-top: -25px;
+    }
+
+    .hero-brand-tag {
+        font-size: 0.68rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .hero-title {
+        font-size: 1.45rem;
+        line-height: 1.28;
+        margin-bottom: 0.55rem;
+    }
+
+    .hero-description {
+        font-size: 0.88rem;
+        line-height: 1.5;
+        margin-bottom: 1.15rem;
+    }
+
+    .hero-features-grid {
+        gap: 0.45rem;
+        margin-bottom: 1.35rem;
+    }
+
+    .hero-feat-chip {
+        font-size: 0.74rem;
+        padding: 0.32rem 0.65rem;
+    }
+
+    .btn-hero-start {
+        padding: 0.95rem 1.25rem;
+        font-size: 1rem;
+    }
+
+    /* Success Hero Mobile */
+    .success-hero-media {
+        height: 300px;
+    }
+
+    .success-photo-cover {
+        object-position: center 10%;
+    }
+
+    .success-floating-pill {
+        top: 0.85rem;
+        padding: 0.3rem 0.75rem;
+        font-size: 0.72rem;
+    }
+
+    .success-hero-body {
+        padding: 1.15rem 1.15rem 1.75rem 1.15rem;
+        margin-top: -25px;
+    }
+
+    .success-brand-tag {
+        font-size: 0.68rem;
+        margin-bottom: 0.45rem;
+    }
+
+    .success-hero-title {
+        font-size: 1.45rem;
+        line-height: 1.28;
+        margin-bottom: 0.55rem;
+    }
+
+    .success-hero-description {
+        font-size: 0.88rem;
+        line-height: 1.5;
+        margin-bottom: 1.15rem;
+    }
+
+    .success-fast-contact-box {
+        padding: 0.8rem 0.95rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .fast-contact-title {
+        font-size: 0.82rem;
+    }
+
+    .fast-contact-text {
+        font-size: 0.78rem;
+    }
+
+    .segment-choice-card {
+        padding: 0.95rem 1rem;
+        gap: 0.75rem;
+    }
+
+    .segment-icon-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .segment-name {
+        font-size: 0.98rem;
+    }
+
+    .segment-desc {
+        font-size: 0.8rem;
+    }
+
+    .form-input {
+        font-size: 1.05rem;
+    }
+
+    .input-prefix {
+        font-size: 1rem;
+    }
+
+    .option-card {
+        padding: 0.75rem 0.85rem;
+    }
+
+    .option-text {
+        font-size: 0.88rem;
+    }
+
+    .step-top-nav {
+        margin-bottom: 0.85rem;
+    }
+
+    .step-top-nav .btn-prev {
+        padding: 0.28rem 0.6rem;
+        font-size: 0.78rem;
+    }
+
+    .step-actions {
+        margin-top: 1.25rem;
+        gap: 0.45rem;
+    }
+
+    .btn-start, .btn-primary, .btn-whatsapp-cta {
+        padding: 0.78rem 1.15rem;
+        font-size: 0.95rem;
+    }
+
+    .btn-skip {
+        flex: 1;
+        padding: 0.75rem 0.75rem;
+        font-size: 0.82rem;
+    }
+
+    .btn-primary, .btn-submit {
+        flex: 1.2;
+    }
+
+    .btn-full-action {
+        width: 100%;
+        flex: none;
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+}
