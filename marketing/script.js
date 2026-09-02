@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = "5511951602952"; // Número oficial de atendimento com DDI + DDD
+const WHATSAPP_NUMBER = "5511945367699"; // Número oficial de atendimento com DDI + DDD
 const WHATSAPP_TEXT = "Olá! Conheci a Kaldy pelo site e gostaria de solicitar um diagnóstico estratégico.";
 document.querySelectorAll(".whatsappLink").forEach(link => link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_TEXT)}`);
 

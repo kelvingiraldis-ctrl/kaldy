@@ -6,7 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ================= CONFIGURAÇÕES PRINCIPAIS =================
     // WhatsApp oficial da Kaldy Digital
-    const WHATSAPP_NUMBER = '5511999382989';
+    const WHATSAPP_NUMBER = '5511945367699';
     
     // Webhook opcional do Google Sheets (desconectado por padrão)
     const GOOGLE_SHEETS_WEBHOOK_URL = ''; 
