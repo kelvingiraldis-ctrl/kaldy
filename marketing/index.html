@@ -1,1444 +1,925 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="description" content="Kaldy Digital — Gestão de Redes Sociais, Posicionamento de Alto Padrão e Produção Audiovisual In-Loco para Empresas e Clínicas.">
-  <title>Kaldy Digital — Para Empresas | Estratégia, Design & Audiovisual</title>
-  <link rel="icon" href="logo-kaldy.png" type="image/png">
-
-  <!-- Preconnect & Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Unbounded:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <meta name="description"
+    content="Kaldy Digital — gestão de redes sociais, produção de conteúdo, tráfego pago e cobertura de eventos.">
+  <title>Kaldy Digital — Estratégia, conteúdo e presença</title>
+  <link rel="icon" href="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png"
+    type="image/png">
   <link rel="stylesheet" href="styles.css">
-
   <style>
     @font-face {
       font-family: "Craos";
       src: url("https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/fonts/craos.otf") format("opentype");
-      font-display: swap;
+      font-display: swap
     }
+
     @font-face {
       font-family: "Wilonah";
       src: url("https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/fonts/wilonah.woff2") format("woff2");
-      font-display: swap;
+      font-display: swap
     }
+  </style>
 
+  <style>
     /* ---------------------------------
-       WINE & CREAM THEME (IDENTIDADE LP EMPRESAS)
-       --------------------------------- */
+   WINE THEME OVERRIDES (FORCING STATIC)
+   --------------------------------- */
     :root {
       --wine: #590A16;
       --wine-light: #7a1523;
-      --cream: #f9f3db;
-      --cream-card: #fffdf8;
+      --cream: #ffffff;
       --deep: #0e1211;
-      --line: rgba(89, 10, 22, 0.15);
-      --font-display: "Unbounded", -apple-system, sans-serif;
-      --font-body: "Outfit", -apple-system, sans-serif;
-    }
-
-    html {
-      scroll-behavior: auto !important;
-    }
-    html.lenis, html.lenis body {
-      height: auto;
-    }
-    .lenis.lenis-smooth {
-      scroll-behavior: auto !important;
-    }
-    .lenis.lenis-smooth [data-lenis-prevent] {
-      overscroll-behavior: contain;
-    }
-    .lenis.lenis-stopped {
-      overflow: hidden;
+      --line: rgba(89, 10, 22, 0.14);
     }
 
     body {
-      background-color: var(--cream);
+      background-color: #ffffff;
       color: var(--deep);
-      font-family: var(--font-body);
-      margin: 0;
-      overflow-x: hidden;
     }
 
-    /* Navbar */
-    .nav {
-      position: fixed !important;
-      top: 14px !important;
-      left: 0 !important;
-      right: 0 !important;
-      margin-inline: auto !important;
-      z-index: 100 !important;
-      max-width: min(1220px, calc(100% - 32px)) !important;
-      background-color: rgba(89, 10, 22, 0.88) !important;
+    .nav,
+    .nav.scrolled {
+      background-color: rgba(89, 10, 22, 0.85) !important;
       backdrop-filter: blur(16px) saturate(1.2) !important;
       -webkit-backdrop-filter: blur(16px) saturate(1.2) !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-      box-shadow: 0 8px 32px rgba(89, 10, 22, 0.25) !important;
-    }
-    @media (max-width: 850px) {
-      .nav {
-        top: 10px !important;
-        height: 56px !important;
-        padding: 0 16px !important;
-        width: max-content !important;
-        max-width: calc(100% - 24px) !important;
-        justify-content: center !important;
-      }
-      .brand {
-        justify-content: center !important;
-      }
-      .brand img {
-        width: 36px !important;
-        height: 36px !important;
-      }
-    }
-    .nav nav a, .brand {
-      color: #ffffff !important;
-    }
-    .brand img { 
-      border-radius: 50% !important; 
-      border: 2px solid #ffffff !important; 
-      object-fit: cover !important; 
-      width: 44px;
-      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 8px 32px rgba(89, 10, 22, 0.2) !important;
     }
 
+    .nav nav a,
+    .brand {
+      color: #ffffff !important;
+    }
+
+    .brand img {
+      border-radius: 50% !important;
+      border: 2px solid #ffffff !important;
+      object-fit: cover !important;
+    }
+
+    .navCta {
+      color: #ffffff !important;
+      border-color: #ffffff !important;
+    }
+
+    .instagramBio {
+      background-color: #ffffff !important;
+    }
+  </style>
+
+  <style>
+    /* Ocultar setas, contador e barra de dots dos influenciadores */
+    #influencerPrev,
+    #influencerNext,
+    #influencerCount,
+    #influencerDots {
+      display: none !important;
+    }
+
+    /* ---------------------------------
+   GLOBAL BIDIRECTIONAL SCROLL REVEAL (FADE IN + SLIDE UP)
+   --------------------------------- */
+    .reveal {
+      opacity: 0 !important;
+      transform: translateY(32px) !important;
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      will-change: opacity, transform;
+    }
+
+    .reveal.is-visible {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .reveal-group .reveal-item {
+      opacity: 0 !important;
+      transform: translateY(28px) !important;
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      will-change: opacity, transform;
+    }
+
+    .reveal-group.is-visible .reveal-item {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(1) {
+      transition-delay: 0.04s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(2) {
+      transition-delay: 0.11s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(3) {
+      transition-delay: 0.18s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(4) {
+      transition-delay: 0.25s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(5) {
+      transition-delay: 0.32s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(6) {
+      transition-delay: 0.39s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(7) {
+      transition-delay: 0.46s !important;
+    }
+
+    .reveal-group.is-visible .reveal-item:nth-child(8) {
+      transition-delay: 0.53s !important;
+    }
+  </style>
+
+  <style>
     /* Typewriter Cursor */
     .cursor {
       display: inline-block;
-      width: 3px;
-      background-color: var(--wine);
+      width: 2.5px;
+      height: 0.9em;
+      background-color: #590A16;
       margin-left: 4px;
+      vertical-align: -0.05em;
       animation: blink 1s infinite;
-      vertical-align: middle;
-      height: 0.85em;
     }
-    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
-    #typewriter { color: var(--wine); font-style: italic; }
 
-    /* Botão Primário Vinho com Design de Alto Padrão */
-    .btn-primary,
-    .heroBottomB2B a.btn-primary {
-      background: #590A16 !important;
-      color: #fffdf8 !important;
-      font-family: var(--font-body) !important;
-      font-weight: 700 !important;
-      font-size: 14.5px !important;
-      padding: 17px 38px !important;
-      border-radius: 9999px !important;
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    #typewriter {
+      color: #590A16;
+      font-weight: 700;
+      font-style: normal;
+      letter-spacing: 0.12em;
+    }
+
+    .mobile-br {
+      display: none;
+    }
+
+    .desktop-br {
+      display: block;
+    }
+  </style>
+
+  <style>
+    /* Hero 100% Preenchida (Desktop e Mobile Otimizado) */
+    .hero {
+      min-height: calc(100vh - 100px) !important;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr) !important;
+      gap: 40px !important;
+      align-items: center !important;
+      padding: 40px 0 20px !important;
+      overflow: visible !important;
+    }
+
+    .heroAuthorityCopy {
+      min-width: 0 !important;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 4.3vw, 68px) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.04em !important;
+      margin: 18px 0 24px !important;
+    }
+
+    .hero h1 .h1-line {
+      display: block !important;
+      white-space: nowrap !important;
+    }
+
+    .influencerShowcase {
+      min-width: 0 !important;
+    }
+
+    .heroBtnMobile {
+      display: none !important;
+    }
+
+    .heroBtnDesktop {
+      display: inline-flex !important;
+    }
+
+    .eyebrow {
       display: inline-flex !important;
       align-items: center !important;
-      justify-content: center !important;
-      gap: 10px !important;
-      text-decoration: none !important;
-      box-shadow: 0 12px 32px rgba(89, 10, 22, 0.38) !important;
-      transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease, background-color 0.3s ease !important;
-      cursor: pointer !important;
-      border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    }
-    .btn-primary:hover,
-    .heroBottomB2B a.btn-primary:hover {
-      transform: translateY(-3px) scale(1.02) !important;
-      box-shadow: 0 16px 40px rgba(89, 10, 22, 0.5) !important;
-      background: #7a1523 !important;
-    }
-    .arrowIcon {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      border-top: 2px solid currentColor;
-      border-right: 2px solid currentColor;
-      transform: rotate(45deg);
-      transition: transform 0.25s ease;
-      margin-left: 4px;
+      gap: 8px !important;
+      font-size: 11px !important;
+      letter-spacing: 0.14em !important;
+      text-transform: uppercase !important;
+      font-weight: 600 !important;
+      color: #590A16 !important;
+      background: rgba(89, 10, 22, 0.05) !important;
+      backdrop-filter: blur(12px) saturate(1.2) !important;
+      -webkit-backdrop-filter: blur(12px) saturate(1.2) !important;
+      border: 1px solid rgba(89, 10, 22, 0.16) !important;
+      border-radius: 999px !important;
+      padding: 6px 18px !important;
+      box-shadow: 0 4px 16px rgba(89, 10, 22, 0.06) !important;
+      margin-bottom: 20px !important;
+      width: fit-content !important;
     }
 
-    /* Hero B2B - 100% Tela Inicial Perfeitamente Equilibrada */
-    .heroB2B {
-      position: relative;
-      width: 100%;
-      height: 100vh !important;
-      height: 100dvh !important;
-      min-height: 100vh !important;
-      min-height: 100dvh !important;
-      display: flex !important;
-      flex-direction: column !important;
-      justify-content: center !important;
-      align-items: center !important;
-      text-align: center;
-      padding: calc(72px + 20px) 24px 30px !important;
-      box-sizing: border-box !important;
-    }
-    .heroContent {
-      position: relative;
-      z-index: 2;
-      max-width: 960px;
-      width: 100%;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    /* Posição 1: Eyebrow logo acima da headline com respiro elegante */
-    .heroTop {
-      margin: 0 0 20px 0;
-      display: flex;
-      justify-content: center;
-    }
-    .heroCenter {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-    /* Posição 2: Botão logo abaixo do subtítulo com respiro elegante */
-    .heroBottomB2B {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 26px;
-      width: 100%;
-    }
-    .heroContent .eyebrow {
-      display: inline-block;
-      background: rgba(89, 10, 22, 0.1);
-      color: var(--wine);
-      padding: 6px 20px;
-      border-radius: 9999px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      border: 1px solid rgba(89, 10, 22, 0.25);
-    }
-    .heroContent h1 {
-      font-family: var(--font-display);
-      font-size: clamp(34px, 4.4vw, 56px);
-      line-height: 1.14;
-      color: var(--deep);
-      margin: 0 0 18px 0;
-      letter-spacing: -0.04em;
-      font-weight: 800;
-    }
-    .h1-line {
-      display: block;
-      white-space: nowrap;
-    }
-    .hero-typewriter-line {
-      min-height: 1.22em;
-    }
-    .heroContent p {
-      font-size: clamp(15px, 1.6vw, 17.5px);
-      line-height: 1.6;
-      color: #5c4347;
-      max-width: 620px;
-      margin: 0 auto;
-    }
+    @media (max-width: 900px) {
 
-    /* Single clean trust line */
-    .trustMicro {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 14px;
-      font-size: 12px;
-      color: #634b4e;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
-    .trustDot {
-      color: rgba(89, 10, 22, 0.35);
-      font-weight: 800;
-    }
+      .nav,
+      .nav.scrolled {
+        display: none !important;
+      }
 
-    @media (max-width: 850px) {
-      .heroB2B {
-        padding: calc(66px + 20px) 18px 24px !important;
+      .mobile-br {
+        display: block !important;
       }
-      .heroTop {
-        margin-bottom: 18px !important;
+
+      .desktop-br {
+        display: none !important;
       }
-      .heroCenter h1 {
-        font-size: clamp(26px, 6.2vw, 40px) !important;
-        line-height: 1.14 !important;
-        margin-bottom: 16px !important;
+
+      /* =========================================================================
+     ESPACAMENTO GERAL DA HERO NO MOBILE
+     ========================================================================= */
+      .hero {
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        padding: 24px 16px 28px !important;
+        margin-bottom: 36px !important;
+        gap: 20px !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
       }
-      .heroCenter p {
+
+      /* Bloco de Textos da Hero */
+      .heroAuthorityCopy {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
+        margin-bottom: 0 !important;
+      }
+
+      /* 01. BADGE NO TOPO ALINHADO À ESQUERDA */
+      .heroAuthorityCopy .eyebrow {
+        font-size: 9.5px !important;
+        letter-spacing: 0.08em !important;
+        margin: 0 0 24px 0 !important;
+        padding: 6px 14px !important;
+        border-radius: 999px !important;
+        background: rgba(89, 10, 22, 0.05) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(89, 10, 22, 0.16) !important;
+        box-shadow: 0 4px 12px rgba(89, 10, 22, 0.06) !important;
+        color: #590A16 !important;
+        text-align: left !important;
+        white-space: nowrap !important;
+        max-width: 100% !important;
+        display: inline-flex !important;
+        justify-content: flex-start !important;
+        align-self: flex-start !important;
+      }
+
+      /* 02. HEADLINE (TÍTULO PRINCIPAL) ALINHADO À ESQUERDA */
+      .heroAuthorityCopy h1 {
+        font-size: clamp(26px, 7.6vw, 36px) !important;
+        line-height: 1.12 !important;
+        margin: 0 0 14px 0 !important;
+        letter-spacing: -0.03em !important;
+        text-align: left !important;
+        width: 100% !important;
+      }
+
+      .heroAuthorityCopy .heroBottom {
+        margin: 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+      }
+
+      /* 03. SUBHEADLINE (TEXTO EXPLICATIVO) ALINHADO À ESQUERDA */
+      .heroAuthorityCopy .heroSubtitleText {
         font-size: 14px !important;
         line-height: 1.55 !important;
-        max-width: 440px !important;
+        max-width: 350px !important;
+        margin: 0 0 10px 0 !important;
+        text-align: left !important;
+        color: #634b4f !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
       }
-      .heroBottomB2B {
-        margin-top: 24px !important;
-      }
-    }
 
-    /* Mobile: Posições exatas marcadas pelo usuário */
-    @media (max-width: 768px) {
-      .heroB2B {
-        height: 100vh !important;
-        height: 100dvh !important;
-        min-height: 100vh !important;
-        min-height: 100dvh !important;
-        padding: calc(66px + 16px) 16px 26px !important;
-        box-sizing: border-box !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-        align-items: center !important;
+      .heroBtnDesktop {
+        display: none !important;
       }
-      .heroContent {
-        height: auto !important;
+
+      /* 04. CARROSSEL 3D FAN ARC NO MOBILE (VERTICAL) */
+      .influencerShowcase {
+        margin: 12px auto 6px !important;
         width: 100% !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        justify-content: center !important;
-      }
-      /* Posição 1: Eyebrow no local do Box 1 superior */
-      .heroTop {
-        margin: 0 0 20px 0 !important;
-        display: flex !important;
-        justify-content: center !important;
-      }
-      .heroContent .eyebrow {
-        padding: 5px 14px !important;
-        font-size: 10px !important;
-        letter-spacing: 0.14em !important;
-      }
-      /* Centro: Headline e Subheadline */
-      .heroCenter {
-        margin: 0 !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 100% !important;
-      }
-      .heroContent h1 {
-        font-size: clamp(23px, 6.8vw, 29px) !important;
-        line-height: 1.15 !important;
-        letter-spacing: -0.035em !important;
-        margin: 0 0 14px 0 !important;
-        font-weight: 800 !important;
-      }
-      .heroContent p {
-        font-size: 13.5px !important;
-        line-height: 1.5 !important;
-        color: #6a5356 !important;
-        max-width: 320px !important;
-        margin: 0 auto !important;
-      }
-      /* Posição 2: Botão no local do Box 2 inferior com layout vinho restaurado */
-      .heroBottomB2B {
-        width: 100% !important;
-        margin-top: 24px !important;
+        max-width: 360px !important;
+        position: relative !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
       }
-      .heroBottomB2B a.btn-primary {
-        background: #590A16 !important;
-        color: #fffdf8 !important;
-        border-radius: 9999px !important;
-        padding: 16px 28px !important;
-        font-size: 13.5px !important;
+
+      .influencerHeaderKicker {
+        font-size: 9.5px !important;
         font-weight: 700 !important;
-        width: 100% !important;
-        max-width: 330px !important;
-        justify-content: center !important;
-        box-sizing: border-box !important;
+        letter-spacing: 0.14em !important;
+        text-transform: uppercase !important;
+        color: #590A16 !important;
+        background: rgba(89, 10, 22, 0.06) !important;
+        backdrop-filter: blur(10px) !important;
+        -webkit-backdrop-filter: blur(10px) !important;
+        border: 1px solid rgba(89, 10, 22, 0.14) !important;
+        border-radius: 999px !important;
+        padding: 4px 14px !important;
+        margin-bottom: 10px !important;
         display: inline-flex !important;
         align-items: center !important;
-        gap: 8px !important;
-        box-shadow: 0 10px 28px rgba(89, 10, 22, 0.38) !important;
-        border: 1px solid rgba(255, 255, 255, 0.18) !important;
+        gap: 5px !important;
+        box-shadow: 0 4px 12px rgba(89, 10, 22, 0.04) !important;
       }
-      .trustMicro {
-        font-size: 11px !important;
-        gap: 6px !important;
-        margin-top: 10px !important;
+
+      .influencerStageBg {
+        height: 350px !important;
+        border-radius: 24px !important;
+        background-size: 16px 16px !important;
       }
+
+      .influencerFanViewport {
+        perspective: none !important;
+        -webkit-perspective: none !important;
+      }
+
+      .influencerProfile {
+        position: absolute !important;
+        width: 175px !important;
+        max-width: 175px !important;
+        height: 250px !important;
+        min-height: 0 !important;
+        max-height: 250px !important;
+        padding: 0 !important;
+        border-radius: 20px !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3) !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        opacity: 0 !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        -webkit-transform-style: flat !important;
+        transform-style: flat !important;
+        isolation: isolate !important;
+        -webkit-mask-image: -webkit-radial-gradient(white, black) !important;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease !important;
+        transform: translateZ(0);
+      }
+
+      .influencerCardAmbient {
+        display: none !important;
+      }
+
+      .influencerCardMedia {
+        position: absolute !important;
+        inset: 0 !important;
+        z-index: 2 !important;
+        width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: auto !important;
+        border-radius: inherit !important;
+        overflow: hidden !important;
+        box-shadow: none !important;
+        border: none !important;
+        background: transparent !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        transform: translateZ(0);
+      }
+
+      .influencerCardSharp {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+        object-position: center 15% !important;
+        display: block !important;
+        border-radius: inherit !important;
+        border: none !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+        transform: translateZ(0);
+      }
+
+      .influencerTopBadge {
+        display: none !important;
+      }
+
+      .influencerCardMeta {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        position: absolute !important;
+        bottom: 10px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 16px) !important;
+        background: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 6px 10px !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22) !important;
+        z-index: 10 !important;
+        box-sizing: border-box !important;
+        gap: 1.5px !important;
+        pointer-events: none !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
+      }
+
+      .influencerCardTitle {
+        display: block !important;
+        font-family: var(--font-display), "Craos", sans-serif !important;
+        font-size: 9.5px !important;
+        font-weight: 800 !important;
+        color: #111111 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.01em !important;
+        margin: 0 !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        max-width: 100% !important;
+        text-shadow: none !important;
+      }
+
+      .influencerCardSub {
+        display: inline-block !important;
+        font-family: var(--font-base), "Inter", sans-serif !important;
+        font-size: 7.5px !important;
+        font-weight: 600 !important;
+        color: #590A16 !important;
+        margin: 0 !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        letter-spacing: 0 !important;
+        text-shadow: none !important;
+      }
+
+      /* Mobile 3D Fan Arc — Padrão Foto 02 */
+      .influencerProfile.card-center {
+        transform: translate3d(0, 0, 0) rotate(0deg) scale(1.18) !important;
+        z-index: 10 !important;
+        opacity: 1 !important;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45), 0 6px 16px rgba(89, 10, 22, 0.2) !important;
+      }
+
+      .influencerProfile.card-left-1 {
+        transform: translate3d(-78px, 16px, 0) rotate(-10deg) scale(0.85) !important;
+        z-index: 4 !important;
+        opacity: 0.88 !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      .influencerProfile.card-left-2 {
+        transform: translate3d(-135px, 36px, 0) rotate(-18deg) scale(0.70) !important;
+        z-index: 2 !important;
+        opacity: 0.5 !important;
+      }
+
+      .influencerProfile.card-right-1 {
+        transform: translate3d(78px, 16px, 0) rotate(10deg) scale(0.85) !important;
+        z-index: 4 !important;
+        opacity: 0.88 !important;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25) !important;
+      }
+
+      .influencerProfile.card-right-2 {
+        transform: translate3d(135px, 36px, 0) rotate(18deg) scale(0.70) !important;
+        z-index: 2 !important;
+        opacity: 0.5 !important;
+      }
+
+      .influencerProfile.card-hidden {
+        transform: translate3d(0, 50px, 0) scale(0.3) !important;
+        z-index: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+
+      #influencerDots {
+        display: none !important;
+      }
+
+      /* 05. BOTÃO NA BASE INFERIOR DA HERO */
+      .heroBtnMobile {
+        display: inline-flex !important;
+        margin: 12px auto 0 !important;
+        /* [TESTAR]: Espaço acima do Botão */
+        width: 90% !important;
+        min-width: 280px !important;
+        max-width: 330px !important;
+        padding: 15px 26px !important;
+        font-size: 11.5px !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.1em !important;
+        justify-content: center !important;
+        border-radius: 999px !important;
+        box-shadow: 0 12px 28px rgba(89, 10, 22, 0.35) !important;
+      }
+
       .whatsappFloat b {
         display: none !important;
       }
-    }
 
-    @media (max-width: 375px) {
-      .heroContent h1 {
-        font-size: clamp(21px, 6.6vw, 24px) !important;
-      }
-      .heroContent p {
-        font-size: 13px !important;
+      .whatsappFloat {
+        right: 16px !important;
+        bottom: 16px !important;
       }
     }
+  </style>
 
-    /* Services Cards: 4 Colunas no Desktop, 2 Colunas no Mobile */
-    .services.shell {
+  <style>
+    /* Layout e Estilização para Serviços */
+    .statement {
+      padding: 70px 0 30px !important;
+      text-align: center;
+    }
+
+    .authority {
+      padding: 0 0 40px !important;
+    }
+
+    .authorityFacts {
       display: grid !important;
       grid-template-columns: repeat(4, 1fr) !important;
       gap: 20px !important;
+    }
+
+    @media (max-width: 850px) {
+      .authorityFacts {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .authorityFacts {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .portfolio {
+      margin-top: 120px !important;
+      padding: 80px 0 !important;
+    }
+
+    .services.shell {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 16px !important;
       border: none !important;
       padding: 0 !important;
-      margin-top: 24px !important;
-      margin-bottom: 50px !important;
+      margin-top: 10px !important;
+      margin-bottom: 60px !important;
     }
+
     .services article {
       display: flex !important;
       flex-direction: column !important;
       background: #590A16 !important;
-      border-radius: 20px !important;
-      padding: 34px 24px !important;
-      box-shadow: 0 15px 35px rgba(89, 10, 22, 0.22) !important;
+      border-radius: 16px !important;
+      padding: 26px 22px !important;
+      box-shadow: 0 10px 28px rgba(89, 10, 22, 0.2) !important;
+      opacity: 0.15 !important;
+      transform: translateY(16px) !important;
+      transition: opacity 0.5s ease, transform 0.5s ease !important;
+      cursor: default !important;
       border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      transition: transform 0.35s ease, box-shadow 0.35s ease !important;
     }
+
+    .services article.active {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+      box-shadow: 0 16px 36px rgba(89, 10, 22, 0.35) !important;
+    }
+
     .services article:hover {
-      transform: translateY(-6px) !important;
-      box-shadow: 0 24px 50px rgba(89, 10, 22, 0.35) !important;
+      background: #590A16 !important;
+      padding: 26px 22px !important;
     }
-    .services article > span {
-      font-size: 24px !important;
+
+    .services article:not(.active):hover {
+      opacity: 0.15 !important;
+      transform: translateY(16px) !important;
+    }
+
+    .services article>span {
+      font-size: 20px !important;
       font-weight: 700 !important;
       color: #ffffff !important;
       opacity: 0.9 !important;
-      font-family: var(--font-display) !important;
-      margin-bottom: 18px !important;
-      font-style: normal !important;
+      margin-bottom: 12px !important;
+      display: block !important;
     }
-    .services article h3 {
-      font-family: var(--font-display) !important;
-      font-size: 20px !important;
-      font-weight: 600 !important;
-      color: #ffffff !important;
-      margin: 0 0 12px 0 !important;
-      letter-spacing: -0.02em !important;
-      line-height: 1.25 !important;
-    }
-    .services article p {
-      color: #f7e6e8 !important;
-      font-size: 13.5px !important;
-      line-height: 1.6 !important;
-      margin: 0 !important;
+
+    .services article>div {
       flex-grow: 1 !important;
     }
-    .services article b { display: none !important; }
 
-    /* Tablet e Telas Médias: 2 Colunas */
-    @media (max-width: 990px) {
-      .services.shell {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 16px !important;
-      }
-      .services article {
-        padding: 26px 20px !important;
-        border-radius: 18px !important;
-      }
-      .services article h3 {
-        font-size: 18px !important;
-      }
-      .services article p {
-        font-size: 13px !important;
-      }
+    .services article h3 {
+      margin: 0 0 8px 0 !important;
+      font-size: 22px !important;
+      font-weight: 700 !important;
+      color: #ffffff !important;
+      letter-spacing: -0.02em !important;
+      line-height: 1.2 !important;
     }
 
-    /* Mobile: 2 Colunas Compactas */
-    @media (max-width: 540px) {
-      .services.shell {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 12px !important;
-      }
-      .services article {
-        padding: 20px 14px !important;
-        border-radius: 16px !important;
-      }
-      .services article > span {
-        font-size: 20px !important;
-        margin-bottom: 12px !important;
-      }
-      .services article h3 {
-        font-size: 15px !important;
-        line-height: 1.25 !important;
-        margin-bottom: 8px !important;
-      }
-      .services article p {
-        font-size: 11.5px !important;
-        line-height: 1.45 !important;
-      }
+    .services article p {
+      color: #ffffff !important;
+      font-weight: 400 !important;
+      font-size: 13.5px !important;
+      line-height: 1.5 !important;
+      opacity: 0.95 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
     }
 
-    /* ---------------------------------
-       SHOWCASE / PORTFÓLIO B2B POR SEGMENTOS
-       --------------------------------- */
-    .b2bShowcase {
-      padding: 90px 0;
-    }
-    .portfolioTabs {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin: 35px 0 45px;
-    }
-    .portfolioTab {
-      background: var(--cream-card);
-      border: 1px solid var(--line);
-      color: var(--deep);
-      font-family: var(--font-body);
-      font-size: 13.5px;
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 9999px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .portfolioTab:hover, .portfolioTab.active {
-      background: var(--wine);
-      color: var(--cream);
-      border-color: var(--wine);
-      box-shadow: 0 6px 18px rgba(89, 10, 22, 0.25);
-    }
-    /* Grid de Cases B2B: 4 Colunas no Desktop, 2 Colunas no Mobile */
-    .portfolioGrid {
-      display: grid !important;
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 20px !important;
-      margin-top: 40px !important;
-    }
-    .portfolioCard {
-      background: var(--cream-card);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 14px 40px rgba(89, 10, 22, 0.07);
-      transition: transform 0.35s ease, box-shadow 0.35s ease, opacity 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .portfolioCard:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 22px 50px rgba(89, 10, 22, 0.16);
-      border-color: rgba(89, 10, 22, 0.3);
-    }
-    .portfolioCardMedia {
-      position: relative;
-      height: 180px;
-      background: linear-gradient(135deg, #3d050d 0%, #590A16 100%);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      box-sizing: border-box;
-    }
-    .portfolioCardMedia .mediaGraphic {
-      width: 100%;
-      height: 100%;
-      border-radius: 14px;
-      border: 1px dashed rgba(249, 243, 219, 0.25);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--cream);
-      text-align: center;
-      padding: 10px;
-    }
-    .portfolioCardMedia .mediaGraphic span.iconGraphic {
-      font-size: 30px;
-      margin-bottom: 6px;
-    }
-    .portfolioCardMedia .mediaGraphic b {
-      font-family: var(--font-display);
-      font-size: 13.5px;
-      letter-spacing: -0.01em;
-      line-height: 1.25;
-    }
-    .portfolioCardMedia .mediaGraphic small {
-      font-size: 11px;
-      margin-top: 4px;
-      opacity: 0.8;
-      line-height: 1.2;
-    }
-    .portfolioBadge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: rgba(14, 18, 17, 0.85);
-      backdrop-filter: blur(8px);
-      color: #ffffff;
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .portfolioMetricBadge {
-      position: absolute;
-      bottom: 12px;
-      right: 12px;
-      background: rgba(89, 10, 22, 0.95);
-      backdrop-filter: blur(8px);
-      color: var(--cream);
-      font-size: 9.5px;
-      font-weight: 700;
-      padding: 4px 10px;
-      border-radius: 9999px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
-    .portfolioCardBody {
-      padding: 22px 18px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-    .portfolioCardBody h3 {
-      font-family: var(--font-display);
-      font-size: 17.5px;
-      font-weight: 600;
-      color: var(--deep);
-      margin: 0 0 10px 0;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-    }
-    .portfolioCardBody p {
-      color: #6a5356;
-      font-size: 13px;
-      line-height: 1.55;
-      margin: 0 0 16px 0;
-      flex-grow: 1;
-    }
-    .portfolioDeliverablesList {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 18px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-      border-top: 1px solid rgba(89, 10, 22, 0.09);
-      padding-top: 14px;
-    }
-    .portfolioDeliverablesList li {
-      font-size: 12px;
-      color: #4a282d;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      line-height: 1.35;
-    }
-    .portfolioDeliverablesList li::before {
-      content: "✦";
-      color: var(--wine);
-      font-size: 10px;
-      font-weight: 800;
-    }
-    .portfolioCardLink {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--wine);
-      font-weight: 700;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      cursor: pointer;
-      transition: gap 0.2s;
-    }
-    .portfolioCardLink:hover {
-      gap: 12px;
-    }
-
-    /* Mobile e Tablet: 2 Colunas para Cases B2B */
-    @media (max-width: 990px) {
-      .portfolioGrid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 14px !important;
-      }
-      .portfolioCard {
-        border-radius: 18px !important;
-      }
-      .portfolioCardMedia {
-        height: 155px !important;
-        padding: 12px !important;
-      }
-      .portfolioCardMedia .mediaGraphic span.iconGraphic {
-        font-size: 24px !important;
-      }
-      .portfolioCardMedia .mediaGraphic b {
-        font-size: 12px !important;
-      }
-      .portfolioCardMedia .mediaGraphic small {
-        display: none !important;
-      }
-      .portfolioBadge {
-        font-size: 8.5px !important;
-        padding: 3px 8px !important;
-        top: 8px !important;
-        left: 8px !important;
-      }
-      .portfolioMetricBadge {
-        font-size: 8.5px !important;
-        padding: 3px 8px !important;
-        bottom: 8px !important;
-        right: 8px !important;
-      }
-      .portfolioCardBody {
-        padding: 18px 14px !important;
-      }
-      .portfolioCardBody h3 {
-        font-size: 15px !important;
-        line-height: 1.25 !important;
-        margin-bottom: 8px !important;
-      }
-      .portfolioCardBody p {
-        font-size: 12px !important;
-        line-height: 1.45 !important;
-        margin-bottom: 12px !important;
-      }
-      .portfolioDeliverablesList {
-        padding-top: 10px !important;
-        margin-bottom: 14px !important;
-        gap: 5px !important;
-      }
-      .portfolioDeliverablesList li {
-        font-size: 11px !important;
-        line-height: 1.3 !important;
-      }
-      .portfolioCardLink {
-        font-size: 11px !important;
-      }
-    }
-
-    /* ---------------------------------
-       SEÇÃO A FUNDADORA (BRENDA KALDY) COM FOTOS ATUALIZADAS
-       --------------------------------- */
-    .founder {
-      padding: 100px 0;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .founder h2 {
-      font-family: var(--font-display);
-      font-size: clamp(32px, 4vw, 48px);
-      margin: 20px 0 30px;
-      font-weight: 600;
-      line-height: 1.1;
-      color: var(--deep);
-    }
-    .founder h2 em {
-      color: var(--wine);
-      font-style: italic;
-    }
-    .founder p {
-      color: #745e61;
-      line-height: 1.7;
-      margin-bottom: 20px;
-      font-size: 16px;
-    }
-    .founderImageContainer {
-      position: relative;
-      width: 100%;
-      max-width: 500px;
-      margin: 0 auto;
-      padding: 20px 0;
-      display: flex;
-      justify-content: center;
-    }
-    .photoStack {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-    }
-
-    @keyframes led-spin {
-      100% { transform: translate(-50%, -50%) rotate(360deg); }
-    }
-
-    .photoCard {
-      position: absolute;
-      width: 66%;
-      aspect-ratio: 4 / 5;
-      border-radius: 20px;
-      padding: 7px;
-      background: #2b0409;
-      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-      transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .photoCard::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 250%;
-      height: 250%;
-      transform: translate(-50%, -50%) rotate(0deg);
-      background: conic-gradient(
-        transparent 0deg, transparent 120deg,
-        #feda75 160deg, #fa7e1e 210deg, #d62976 260deg, #962fbf 310deg, #4f5bd5 360deg
-      );
-      animation: led-spin 3s linear infinite;
-      z-index: -2;
-    }
-
-    .photoCard::after {
-      content: '';
-      position: absolute;
-      inset: 5px;
-      background: #590A16;
-      border-radius: 15px;
-      z-index: -1;
-    }
-
-    .photoCard img {
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      object-fit: cover;
-      object-position: center 18%;
-      background: #fff;
-      display: block;
-      filter: saturate(0.95);
-      transition: filter 0.4s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .photoCard.back { top: 0; left: 0; transform: rotate(-12deg); z-index: 1; opacity: 0.9; }
-    .photoCard.front { bottom: 0; right: 0; transform: rotate(8deg); z-index: 2; }
-
-    .founderImageContainer:hover .photoCard.back { transform: rotate(-16deg) translate(-15px, -5px); opacity: 1; }
-    .founderImageContainer:hover .photoCard.back img { filter: saturate(1.1); }
-    .founderImageContainer:hover .photoCard.front { transform: rotate(12deg) translate(15px, 5px); }
-    .founderImageContainer:hover .photoCard.front img { filter: saturate(1.1); }
-
-    .founderNameBox { margin: 15px 0 30px; border-left: 3px solid #590A16; padding-left: 18px; }
-    .founderNameBox h3 { font-family: var(--font-display); font-size: 32px; font-weight: 600; color: var(--deep); margin: 0 0 5px; letter-spacing: -0.02em; }
-    .founderNameBox span { font-family: var(--font-body); font-size: 11px; color: #a64c58; text-transform: uppercase; letter-spacing: 0.2em; font-weight: 600; }
-
-    /* ---------------------------------
-       MATRIZ COMPARATIVA DE MERCADO ("O DIFERENCIAL KALDY")
-       --------------------------------- */
-    .comparisonSection {
-      padding: 100px 0;
-    }
-    .tableContainer {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 40px;
-      border-radius: 24px;
-      background: var(--cream-card);
-      border: 1px solid var(--line);
-      box-shadow: 0 15px 45px rgba(89, 10, 22, 0.07);
-    }
-    .comparisonTable {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 680px;
-      text-align: left;
-    }
-    .comparisonTable th, .comparisonTable td {
-      padding: 22px 24px;
-      border-bottom: 1px solid var(--line);
-      vertical-align: middle;
-    }
-    .comparisonTable th {
-      font-family: var(--font-display);
-      font-size: 14.5px;
-      font-weight: 700;
-      color: var(--deep);
-      background: rgba(89, 10, 22, 0.04);
-    }
-    .comparisonTable th.highlightCol, .comparisonTable td.highlightCol {
-      background: rgba(89, 10, 22, 0.08);
-      border-left: 2px solid var(--wine);
-      border-right: 2px solid var(--wine);
-    }
-    .comparisonTable th.highlightCol {
-      color: var(--wine);
-      position: relative;
-    }
-    .kaldyChoiceBadge {
-      display: inline-block;
-      background: var(--wine);
-      color: var(--cream);
-      font-size: 9.5px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      padding: 3px 10px;
-      border-radius: 9999px;
-      margin-bottom: 6px;
-    }
-    .comparisonTable td b {
-      display: block;
-      font-size: 14.5px;
-      color: var(--deep);
-      margin-bottom: 3px;
-    }
-    .comparisonTable td p {
-      font-size: 13px;
-      color: #745e61;
-      margin: 0;
-      line-height: 1.45;
-    }
-    .statusNo { color: #b33939; font-weight: 700; font-size: 14px; }
-    .statusWarn { color: #d35400; font-weight: 700; font-size: 14px; }
-    .statusYes { color: #27ae60; font-weight: 700; font-size: 14px; }
-
-    /* Cards Comparativos Mobile (Zero Rolagem Lateral) */
-    .mobileComparisonList {
-      display: none;
-    }
-
-    @media (max-width: 850px) {
-      .tableContainer.desktopOnlyTable {
-        display: none !important;
-      }
-      .mobileComparisonList {
-        display: flex !important;
-        flex-direction: column;
-        gap: 16px;
-        margin-top: 32px;
-      }
-      .mobileCompCard {
-        background: var(--cream-card);
-        border: 1px solid var(--line);
-        border-radius: 20px;
-        padding: 20px 16px;
-        box-shadow: 0 10px 30px rgba(89, 10, 22, 0.05);
-      }
-      .mobileCompHead {
-        display: flex;
-        flex-direction: column;
-        border-bottom: 1px solid rgba(89, 10, 22, 0.08);
-        padding-bottom: 12px;
-        margin-bottom: 14px;
-      }
-      .mobileCompHead .compNumber {
-        font-family: var(--font-display);
-        font-size: 20px;
-        font-weight: 700;
-        color: var(--wine);
-        margin-bottom: 4px;
-      }
-      .mobileCompHead h4 {
-        font-family: var(--font-display);
-        font-size: 18px;
-        font-weight: 600;
-        color: var(--deep);
-        margin: 0 0 3px 0;
-        letter-spacing: -0.02em;
-      }
-      .mobileCompHead small {
-        color: #745e61;
-        font-size: 12px;
-      }
-      .mobileCompKaldy {
-        background: #590A16;
-        color: #ffffff;
-        border-radius: 14px;
-        padding: 16px 14px;
-        margin-bottom: 12px;
-        box-shadow: 0 8px 22px rgba(89, 10, 22, 0.28);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      }
-      .mobileCompKaldy .kaldyBadgeMini {
-        font-size: 9.5px;
-        font-weight: 700;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: #f7d4d9;
-        margin-bottom: 6px;
-      }
-      .mobileCompKaldy b {
-        color: #ffffff;
-        font-size: 14px;
-        display: block;
-        margin-bottom: 4px;
-      }
-      .mobileCompKaldy p {
-        color: #f7e6e8;
-        font-size: 12px;
-        line-height: 1.5;
-        margin: 0;
-      }
-      .mobileCompOthers {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-      }
-      .compOtherItem {
-        background: rgba(14, 18, 17, 0.035);
-        border: 1px solid rgba(89, 10, 22, 0.06);
-        border-radius: 12px;
-        padding: 10px 12px;
-      }
-      .compOtherItem span {
-        display: block;
-        font-size: 11.5px;
-        font-weight: 700;
-        margin-bottom: 3px;
-      }
-      .compOtherItem p {
-        font-size: 10.5px;
-        color: #745e61;
-        margin: 0;
-        line-height: 1.35;
-      }
-    }
-
-    /* ---------------------------------
-       NÍVEIS DE ATENDIMENTO / PLANOS EMPRESARIAIS
-       --------------------------------- */
-    .plansSection {
-      padding: 90px 0;
-    }
-    .plansGrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 26px;
-      margin-top: 45px;
-      align-items: stretch;
-    }
-    .planCard {
-      background: var(--cream-card);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 40px 30px;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 10px 30px rgba(89, 10, 22, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-    }
-    .planCard:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 20px 45px rgba(89, 10, 22, 0.12);
-    }
-    .planCard.featured {
-      background: #590A16;
-      color: var(--cream);
-      border-color: #590A16;
-      box-shadow: 0 22px 50px rgba(89, 10, 22, 0.35);
-      transform: scale(1.03);
-    }
-    .planCard.featured:hover {
-      transform: scale(1.03) translateY(-6px);
-    }
-    .planFeaturedBadge {
-      position: absolute;
-      top: -14px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #ffffff;
-      color: var(--wine);
-      padding: 5px 18px;
-      border-radius: 9999px;
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      white-space: nowrap;
-    }
-    .planCard h3 {
-      font-family: var(--font-display);
-      font-size: 22px;
-      font-weight: 700;
-      margin: 0 0 8px 0;
-      letter-spacing: -0.02em;
-    }
-    .planCard.featured h3 { color: #ffffff; }
-    .planTagline {
-      font-size: 13.5px;
-      color: #745e61;
-      margin: 0 0 24px 0;
-      line-height: 1.5;
-    }
-    .planCard.featured .planTagline { color: #f4dcde; }
-    .planFeatures {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 32px 0;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex-grow: 1;
-    }
-    .planFeatures li {
-      font-size: 13.5px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      line-height: 1.45;
-      color: #3b1b20;
-    }
-    .planCard.featured .planFeatures li { color: #f7e6e8; }
-    .planFeatures li::before {
-      content: "✦";
-      color: var(--wine);
-      font-size: 12px;
-      margin-top: 1px;
-    }
-    .planCard.featured .planFeatures li::before {
-      content: "✦";
-      color: #fbd38d;
-    }
-    .planBtn {
-      width: 100%;
-      padding: 15px;
-      border-radius: 9999px;
-      font-family: var(--font-body);
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border: 1px solid var(--wine);
-      background: transparent;
-      color: var(--wine);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: all 0.25s ease;
-    }
-    .planBtn:hover {
-      background: var(--wine);
-      color: var(--cream);
-      box-shadow: 0 8px 24px rgba(89, 10, 22, 0.25);
-    }
-    .planCard.featured .planBtn {
-      background: var(--cream);
-      color: var(--wine);
-      border-color: var(--cream);
-    }
-    .planCard.featured .planBtn:hover {
-      background: #ffffff;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+    .services article>b,
+    .services article>b .arrowIcon {
+      margin-top: 14px !important;
+      align-self: flex-start !important;
+      color: #ffffff !important;
     }
 
     @media (max-width: 950px) {
-      .plansGrid { grid-template-columns: 1fr; gap: 36px; }
-      .planCard.featured { transform: none; }
-      .planCard.featured:hover { transform: translateY(-6px); }
-    }
-
-    /* ---------------------------------
-       BANNER PONTE PARA O DIAGNÓSTICO ESTRATÉGICO
-       --------------------------------- */
-    .diagnosticBridge {
-      background: linear-gradient(135deg, #f5eee2 0%, #faecd8 100%);
-      border: 1px solid rgba(89, 10, 22, 0.18);
-      border-radius: 26px;
-      padding: 44px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      box-shadow: 0 15px 40px rgba(89, 10, 22, 0.06);
-      margin: 60px 0;
-    }
-    .diagnosticBridgeContent h3 {
-      font-family: var(--font-display);
-      font-size: clamp(22px, 2.4vw, 30px);
-      font-weight: 700;
-      color: var(--deep);
-      margin: 0 0 10px 0;
-      letter-spacing: -0.03em;
-    }
-    .diagnosticBridgeContent p {
-      color: #6a5356;
-      font-size: 14.5px;
-      line-height: 1.6;
-      margin: 0;
-      max-width: 620px;
-    }
-    .diagnosticBridgeBtn {
-      flex-shrink: 0;
-      background: var(--wine);
-      color: var(--cream);
-      padding: 16px 30px;
-      border-radius: 9999px;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 8px 24px rgba(89, 10, 22, 0.28);
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-    .diagnosticBridgeBtn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(89, 10, 22, 0.4);
-    }
-
-    @media (max-width: 850px) {
-      .diagnosticBridge {
-        flex-direction: column;
-        text-align: center;
-        padding: 36px 24px;
+      .services.shell {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
       }
-      .diagnosticBridgeBtn { width: 100%; justify-content: center; }
+
+      .services article {
+        padding: 18px 14px !important;
+        border-radius: 14px !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+      }
+
+      .services article>span {
+        font-size: 16px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .services article h3 {
+        font-size: 17px !important;
+        margin-bottom: 6px !important;
+        line-height: 1.15 !important;
+      }
+
+      .services article p {
+        font-size: 12px !important;
+        line-height: 1.4 !important;
+      }
+
+      .services article>b {
+        display: none !important;
+      }
     }
 
-    /* Banner CTA Intermediário */
-    .middleCta {
-      background: linear-gradient(135deg, #590A16 0%, #3d050d 100%);
-      color: var(--cream);
-      border-radius: 28px;
-      padding: 70px 48px;
+    @media (max-width: 480px) {
+      .services.shell {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+      }
+
+      .services article {
+        padding: 14px 10px !important;
+        border-radius: 12px !important;
+      }
+
+      .services article h3 {
+        font-size: 15px !important;
+      }
+
+      .services article p {
+        font-size: 11px !important;
+      }
+    }
+  </style>
+
+  <style>
+    /* 04 - Seção Transparência Total — Design Ultra-Premium 3x2 */
+    .transparency {
+      padding: 110px 0 80px !important;
+      background: #ffffff !important;
+    }
+
+    .transparencyHead {
       text-align: center;
-      margin: 60px 0;
-      box-shadow: 0 20px 50px rgba(89, 10, 22, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    .middleCta h2 {
-      font-family: var(--font-display);
-      font-size: clamp(30px, 4vw, 44px);
-      font-weight: 700;
-      margin: 0 0 16px 0;
-      letter-spacing: -0.03em;
-    }
-    .middleCta p {
-      color: #f7e6e8;
-      max-width: 620px;
-      margin: 0 auto 36px;
-      font-size: 16px;
-      line-height: 1.6;
-    }
-    .middleCta a.btn-light {
-      background: var(--cream);
-      color: var(--wine);
-      padding: 16px 36px;
-      border-radius: 9999px;
-      font-weight: 700;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .middleCta a.btn-light:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+      max-width: 960px;
+      margin: 0 auto 60px;
     }
 
-    /* Metodologia em 4 Passos */
-    .methodology {
-      padding: 100px 0;
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      align-items: start;
-    }
-    .methodology h2 {
+    .transparencyHead h2 {
       font-family: var(--font-display);
-      font-size: clamp(32px, 4.5vw, 52px);
-      margin: 20px 0 0;
-      font-weight: 600;
+      font-size: clamp(28px, 3.6vw, 48px);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      margin: 18px 0 20px;
       line-height: 1.15;
     }
-    .methodology h2 em { color: var(--wine); font-style: italic; }
-    .methodology ol {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .methodology li {
-      display: grid;
-      grid-template-columns: 50px 1fr;
-      border-top: 1px solid var(--line);
-      padding: 30px 0;
-      gap: 20px;
-      align-items: start;
-    }
-    .methodology li:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-    .methodology li span {
-      font-family: Georgia, serif;
-      color: var(--wine);
-      font-style: italic;
-      font-size: 22px;
-      font-weight: 700;
-    }
-    .methodology li b {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--deep);
+
+    .transparencyHead .t-line {
       display: block;
-      margin-bottom: 8px;
-    }
-    .methodology li p {
-      margin: 0;
-      color: #6a5356;
-      line-height: 1.6;
-      font-size: 15px;
     }
 
-    /* O que está incluso (Entregáveis) */
-    .deliverables {
-      padding: 80px 0;
-    }
-    .deliverablesHead {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 50px;
-    }
-    .deliverablesHead h2 {
-      font-family: var(--font-display);
-      font-size: clamp(30px, 4.2vw, 48px);
-      margin: 16px 0;
-      font-weight: 600;
-    }
-    .deliverablesHead h2 em { color: var(--wine); font-style: italic; }
-    .deliverablesGrid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .deliverableCard {
-      background: var(--cream-card);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 36px 28px;
-      box-shadow: 0 10px 30px rgba(89, 10, 22, 0.06);
-      transition: transform 0.3s ease, border-color 0.3s ease;
-    }
-    .deliverableCard:hover {
-      transform: translateY(-5px);
-      border-color: rgba(89, 10, 22, 0.35);
-    }
-    .deliverableCard .icon {
-      font-size: 32px;
-      margin-bottom: 16px;
-      display: inline-block;
-    }
-    .deliverableCard h3 {
-      font-family: var(--font-display);
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--deep);
-      margin: 0 0 14px 0;
-    }
-    .deliverableCard ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .deliverableCard li {
-      font-size: 14.5px;
-      color: #6a5356;
-      line-height: 1.5;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .deliverableCard li::before {
-      content: "✦";
-      color: var(--wine);
-      font-size: 12px;
-      margin-top: 3px;
+    .transparencyHead em {
+      color: #590A16;
+      font-family: var(--font-accent);
+      font-style: normal;
+      font-weight: 400;
+      letter-spacing: -0.035em;
     }
 
-    /* FAQ Accordion */
-    .faqSection {
-      padding: 100px 0 80px;
-    }
-    .faqHead {
-      text-align: center;
-      max-width: 680px;
-      margin: 0 auto 50px;
-    }
-    .faqHead h2 {
-      font-family: var(--font-display);
-      font-size: clamp(30px, 4vw, 46px);
-      margin: 16px 0;
-      font-weight: 600;
-    }
-    .faqHead h2 em { color: var(--wine); font-style: italic; }
-    .faqList {
-      max-width: 820px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .faqItem {
-      background: var(--cream-card);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      overflow: hidden;
-      transition: border-color 0.2s;
-    }
-    .faqItem.open {
-      border-color: rgba(89, 10, 22, 0.4);
-    }
-    .faqQuestion {
-      width: 100%;
-      padding: 22px 26px;
-      background: none;
-      border: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      text-align: left;
-      font-family: var(--font-body);
+    .transparencyHead p {
       font-size: 16px;
-      font-weight: 600;
-      color: var(--deep);
-      gap: 16px;
-    }
-    .faqQuestion .icon {
-      font-size: 20px;
-      color: var(--wine);
-      transition: transform 0.3s ease;
-      line-height: 1;
-    }
-    .faqItem.open .faqQuestion .icon {
-      transform: rotate(45deg);
-    }
-    .faqAnswer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.35s ease;
-      padding: 0 26px;
-      color: #6a5356;
-      font-size: 15px;
       line-height: 1.65;
-    }
-    .faqItem.open .faqAnswer {
-      max-height: 280px;
-      padding-bottom: 24px;
+      color: #745e61;
+      max-width: 680px;
+      margin: 0 auto;
     }
 
+    .transparencyGrid {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 24px !important;
+    }
+
+    .transparencyCard {
+      background: #F7EFF1 !important;
+      color: #0e1211 !important;
+      border-radius: 20px !important;
+      padding: 36px 30px !important;
+      box-shadow: 0 6px 24px rgba(89, 10, 22, 0.05), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+      border: 1.5px solid rgba(89, 10, 22, 0.14) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      position: relative !important;
+      overflow: hidden !important;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease !important;
+    }
+
+    .transparencyCard::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #590A16, #b85a65);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .transparencyCard:hover {
+      transform: translateY(-5px) !important;
+      background: #F1E5E8 !important;
+      box-shadow: 0 18px 40px rgba(89, 10, 22, 0.14), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+      border-color: rgba(89, 10, 22, 0.32) !important;
+    }
+
+    .transparencyCard:hover::before {
+      opacity: 1;
+    }
+
+    .transparencyIconWrap {
+      width: 52px !important;
+      height: 52px !important;
+      border-radius: 14px !important;
+      background: #590A16 !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      display: grid !important;
+      place-items: center !important;
+      margin-bottom: 22px !important;
+      box-shadow: 0 6px 16px rgba(89, 10, 22, 0.2) !important;
+      transition: background 0.3s ease, transform 0.3s ease !important;
+    }
+
+    .transparencyIconWrap svg {
+      stroke: #ffffff !important;
+    }
+
+    .transparencyCard:hover .transparencyIconWrap {
+      background: #730d1d !important;
+      transform: scale(1.06) !important;
+    }
+
+    .transparencyCard h3 {
+      font-family: var(--font-display) !important;
+      font-size: 21px !important;
+      font-weight: 700 !important;
+      color: #590A16 !important;
+      margin: 0 0 12px 0 !important;
+      letter-spacing: -0.02em !important;
+    }
+
+    .transparencyCard p {
+      color: #4a2c31 !important;
+      font-size: 14.5px !important;
+      line-height: 1.6 !important;
+      margin: 0 !important;
+    }
+
+    @media (max-width: 950px) {
+      .transparencyGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 16px !important;
+      }
+
+      .transparencyCard {
+        padding: 26px 20px !important;
+        border-radius: 16px !important;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .transparency {
+        padding: 70px 0 50px !important;
+      }
+
+      .transparencyHead {
+        margin: 0 auto 36px !important;
+      }
+
+      .transparencyGrid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+
+      .transparencyCard {
+        padding: 20px 14px !important;
+        border-radius: 14px !important;
+      }
+
+      .transparencyIconWrap {
+        width: 42px !important;
+        height: 42px !important;
+        border-radius: 10px !important;
+        margin-bottom: 14px !important;
+      }
+
+      .transparencyIconWrap svg {
+        width: 18px !important;
+        height: 18px !important;
+      }
+
+      .transparencyCard h3 {
+        font-size: 15px !important;
+        margin: 0 0 8px 0 !important;
+        line-height: 1.2 !important;
+      }
+
+      .transparencyCard p {
+        font-size: 12px !important;
+        line-height: 1.45 !important;
+      }
+    }
+  </style>
+
+  <style>
     /* Emojis Cursor Customizado */
     .customCursor {
       display: block !important;
@@ -1455,1148 +936,1367 @@
       transform: translate(-100px, -100px);
       transition: none !important;
     }
-    .customCursor::after { content: "📷"; }
-    body.clicking .customCursor::after { content: "📸"; }
 
-    /* ---------------------------------
-       MODAL DE ORÇAMENTO EMPRESAS (WSX)
-       --------------------------------- */
-    .modalBackdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(14, 18, 17, 0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      z-index: 10000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.35s ease, visibility 0.35s ease;
+    .customCursor::after {
+      content: "📷";
     }
-    .modalBackdrop.active {
-      opacity: 1;
-      visibility: visible;
+
+    body.clicking .customCursor::after {
+      content: "📸";
     }
-    .modalCard {
-      background: #fcf9f2;
-      color: var(--deep);
-      width: 100%;
-      max-width: 620px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 24px;
-      padding: 32px 28px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 30px rgba(89, 10, 22, 0.22);
-      border: 1px solid rgba(89, 10, 22, 0.2);
-      position: relative;
-      transform: translateY(24px) scale(0.96);
-      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-      box-sizing: border-box;
+
+    @media (max-width: 1024px), (hover: none), (pointer: coarse) {
+      .customCursor {
+        display: none !important;
+      }
     }
-    .modalBackdrop.active .modalCard {
-      transform: translateY(0) scale(1);
+
+    /* =========================================================================
+       INFLUENCER CAROUSEL 3D FAN ARC / COVERFLOW (BASE & DESKTOP)
+       ========================================================================= */
+    .influencerShowcase {
+      position: relative !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-width: 0 !important;
+      width: 100% !important;
+      margin: 0 auto !important;
     }
-    .modalHeader {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid rgba(89, 10, 22, 0.12);
-      padding-bottom: 14px;
+
+    .influencerHeaderKicker {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.16em !important;
+      text-transform: uppercase !important;
+      color: #590A16 !important;
+      background: rgba(89, 10, 22, 0.05) !important;
+      backdrop-filter: blur(10px) !important;
+      -webkit-backdrop-filter: blur(10px) !important;
+      border: 1px solid rgba(89, 10, 22, 0.14) !important;
+      border-radius: 999px !important;
+      padding: 5px 16px !important;
+      margin-bottom: 14px !important;
+      box-shadow: 0 4px 12px rgba(89, 10, 22, 0.04) !important;
     }
-    .modalHeader h2 {
-      font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
-      margin: 0;
-      color: var(--deep);
-      letter-spacing: -0.03em;
+
+    /* Stage box with dot grid pattern */
+    .influencerStageBg {
+      position: relative !important;
+      width: 100% !important;
+      background-color: rgba(255, 255, 255, 0.7) !important;
+      background-image: radial-gradient(rgba(89, 10, 22, 0.16) 1.5px, transparent 1.5px) !important;
+      background-size: 20px 20px !important;
+      border-radius: 32px !important;
+      border: 1px solid rgba(89, 10, 22, 0.12) !important;
+      box-shadow: 0 20px 50px rgba(89, 10, 22, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: visible !important;
     }
-    .modalCloseBtn {
-      background: none;
-      border: none;
-      font-size: 28px;
-      color: #7a5e62;
-      cursor: pointer;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      transition: all 0.2s;
-      line-height: 1;
+
+    .influencerFanViewport {
+      position: relative !important;
+      width: 100% !important;
+      height: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      perspective: 1000px !important;
     }
-    .modalCloseBtn:hover {
-      background: rgba(89, 10, 22, 0.12);
-      color: var(--wine);
+
+    .influencerProfile {
+      position: absolute !important;
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      box-sizing: border-box !important;
+      cursor: pointer !important;
+      overflow: hidden !important;
+      opacity: 0 !important;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease !important;
+      transform-origin: center bottom !important;
+      will-change: transform, opacity !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+      -webkit-transform-style: flat !important;
+      transform-style: flat !important;
+      isolation: isolate !important;
+      -webkit-mask-image: -webkit-radial-gradient(white, black) !important;
+      transform: translateZ(0);
     }
-    .formGrid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+
+    .influencerCardAmbient {
+      display: none !important;
     }
-    .formGrid .fullWidth {
-      grid-column: span 2;
+
+    .influencerCardMedia {
+      position: absolute !important;
+      inset: 0 !important;
+      z-index: 2 !important;
+      width: 100% !important;
+      height: 100% !important;
+      border-radius: inherit !important;
+      overflow: hidden !important;
+      box-shadow: none !important;
+      border: none !important;
+      background: transparent !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+      transform: translateZ(0);
     }
-    .formGroup {
+
+    .influencerCardSharp {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      display: block !important;
+      border-radius: inherit !important;
+      border: none !important;
+      -webkit-backface-visibility: hidden !important;
+      backface-visibility: hidden !important;
+      transform: translateZ(0);
+    }
+
+    .influencerTopBadge {
+      display: none !important;
+    }
+
+    @media (min-width: 901px) {
+      .influencerShowcase {
+        max-width: 560px !important;
+      }
+
+      .influencerStageBg {
+        height: 460px !important;
+      }
+
+      .influencerProfile {
+        width: 235px !important;
+        height: 320px !important;
+        border-radius: 20px !important;
+        box-shadow: 0 16px 36px rgba(14, 18, 17, 0.25) !important;
+      }
+
+      .influencerCardMeta {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+        position: absolute !important;
+        bottom: 12px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: calc(100% - 24px) !important;
+        background: #ffffff !important;
+        border-radius: 12px !important;
+        padding: 8px 10px !important;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22), 0 2px 6px rgba(0, 0, 0, 0.08) !important;
+        z-index: 10 !important;
+        box-sizing: border-box !important;
+        gap: 2px !important;
+        pointer-events: none !important;
+      }
+
+      .influencerCardTitle {
+        display: block !important;
+        font-family: var(--font-display), "Craos", sans-serif !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        color: #111111 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.01em !important;
+        margin: 0 !important;
+        line-height: 1.15 !important;
+        white-space: normal !important;
+        word-break: break-word !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        max-width: 100% !important;
+        text-shadow: none !important;
+      }
+
+      .influencerCardSub {
+        display: inline-block !important;
+        font-family: var(--font-base), "Inter", sans-serif !important;
+        font-size: 9px !important;
+        font-weight: 600 !important;
+        color: #590A16 !important;
+        margin: 0 !important;
+        line-height: 1.1 !important;
+        white-space: nowrap !important;
+        letter-spacing: 0.01em !important;
+        text-shadow: none !important;
+      }
+
+      .influencerProfile.card-center {
+        transform: translate3d(0, -18px, 0) rotate(0deg) scale(1.35) !important;
+        z-index: 10 !important;
+        opacity: 1 !important;
+        box-shadow: 0 30px 65px rgba(14, 18, 17, 0.35), 0 12px 28px rgba(89, 10, 22, 0.25) !important;
+        pointer-events: auto !important;
+      }
+
+      .influencerProfile.card-left-1 {
+        transform: translate3d(-155px, 24px, 0) rotate(-10deg) scale(0.85) !important;
+        z-index: 6 !important;
+        opacity: 0.9 !important;
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .influencerProfile.card-left-2 {
+        transform: translate3d(-275px, 58px, 0) rotate(-19deg) scale(0.70) !important;
+        z-index: 3 !important;
+        opacity: 0.72 !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .influencerProfile.card-right-1 {
+        transform: translate3d(155px, 24px, 0) rotate(10deg) scale(0.85) !important;
+        z-index: 6 !important;
+        opacity: 0.9 !important;
+        box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12) !important;
+      }
+
+      .influencerProfile.card-right-2 {
+        transform: translate3d(275px, 58px, 0) rotate(19deg) scale(0.70) !important;
+        z-index: 3 !important;
+        opacity: 0.72 !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08) !important;
+      }
+
+      .influencerProfile.card-hidden {
+        transform: translate3d(0, 100px, 0) scale(0.35) !important;
+        z-index: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
+    }
+
+      .services article {
+        padding: 28px 24px !important;
+      }
+
+      .services h3 {
+        font-size: 26px !important;
+        text-align: center !important;
+      }
+
+      .services p {
+        font-size: 15px !important;
+        line-height: 1.5 !important;
+        text-align: center !important;
+      }
+
+      .services article>span {
+        font-size: 16px !important;
+        align-self: center !important;
+        margin-bottom: 16px !important;
+      }
+
+      .services article>b {
+        align-self: center !important;
+        margin-top: 16px !important;
+      }
+    }
+
+    /* Center Play Button */
+    .centerPlayBtn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       display: flex;
       flex-direction: column;
-      gap: 6px;
-    }
-    .formGroup label {
-      font-size: 12px;
-      font-weight: 600;
-      color: #3b1b20;
-      letter-spacing: 0.01em;
-    }
-    .formGroup label span.req {
-      color: var(--wine);
-      font-weight: 700;
-    }
-    .formGroup input, .formGroup select, .formGroup textarea {
-      width: 100%;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(89, 10, 22, 0.2);
-      background: #ffffff;
-      color: var(--deep);
-      font-family: var(--font-body);
-      font-size: 13.5px;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      box-sizing: border-box;
-    }
-    .formGroup input:focus, .formGroup select:focus, .formGroup textarea:focus {
-      outline: none;
-      border-color: var(--wine);
-      box-shadow: 0 0 0 3px rgba(89, 10, 22, 0.12);
-    }
-    .modalSubmitBtn {
-      width: 100%;
-      padding: 16px;
-      border-radius: 9999px;
-      background: var(--wine);
-      color: var(--cream);
-      font-family: var(--font-body);
-      font-weight: 700;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(89, 10, 22, 0.35);
-      display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 22px;
-      transition: transform 0.25s, box-shadow 0.25s, background 0.25s;
-    }
-    .modalSubmitBtn:hover {
-      background: var(--wine-light);
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(89, 10, 22, 0.45);
+      gap: 12px;
+      z-index: 10;
+      transition: opacity 0.3s;
+      pointer-events: none;
     }
 
-    /* ---------------------------------
-       STICKY MOBILE CTA BAR
-       --------------------------------- */
-    .stickyMobileBar {
-      display: none;
+    .videoFrame.is-playing .centerPlayBtn {
+      opacity: 0;
+      pointer-events: none;
     }
 
-    @media (max-width: 850px) {
-      .deliverablesGrid { grid-template-columns: 1fr; }
-      .methodology { grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
-      .founder { grid-template-columns: 1fr; gap: 40px; padding: 60px 0; }
-      .founderImageContainer { max-width: 100%; padding: 15px 0 25px; }
-      .photoStack {
-        position: relative;
-        width: 100%;
-        max-width: 420px;
-        aspect-ratio: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 16px;
-        margin: 0 auto;
-        padding: 15px 10px;
-      }
-      .photoCard {
-        position: relative;
-        width: calc(50% - 10px);
-        max-width: 195px;
-        aspect-ratio: 4 / 5;
-        padding: 6px;
-      }
-      .photoCard.back {
-        top: auto;
-        left: auto;
-        transform: rotate(-4deg) translateY(-10px);
-        opacity: 1;
-        z-index: 1;
-      }
-      .photoCard.front {
-        bottom: auto;
-        right: auto;
-        transform: rotate(4deg) translateY(10px);
-        z-index: 2;
-      }
-      .founderImageContainer:hover .photoCard.back { transform: rotate(-6deg) translateY(-12px); }
-      .founderImageContainer:hover .photoCard.front { transform: rotate(6deg) translateY(12px); }
+    .playToggle.bigPlayBtn {
+      pointer-events: auto;
+      position: relative !important;
+      width: 72px !important;
+      height: 72px !important;
+      background: var(--wine) !important;
+      border: none !important;
+      border-radius: 50% !important;
+      display: grid !important;
+      place-items: center !important;
+      cursor: pointer !important;
+    }
 
-      /* Sticky Mobile Bar */
-      .stickyMobileBar {
-        display: flex;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(249, 243, 219, 0.96);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border-top: 1px solid rgba(89, 10, 22, 0.18);
-        padding: 12px 18px;
-        z-index: 999;
-        justify-content: space-between;
-        align-items: center;
-        transform: translateY(110%);
-        transition: transform 0.35s ease;
-        box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.1);
+    .playToggle.bigPlayBtn .iconPlay {
+      border-left-color: var(--cream) !important;
+      border-top-width: 10px !important;
+      border-bottom-width: 10px !important;
+      border-left-width: 15px !important;
+      margin-left: 5px !important;
+    }
+
+    .pulseRing {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      border: 2px solid var(--wine);
+      animation: pulseAnim 2s infinite cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    @keyframes pulseAnim {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
       }
-      .stickyMobileBar.visible {
-        transform: translateY(0);
-      }
-      .stickyMobileBar .stickyInfo {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-      }
-      .stickyMobileBar .stickyTitle {
-        font-family: var(--font-display);
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--deep);
-      }
-      .stickyMobileBar .stickySubtitle {
-        font-size: 10.5px;
-        color: var(--wine);
-        font-weight: 600;
-      }
-      .stickyMobileBar .stickyBtn {
-        background: var(--wine);
-        color: var(--cream);
-        padding: 10px 18px;
-        border-radius: 9999px;
-        font-size: 11.5px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        box-shadow: 0 4px 15px rgba(89, 10, 22, 0.3);
+
+      100% {
+        transform: scale(1.6);
+        opacity: 0;
       }
     }
 
-    @media (max-width: 580px) {
-      .formGrid { grid-template-columns: 1fr; gap: 12px; }
-      .formGrid .fullWidth { grid-column: span 1; }
-      .modalCard { padding: 24px 18px; }
-      .modalHeader h2 { font-size: 20px; }
+    .centerPlayBtn span {
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 11px;
+      font-weight: 500;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+      pointer-events: none;
+    }
+
+    /* Lenis Fixes */
+    html.lenis,
+    html.lenis body {
+      height: auto;
+    }
+
+    .lenis.lenis-smooth {
+      scroll-behavior: auto !important;
+    }
+
+    .lenis.lenis-smooth [data-lenis-prevent] {
+      overscroll-behavior: contain;
+    }
+
+    .lenis.lenis-stopped {
+      overflow: hidden;
+    }
+
+    .lenis.lenis-scrolling iframe {
+      pointer-events: none;
     }
   </style>
 </head>
+
 <body>
-<main>
-  <div class="customCursor" aria-hidden="true"></div>
+  <main>
+    <div class="customCursor" aria-hidden="true"></div>
+    <header class="nav shell">
+      <a href="#top" class="brand"><img
+          src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png"
+          alt="Kaldy Digital"><span>KALDY<br>DIGITAL</span></a>
+      <nav aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#sobre-fundadora">Quem Somos</a><a
+          href="#portfolio">Portfólio</a><a href="#processo">Processo</a></nav>
+      <a class="navCta btn-primary whatsappLink" href="#">Fale com a Kaldy <span class="arrowIcon"
+          aria-hidden="true"></span></a>
+    </header>
 
-  <!-- Header & Navbar -->
-  <header class="nav shell">
-    <a href="#top" class="brand">
-      <img src="logo-kaldy.png" alt="Kaldy Digital" onerror="this.src='https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png'">
-      <span>KALDY<br>DIGITAL</span>
-    </a>
-    <nav aria-label="Navegação principal">
-      <a href="#especialidades">Especialidades</a>
-      <a href="#sobre-fundadora">A Fundadora</a>
-      <a href="#portfolio-b2b">Cases B2B</a>
-      <a href="#comparativo">Diferenciais</a>
-      <a href="#planos">Planos</a>
-      <a href="#metodologia">Metodologia</a>
-      <a href="#avaliacoes">Depoimentos</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-  </header>
+    <!-- ====================================================================
+       05 - HERO SECTION 100% PREENCHIDA (DESKTOP & MOBILE COM BOTÃO ABAIXO)
+       ==================================================================== -->
+    <section class="hero shell" id="top">
+      <div class="heroAuthorityCopy">
+        <div class="eyebrow">Social media · Tráfego Pago · Storymaker · Filmmaker</div>
 
-  <!-- Hero B2B -->
-  <section class="heroB2B" id="top">
-    <div class="heroContent shell">
-      <div class="heroTop">
-        <span class="eyebrow">Agência de Performance &amp; Posicionamento B2B</span>
-      </div>
-      <div class="heroCenter">
         <h1>
-          <span class="h1-line">Elevando o padrão da</span>
-          <span class="h1-line">sua empresa com:</span>
-          <span class="h1-line hero-typewriter-line"><span id="typewriter"></span><span class="cursor"></span></span>
+          <span class="h1-line">Construindo o</span>
+          <span class="h1-line"><em>próximo nível</em></span>
+          <span class="h1-line">da sua presença</span>
+          <span class="h1-line">digital.</span>
         </h1>
-        <p>Criamos conteúdos estratégicos, designs magnéticos e captação audiovisual in-loco para transformar a autoridade da sua marca em faturamento previsível.</p>
-      </div>
-      <div class="heroBottomB2B">
-        <a class="heroCtaBtn btn-primary" href="#" onclick="openQuoteModal(event)" style="background: #590A16 !important; color: #fffdf8 !important; padding: 17px 34px !important; font-size: 14.5px !important; font-weight: 700 !important; border-radius: 9999px !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; box-shadow: 0 12px 32px rgba(89, 10, 22, 0.42) !important; border: 1px solid rgba(255, 255, 255, 0.2) !important; text-decoration: none !important; cursor: pointer !important;">
-          Orçamento Rápido no WhatsApp <span class="arrowIcon" aria-hidden="true" style="display: inline-block; width: 7px; height: 7px; border-top: 2px solid #fffdf8; border-right: 2px solid #fffdf8; transform: rotate(45deg); margin-left: 4px;"></span>
-        </a>
-        <div class="trustMicro">
-          <span>⚡ Resposta em até 15 min</span>
-          <span class="trustDot">•</span>
-          <span>🔒 Sem compromisso</span>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Ticker de Segmentos Atendidos -->
-  <div class="ticker">
-    <div>CLÍNICAS &amp; SAÚDE ✦ ESCRITÓRIOS &amp; ADVOCACIA ✦ GASTRONOMIA PREMIUM ✦ E-COMMERCE &amp; VAREJO ✦ SERVIÇOS DE ALTO PADRÃO ✦ B2B CORPORATIVO ✦ CLÍNICAS &amp; SAÚDE ✦ ESCRITÓRIOS &amp; ADVOCACIA ✦ GASTRONOMIA PREMIUM ✦ E-COMMERCE &amp; VAREJO ✦ SERVIÇOS DE ALTO PADRÃO ✦ B2B CORPORATIVO ✦ </div>
-  </div>
+        <div class="heroBottom" style="flex-direction: column; align-items: flex-start; gap: 24px; margin-top: 10px;">
+          <p class="heroSubtitleText"
+            style="margin: 0; width: min(480px, 100%); font-size: 16px; line-height: 1.65; color: #594348;">
+            Unimos estratégia visual de alto padrão e tráfego pago com inteligência para posicionar a sua marca e atrair
+            clientes qualificados todos os dias.
+          </p>
 
-  <!-- Statement / Introdução -->
-  <section class="statement shell" style="padding: 90px 0 50px; text-align: center;">
-    <h2 style="font-family: var(--font-display); font-size: clamp(32px, 4.5vw, 54px); margin: 0 auto 16px; text-align: center; font-weight: 600; line-height: 1.15; max-width: 800px;">Nossas <em>Especialidades.</em></h2>
-    <p style="font-family: var(--font-display); font-size: clamp(18px, 2.2vw, 24px); color: var(--wine); font-style: italic; margin: 0 auto 22px; font-weight: 500; max-width: 680px;">Do design magnético à conversão em vendas.</p>
-    <p class="statementText" style="max-width: 640px; margin: 0 auto; text-align: center; color: #745e61; font-size: 16px; line-height: 1.65;">Soluções integradas de comunicação digital para empresas que buscam liderança, estética refinada e alta percepção de valor.</p>
-  </section>
-
-  <!-- 4 Especialidades da Kaldy (Cards Vinho em 2 Colunas) -->
-  <section class="services shell" id="especialidades">
-    <article>
-      <span>01</span>
-      <div>
-        <h3>Design Estratégico</h3>
-        <p>Artes, carrosséis e identidades visuais desenhados com princípios de neurodesign e autoridade editorial para capturar atenção imediata e valorizar a percepção da sua marca.</p>
-      </div>
-      <b><span class="arrowIcon" aria-hidden="true"></span></b>
-    </article>
-    <article>
-      <span>02</span>
-      <div>
-        <h3>Tráfego Pago &amp; Performance</h3>
-        <p>Gestão estratégica de campanhas no Meta Ads e Google Ads, criação de anúncios de alta conversão e atração contínua de clientes qualificados com foco em ROI e escala.</p>
-      </div>
-      <b><span class="arrowIcon" aria-hidden="true"></span></b>
-    </article>
-    <article>
-      <span>03</span>
-      <div>
-        <h3>Produção Audiovisual</h3>
-        <p>Roteiros estratégicos, gravações presenciais no seu negócio com câmeras de cinema e edição dinâmica de Reels com alta retenção e sofisticação.</p>
-      </div>
-      <b><span class="arrowIcon" aria-hidden="true"></span></b>
-    </article>
-    <article>
-      <span>04</span>
-      <div>
-        <h3>Social Media &amp; Posicionamento B2B</h3>
-        <p>Estratégias de conteúdo validadas para os algoritmos atuais, copywriting persuasivo e gestão de autoridade para transformar seguidores em reuniões e contratos fechados.</p>
-      </div>
-      <b><span class="arrowIcon" aria-hidden="true"></span></b>
-    </article>
-  </section>
-
-  <!-- ==========================================================================
-       NOVA SEÇÃO: PORTFÓLIO & CASES B2B POR SEGMENTOS
-       ========================================================================== -->
-  <section class="b2bShowcase shell" id="portfolio-b2b">
-    <div style="text-align: center; max-width: 760px; margin: 0 auto;">
-      <p class="kicker">Resultados que Constroem Liderança</p>
-      <h2 style="font-family: var(--font-display); font-size: clamp(30px, 4vw, 48px); margin: 16px 0; font-weight: 600;">Cases &amp; Produções por<br><em>Segmento Corporativo.</em></h2>
-      <p style="color: #745e61; font-size: 16px; line-height: 1.65;">Veja como traduzimos a essência de negócios de alto ticket em autoridade magnética e crescimento consistente.</p>
-    </div>
-
-
-    <!-- Grid de Cases B2B -->
-    <div class="portfolioGrid">
-      <!-- Case 1: Clínicas & Saúde -->
-      <div class="portfolioCard" data-category="saude">
-        <div class="portfolioCardMedia">
-          <div class="mediaGraphic">
-            <span class="iconGraphic">🩺</span>
-            <b>Clínica Médica &amp; Estética Avançada</b>
-            <small style="opacity: 0.8; font-size: 12px; margin-top: 4px;">Captação Presencial • Reels Explicativos • Feed Editorial</small>
-          </div>
-          <span class="portfolioBadge">Saúde &amp; Estética</span>
-          <span class="portfolioMetricBadge">+340% Alcance • 120+ Agendamentos</span>
-        </div>
-        <div class="portfolioCardBody">
-          <h3>Autoridade Médica e Humanização de Consultório</h3>
-          <p>Estruturação de linha editorial ética e sofisticada para médicos e clínicas. Produção de vídeos dinâmicos tirando dúvidas comuns e gerando confiança imediata nos pacientes.</p>
-          <ul class="portfolioDeliverablesList">
-            <li>Captação in-loco em consultório com equipamentos de cinema</li>
-            <li>Roteiros éticos em total conformidade com normas regulatórias</li>
-            <li>Padronização de destaques e links diretos para a recepção</li>
-          </ul>
-          <a class="portfolioCardLink" href="#contato" onclick="openQuoteModal(event, 'Social Media Completo + Gravações In-Loco')">
-            Quero posicionar minha clínica <span class="arrowIcon" aria-hidden="true"></span>
+          <!-- Botão Desktop -->
+          <a class="btn-primary whatsappLink heroBtnDesktop" href="#" target="_blank"
+            style="padding: 16px 32px; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; border-radius: 999px; background: #590A16; color: #fff; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 25px rgba(89,10,22,0.3); align-items: center; gap: 10px;">
+            Solicitar Diagnóstico Estratégico <span class="arrowIcon" aria-hidden="true"></span>
           </a>
         </div>
       </div>
 
-      <!-- Case 2: Advocacia & Consultoria -->
-      <div class="portfolioCard" data-category="advocacia">
-        <div class="portfolioCardMedia">
-          <div class="mediaGraphic">
-            <span class="iconGraphic">⚖️</span>
-            <b>Boutique Jurídica &amp; Advocacia Corporativa</b>
-            <small style="opacity: 0.8; font-size: 12px; margin-top: 4px;">Carrosséis Editoriais • Posicionamento C-Level • LinkedIn &amp; Insta</small>
+      <div class="influencerShowcase" aria-label="Nomes presentes nos destaques da Kaldy">
+        <div class="influencerHeaderKicker">
+          <span>✦ Grandes players atendidos ✦</span>
+        </div>
+        <div class="influencerStageBg">
+          <div class="influencerFanViewport" id="influencerFanViewport">
+            <!-- 01. Jade Picon -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="fotos/Jade Picon.jpg" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="fotos/Jade Picon.jpg" alt="Jade Picon" decoding="async">
+                <div class="influencerTopBadge"><span>@jadepicon <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">JADE PICON</h3>
+                <span class="influencerCardSub">20,6 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 02. Tainá Costa -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="fotos/Taina Costa.jpg" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="fotos/Taina Costa.jpg" alt="Tainá Costa" decoding="async">
+                <div class="influencerTopBadge"><span>@taina <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">TAINÁ COSTA</h3>
+                <span class="influencerCardSub">17,3 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 03. MC Hariel -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mc-hariel-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mc-hariel-hq.png" alt="MC Hariel" decoding="async">
+                <div class="influencerTopBadge"><span>@mchariel <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">MC HARIEL</h3>
+                <span class="influencerCardSub">15,9 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 04. Matuê -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/matue-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/matue-new.png" alt="Matuê" decoding="async">
+                <div class="influencerTopBadge"><span>@matue <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">MATUÊ</h3>
+                <span class="influencerCardSub">10,2 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 05. Mau Mau -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mau-mau.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/mau-mau.png" alt="Mau Mau" decoding="async">
+                <div class="influencerTopBadge"><span>@maumauzk <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">MAU MAU</h3>
+                <span class="influencerCardSub">3,1 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 06. Sthe Carvalho -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/sthe-carvalho-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/sthe-carvalho-new.png" alt="Sthe Carvalho" decoding="async">
+                <div class="influencerTopBadge"><span>@sthefannycvoficial</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">STHE CARVALHO</h3>
+                <span class="influencerCardSub">2,9 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 07. Gabi Lopes -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-lopes-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-lopes-hq.png" alt="Gabi Lopes" decoding="async">
+                <div class="influencerTopBadge"><span>@gabilopess <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GABI LOPES</h3>
+                <span class="influencerCardSub">2,4 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 08. Kaynna Barbaresco -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/kaynna-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/kaynna-hq.png" alt="Kaynna Barbaresco" decoding="async">
+                <div class="influencerTopBadge"><span>@kaynnab</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">KAYNNA BARBARESCO</h3>
+                <span class="influencerCardSub">2 milhões de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 09. Renata Schneider -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/renata-schneider-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/renata-schneider-new.png" alt="Renata Schneider" decoding="async">
+                <div class="influencerTopBadge"><span>@renata.c.schneider</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">RENATA SCHNEIDER</h3>
+                <span class="influencerCardSub">1,5 milhão de seguidores</span>
+              </div>
+            </article>
+
+            <!-- 10. Thalya Da Silva -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/thalya-da-silva.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/thalya-da-silva.png" alt="Thalya Da Silva" decoding="async">
+                <div class="influencerTopBadge"><span>@thalyadasilva_</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">THALYA DA SILVA</h3>
+                <span class="influencerCardSub">864 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 11. Alan Possamai -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/alan-possamai.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/alan-possamai.png" alt="Alan Possamai" decoding="async">
+                <div class="influencerTopBadge"><span>@alanpossamai</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">ALAN POSSAMAI</h3>
+                <span class="influencerCardSub">827 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 12. Nina Santos -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/nina-santos.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/nina-santos.png" alt="Nina Santos" decoding="async">
+                <div class="influencerTopBadge"><span>@nina_sant0s <i>✓</i></span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">NINA SANTOS</h3>
+                <span class="influencerCardSub">657 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 13. Gabriel Rocha -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabriel-rocha.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabriel-rocha.png" alt="Gabriel Rocha" decoding="async">
+                <div class="influencerTopBadge"><span>@gabrielrocha</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GABRIEL ROCHA</h3>
+                <span class="influencerCardSub">581 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 14. Gabi Magsan -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-magsan-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gabi-magsan-hq.png" alt="Gabi Magsan" decoding="async">
+                <div class="influencerTopBadge"><span>@gabimagsan</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GABI MAGSAN</h3>
+                <span class="influencerCardSub">530 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 15. Aline Braga -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/aline-braga-new.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/aline-braga-new.png" alt="Aline Braga" decoding="async">
+                <div class="influencerTopBadge"><span>@alinebragaa</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">ALINE BRAGA</h3>
+                <span class="influencerCardSub">515 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 16. Julya Freitas -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/julya-freitas.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/julya-freitas.png" alt="Julya Freitas" decoding="async">
+                <div class="influencerTopBadge"><span>@julyafreitass</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">JULYA FREITAS</h3>
+                <span class="influencerCardSub">467 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 17. Gordinho Bololô -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gordinho-bololo.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/gordinho-bololo.png" alt="Gordinho Bololô" decoding="async">
+                <div class="influencerTopBadge"><span>@gordinhobololooriginal</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">GORDINHO BOLOLÔ</h3>
+                <span class="influencerCardSub">268 mil seguidores</span>
+              </div>
+            </article>
+
+            <!-- 18. Hanna Carvalho -->
+            <article class="influencerProfile">
+              <img class="influencerCardAmbient" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/han-carvalho-hq.png" alt="" aria-hidden="true">
+              <div class="influencerCardMedia">
+                <img class="influencerCardSharp" src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/influencers/han-carvalho-hq.png" alt="Hanna Carvalho" decoding="async">
+                <div class="influencerTopBadge"><span>@han.carvalho</span></div>
+              </div>
+              <div class="influencerCardMeta">
+                <h3 class="influencerCardTitle">HANNA CARVALHO</h3>
+                <span class="influencerCardSub">134 mil seguidores</span>
+              </div>
+            </article>
           </div>
-          <span class="portfolioBadge">Direito &amp; Negócios</span>
-          <span class="portfolioMetricBadge">Autoridade Máxima • Contratos Fechados</span>
-        </div>
-        <div class="portfolioCardBody">
-          <h3>Posicionamento de Sócios e Autoridade Jurídica</h3>
-          <p>Tradução de teses e conhecimentos complexos em peças visuais de alta elegância, posicionando os sócios como referência absoluta para tomadores de decisão corporativos.</p>
-          <ul class="portfolioDeliverablesList">
-            <li>Carrosséis informativos com design editorial e tipografia sóbria</li>
-            <li>Vídeos verticais de análise com edição refinada e direta</li>
-            <li>Atração qualificada de diretores, CFOs e empresários</li>
-          </ul>
-          <a class="portfolioCardLink" href="#contato" onclick="openQuoteModal(event, 'Posicionamento & Design Editorial')">
-            Quero posicionar meu escritório <span class="arrowIcon" aria-hidden="true"></span>
-          </a>
         </div>
       </div>
 
-      <!-- Case 3: Gastronomia Premium -->
-      <div class="portfolioCard" data-category="gastronomia">
-        <div class="portfolioCardMedia">
-          <div class="mediaGraphic">
-            <span class="iconGraphic">🍷</span>
-            <b>Restaurante Contemporâneo &amp; Gastronomia</b>
-            <small style="opacity: 0.8; font-size: 12px; margin-top: 4px;">Food Porn 4K • Sound Design Sensorial • Reels de Alto Impacto</small>
-          </div>
-          <span class="portfolioBadge">Gastronomia</span>
-          <span class="portfolioMetricBadge">+1.2M Visualizações • Fila de Espera</span>
-        </div>
-        <div class="portfolioCardBody">
-          <h3>Audiovisual Sensorial e Desejo Imediato de Consumo</h3>
-          <p>Gravação de pratos, drinks e atmosfera do salão com iluminação cinematográfica e som estéreo que desperta vontade irresistível no feed dos clientes da região.</p>
-          <ul class="portfolioDeliverablesList">
-            <li>Captação dos bastidores da cozinha e finalização de pratos</li>
-            <li>Edição rítmica com sound design envolvente e trilhas em alta</li>
-            <li>Explosão de reservas aos finais de semana e Directs ativos</li>
-          </ul>
-          <a class="portfolioCardLink" href="#contato" onclick="openQuoteModal(event, 'Social Media Completo + Gravações In-Loco')">
-            Quero destacar meu restaurante <span class="arrowIcon" aria-hidden="true"></span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Case 4: Corporativo & B2B -->
-      <div class="portfolioCard" data-category="corporativo">
-        <div class="portfolioCardMedia">
-          <div class="mediaGraphic">
-            <span class="iconGraphic">🏢</span>
-            <b>Empresa de Soluções Corporativas &amp; Varejo</b>
-            <small style="opacity: 0.8; font-size: 12px; margin-top: 4px;">Social Media 360° • Tráfego Pago • Anúncios de Conversão</small>
-          </div>
-          <span class="portfolioBadge">B2B &amp; Serviços</span>
-          <span class="portfolioMetricBadge">Fluxo Contínuo de Inbound Leads</span>
-        </div>
-        <div class="portfolioCardBody">
-          <h3>Máquina Integrada de Posicionamento e Tráfego Pago</h3>
-          <p>União perfeita entre presença orgânica imponente e campanhas estratégicas de tráfego pago no Meta e Google para encher a agenda comercial da empresa.</p>
-          <ul class="portfolioDeliverablesList">
-            <li>Planejamento mensal alinhado com as metas de vendas</li>
-            <li>Gestão de tráfego pago focada em redução de CAC e ROI</li>
-            <li>Relatórios mensais em tempo real com métricas claras</li>
-          </ul>
-          <a class="portfolioCardLink" href="#contato" onclick="openQuoteModal(event, 'Performance 360° (Social Media + Audiovisual + Tráfego Pago)')">
-            Quero acelerar minhas vendas <span class="arrowIcon" aria-hidden="true"></span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Seção A Fundadora (Brenda Kaldy) — Fotos Atualizadas -->
-  <section class="founder shell" id="sobre-fundadora">
-    <div class="founderContent">
-      <p class="kicker">A Fundadora &amp; Estrategista</p>
-      <div class="founderNameBox">
-        <h3>Brenda Kaldy</h3>
-        <span>CEO &amp; Fundadora</span>
-      </div>
-      <h2>A visão de quem<br><em>movimenta tudo.</em></h2>
-      <p>A Kaldy Digital nasceu da convicção de que empresas de alto padrão não podem ter uma comunicação genérica. Acreditamos que cada empresa possui uma identidade singular que merece ser traduzida em autoridade, sofisticação e faturamento previsível.</p>
-      <p>Nossa fundadora lidera pessoalmente a equipe de estrategistas, designers e filmmakers, garantindo olhar apurado para a estética editorial e disciplina absoluta em processos e prazos.</p>
-    </div>
-    <div class="founderImageContainer">
-      <div class="photoStack">
-        <div class="photoCard back">
-          <img src="fotos/Brenda 04 - Ensaio.jpg" alt="Brenda Kaldy (Bastidores e Direção Audiovisual)" loading="eager" fetchpriority="high" onerror="this.onerror=null; this.src='Brenda Kaldy 02.jpg';">
-        </div>
-        <div class="photoCard front">
-          <img src="fotos/Brenda 01 - Ensaio.jpg" alt="Brenda Kaldy - CEO &amp; Fundadora" loading="eager" fetchpriority="high" onerror="this.onerror=null; this.src='Brenda Kaldy.jpg';">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Banner CTA Intermediário -->
-  <div class="shell">
-    <section class="middleCta">
-      <h2>Aumente o engajamento e as vendas da sua empresa</h2>
-      <p>Solicite um orçamento personalizado agora mesmo e receba nossa proposta completa com análise de perfil em até 24 horas.</p>
-      <a class="btn-light" href="#contato" onclick="openQuoteModal(event)">
-        Solicitar Proposta B2B <span class="arrowIcon" aria-hidden="true"></span>
+      <!-- Botão Mobile (Posicionado embaixo da foto dos influencers) -->
+      <a class="btn-primary whatsappLink heroBtnMobile" href="#" target="_blank"
+        style="padding: 14px 24px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; border-radius: 999px; background: #590A16; color: #fff; border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 10px 25px rgba(89,10,22,0.3); align-items: center; gap: 8px;">
+        Solicitar Diagnóstico Estratégico <span class="arrowIcon" aria-hidden="true"></span>
       </a>
     </section>
-  </div>
 
-  <!-- ==========================================================================
-       NOVA SEÇÃO: MATRIZ COMPARATIVA ("O DIFERENCIAL KALDY")
-       ========================================================================== -->
-  <section class="comparisonSection shell" id="comparativo">
-    <div style="text-align: center; max-width: 720px; margin: 0 auto;">
-      <p class="kicker">Por que escolher a Kaldy?</p>
-      <h2 style="font-family: var(--font-display); font-size: clamp(30px, 4vw, 48px); margin: 16px 0; font-weight: 600;">O Diferencial Kaldy vs.<br><em>Outras Alternativas.</em></h2>
-      <p style="color: #745e61; font-size: 16px; line-height: 1.65;">Compare e entenda por que empresários e líderes confiam a gestão da sua imagem à nossa equipe.</p>
+    <div class="ticker">
+      <div>ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦ VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦ ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦
+        VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦ ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦ VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦
+        ESTRATÉGIA ✦ CONTEÚDO ✦ TRÁFEGO PAGO ✦ VENDAS ✦ PRESENÇA ✦ MOVIMENTO ✦ </div>
     </div>
 
-    <div class="tableContainer desktopOnlyTable">
-      <table class="comparisonTable">
-        <thead>
-          <tr>
-            <th style="width: 28%;">Critérios de Decisão</th>
-            <th style="width: 24%;">Freelancer Autônomo</th>
-            <th style="width: 24%;">Agência Tradicional</th>
-            <th class="highlightCol" style="width: 24%;">
-              <span class="kaldyChoiceBadge">Escolha Inteligente</span><br>
-              KALDY DIGITAL
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <b>Equipe Multidisciplinar</b>
-              <p>Design, roteiro, vídeo e tráfego</p>
-            </td>
-            <td>
-              <span class="statusNo">✕ Apenas 1 pessoa</span>
-              <p>Falta de braço e sobrecarga comum.</p>
-            </td>
-            <td>
-              <span class="statusWarn">⚠ Equipe burocrática</span>
-              <p>Muitos intermediários e estagiários.</p>
-            </td>
-            <td class="highlightCol">
-              <span class="statusYes">✓ Time dedicado 360°</span>
-              <p>Designer sênior, roteirista, filmmaker e gestor de conta.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <b>Captação Presencial 4K</b>
-              <p>Gravações no seu negócio</p>
-            </td>
-            <td>
-              <span class="statusNo">✕ Não possui ou é com celular</span>
-              <p>Qualidade amadora sem iluminação.</p>
-            </td>
-            <td>
-              <span class="statusWarn">⚠ Cobrada à parte</span>
-              <p>Custos abusivos ou terceirização externa.</p>
-            </td>
-            <td class="highlightCol">
-              <span class="statusYes">✓ Inclusa no contrato</span>
-              <p>Câmeras e iluminação de cinema direto no seu espaço.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <b>Aprovação de Conteúdos</b>
-              <p>Agilidade e previsibilidade</p>
-            </td>
-            <td>
-              <span class="statusNo">✕ WhatsApp caótico</span>
-              <p>Mensagens perdidas e atrasos no cronograma.</p>
-            </td>
-            <td>
-              <span class="statusWarn">⚠ PDFs lentos por e-mail</span>
-              <p>Ciclos demorados de revisão.</p>
-            </td>
-            <td class="highlightCol">
-              <span class="statusYes">✓ Portal do Cliente em 1 clique</span>
-              <p>Aprove ou solicite ajustes com total controle no celular.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <b>Foco em Vendas e ROI</b>
-              <p>Retorno sobre investimento</p>
-            </td>
-            <td>
-              <span class="statusNo">✕ Apenas curtidas</span>
-              <p>Métricas de vaidade sem estratégia comercial.</p>
-            </td>
-            <td>
-              <span class="statusWarn">⚠ Relatórios genéricos</span>
-              <p>Gráficos complexos e pouco acionáveis.</p>
-            </td>
-            <td class="highlightCol">
-              <span class="statusYes">✓ Foco em novos clientes</span>
-              <p>Narrativas de conversão e relatórios claros de faturamento.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <b>Tempo Médio de Resposta</b>
-              <p>Comunicação do dia a dia</p>
-            </td>
-            <td>
-              <span class="statusNo">✕ Dias sem resposta</span>
-              <p>Vulnerável a imprevistos individuais.</p>
-            </td>
-            <td>
-              <span class="statusWarn">⚠ 24h a 48h (tickets)</span>
-              <p>Atendimento lento e impessoal.</p>
-            </td>
-            <td class="highlightCol">
-              <span class="statusYes">✓ Até 15 minutos</span>
-              <p>Canal direto e prioritário no WhatsApp corporativo.</p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Cards Comparativos Mobile (Zero Rolagem Lateral) -->
-    <div class="mobileComparisonList">
-      <!-- Item 1: Equipe Multidisciplinar -->
-      <div class="mobileCompCard">
-        <div class="mobileCompHead">
-          <span class="compNumber">01</span>
-          <h4>Equipe Multidisciplinar</h4>
-          <small>Design, roteiro, vídeo e tráfego</small>
-        </div>
-        <div class="mobileCompKaldy">
-          <div class="kaldyBadgeMini">★ Escolha Inteligente: KALDY DIGITAL</div>
-          <b>✓ Time dedicado 360°</b>
-          <p>Designer sênior, roteirista, filmmaker e gestor de conta dedicados à sua empresa.</p>
-        </div>
-        <div class="mobileCompOthers">
-          <div class="compOtherItem">
-            <span class="statusNo">✕ Freelancer</span>
-            <p>Apenas 1 pessoa, sobrecarga e falta de braço.</p>
-          </div>
-          <div class="compOtherItem">
-            <span class="statusWarn">⚠ Agência Tradicional</span>
-            <p>Burocracia, muitos intermediários e estagiários.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 2: Captação Presencial 4K -->
-      <div class="mobileCompCard">
-        <div class="mobileCompHead">
-          <span class="compNumber">02</span>
-          <h4>Captação Presencial 4K</h4>
-          <small>Gravações no seu negócio</small>
-        </div>
-        <div class="mobileCompKaldy">
-          <div class="kaldyBadgeMini">★ Escolha Inteligente: KALDY DIGITAL</div>
-          <b>✓ Inclusa no contrato</b>
-          <p>Câmeras e iluminação de cinema direto no seu espaço, sem custos surpresa.</p>
-        </div>
-        <div class="mobileCompOthers">
-          <div class="compOtherItem">
-            <span class="statusNo">✕ Freelancer</span>
-            <p>Não possui ou grava com celular amador.</p>
-          </div>
-          <div class="compOtherItem">
-            <span class="statusWarn">⚠ Agência Tradicional</span>
-            <p>Cobrada à parte com custos abusivos.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 3: Aprovação de Conteúdos -->
-      <div class="mobileCompCard">
-        <div class="mobileCompHead">
-          <span class="compNumber">03</span>
-          <h4>Aprovação de Conteúdos</h4>
-          <small>Agilidade e previsibilidade</small>
-        </div>
-        <div class="mobileCompKaldy">
-          <div class="kaldyBadgeMini">★ Escolha Inteligente: KALDY DIGITAL</div>
-          <b>✓ Portal do Cliente em 1 clique</b>
-          <p>Aprove ou solicite ajustes com total controle diretamente no celular.</p>
-        </div>
-        <div class="mobileCompOthers">
-          <div class="compOtherItem">
-            <span class="statusNo">✕ Freelancer</span>
-            <p>WhatsApp caótico e mensagens perdidas.</p>
-          </div>
-          <div class="compOtherItem">
-            <span class="statusWarn">⚠ Agência Tradicional</span>
-            <p>PDFs lentos por e-mail e ciclos demorados.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 4: Foco em Vendas e ROI -->
-      <div class="mobileCompCard">
-        <div class="mobileCompHead">
-          <span class="compNumber">04</span>
-          <h4>Foco em Vendas e ROI</h4>
-          <small>Retorno sobre investimento</small>
-        </div>
-        <div class="mobileCompKaldy">
-          <div class="kaldyBadgeMini">★ Escolha Inteligente: KALDY DIGITAL</div>
-          <b>✓ Foco em novos clientes</b>
-          <p>Narrativas de conversão e relatórios claros de faturamento e vendas reais.</p>
-        </div>
-        <div class="mobileCompOthers">
-          <div class="compOtherItem">
-            <span class="statusNo">✕ Freelancer</span>
-            <p>Apenas curtidas e métricas de vaidade.</p>
-          </div>
-          <div class="compOtherItem">
-            <span class="statusWarn">⚠ Agência Tradicional</span>
-            <p>Gráficos genéricos e pouco acionáveis.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Item 5: Tempo Médio de Resposta -->
-      <div class="mobileCompCard">
-        <div class="mobileCompHead">
-          <span class="compNumber">05</span>
-          <h4>Tempo Médio de Resposta</h4>
-          <small>Comunicação do dia a dia</small>
-        </div>
-        <div class="mobileCompKaldy">
-          <div class="kaldyBadgeMini">★ Escolha Inteligente: KALDY DIGITAL</div>
-          <b>✓ Até 15 minutos</b>
-          <p>Canal direto e prioritário no WhatsApp corporativo da sua marca.</p>
-        </div>
-        <div class="mobileCompOthers">
-          <div class="compOtherItem">
-            <span class="statusNo">✕ Freelancer</span>
-            <p>Dias sem resposta e vulnerável a sumiços.</p>
-          </div>
-          <div class="compOtherItem">
-            <span class="statusWarn">⚠ Agência Tradicional</span>
-            <p>24h a 48h com abertura de tickets lentos.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       NOVA SEÇÃO: NÍVEIS DE ATENDIMENTO / PLANOS EMPRESARIAIS
-       ========================================================================== -->
-  <section class="plansSection shell" id="planos">
-    <div style="text-align: center; max-width: 720px; margin: 0 auto;">
-      <p class="kicker">Modelos de Parceria</p>
-      <h2 style="font-family: var(--font-display); font-size: clamp(30px, 4vw, 48px); margin: 16px 0; font-weight: 600;">Níveis de Gestão sob Medida<br><em>para o Momento da sua Empresa.</em></h2>
-      <p style="color: #745e61; font-size: 16px; line-height: 1.65;">Escolha o modelo ideal para o tamanho da sua operação. Propostas customizadas enviadas em até 24 horas.</p>
-    </div>
-
-    <div class="plansGrid">
-      <!-- Nível 1: Posicionamento & Design -->
-      <div class="planCard">
-        <h3>Posicionamento &amp; Design</h3>
-        <p class="planTagline">Para empresas que precisam estruturar uma presença digital magnética, elegante e com autoridade visual imediata.</p>
-        <ul class="planFeatures">
-          <li>Alinhamento de Identidade Visual e Biografia Estratégica</li>
-          <li>12 a 16 posts mensais (artes magnéticas e carrosséis editoriais)</li>
-          <li>Copywriting persuasivo e hashtags otimizadas</li>
-          <li>Planejamento do feed e Stories semanais orientados</li>
-          <li>Acesso completo ao Portal do Cliente para aprovação</li>
-          <li>Relatório mensal de alcance e engajamento</li>
-        </ul>
-        <button type="button" class="planBtn" onclick="openQuoteModal(event, 'Posicionamento & Design Editorial')">
-          Solicitar Proposta <span class="arrowIcon" aria-hidden="true"></span>
-        </button>
-      </div>
-
-      <!-- Nível 2: Estratégico & Audiovisual (Destaque) -->
-      <div class="planCard featured">
-        <span class="planFeaturedBadge">★ Mais Escolhido por Empresas</span>
-        <h3>Estratégico &amp; Audiovisual</h3>
-        <p class="planTagline">O pacote completo com captação presencial no seu negócio para gerar autoridade com vídeos de cinema e alta retenção.</p>
-        <ul class="planFeatures">
-          <li><strong>Tudo incluso no plano Posicionamento &amp; Design</strong></li>
-          <li><strong>Captação presencial in-loco</strong> com câmeras e iluminação de cinema</li>
-          <li>Gravação de 8 a 12 Reels/TikToks dinâmicos por mês</li>
-          <li>Roteiros pré-aprovados com ganchos de alta retenção</li>
-          <li>Edição dinâmica com legendas estilizadas e sound design</li>
-          <li>Direção de cena para você e sua equipe gravarem com segurança</li>
-          <li>Suporte prioritário via WhatsApp (resposta em até 15 min)</li>
-        </ul>
-        <button type="button" class="planBtn" onclick="openQuoteModal(event, 'Social Media Completo + Gravações In-Loco')">
-          Solicitar Proposta VIP <span class="arrowIcon" aria-hidden="true"></span>
-        </button>
-      </div>
-
-      <!-- Nível 3: Performance 360° -->
-      <div class="planCard">
-        <h3>Performance 360°</h3>
-        <p class="planTagline">Para marcas que buscam escala acelerada unindo presença visual impecável, vídeos e tráfego pago estratégico.</p>
-        <ul class="planFeatures">
-          <li><strong>Tudo incluso no plano Estratégico &amp; Audiovisual</strong></li>
-          <li><strong>Gestão profissional de Tráfego Pago</strong> (Meta Ads &amp; Google Ads)</li>
-          <li>Criação de criativos e anúncios específicos de alta conversão</li>
-          <li>Configuração avançada de Pixel, API de Conversões e Públicos</li>
-          <li>Otimização contínua de campanhas para atração de leads</li>
-          <li>Dashboard em tempo real de CAC e faturamento</li>
-          <li>Reunião mensal estratégica de alinhamento com a diretoria</li>
-        </ul>
-        <button type="button" class="planBtn" onclick="openQuoteModal(event, 'Performance 360° (Social Media + Audiovisual + Tráfego Pago)')">
-          Solicitar Proposta 360° <span class="arrowIcon" aria-hidden="true"></span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================================================
-       NOVO BANNER PONTE PARA O DIAGNÓSTICO ESTRATÉGICO
-       ========================================================================== -->
-  <div class="shell">
-    <section class="diagnosticBridge">
-      <div class="diagnosticBridgeContent">
-        <span class="eyebrow" style="margin-bottom: 12px;">Ferramenta Gratuita Kaldy</span>
-        <h3>Ainda não sabe qual é a melhor estratégia para sua empresa?</h3>
-        <p>Responda a 4 perguntas rápidas no nosso <strong>Diagnóstico Estratégico Interativo</strong> e receba uma análise sob medida dos gargalos do seu perfil e a recomendação exata para alavancar sua autoridade.</p>
-      </div>
-      <a class="diagnosticBridgeBtn" href="../Kaldy - Diagnostico/index.html" target="_blank">
-        Fazer Diagnóstico em 2 min <span class="arrowIcon" aria-hidden="true"></span>
-      </a>
+    <!-- ====================================================================
+       01 & 04 - SEÇÃO "O ECOSSISTEMA COMPLETO KALDY" COM CARD "+R$ MILHÕES"
+       ==================================================================== -->
+    <section class="statement shell reveal">
+      <p class="kicker">O Ecossistema Completo Kaldy</p>
+      <h2>Conteúdo que<br class="mobile-br">atrai e posiciona.<br><em>Tráfego que converte<br class="mobile-br">e
+          multiplica.</em></h2>
+      <p class="statementText">A maioria das empresas comete dois erros: ou investe apenas em posts bonitos que não
+        trazem novos clientes, ou coloca dinheiro em tráfego pago sem uma estrutura e um conteúdo que convençam o
+        visitante a comprar. Na Kaldy Digital, unimos a sensibilidade criativa e o audiovisual ao tráfego estratégico
+        com a metodologia de vendas WSX — entregando uma operação completa de ponta a ponta.</p>
     </section>
-  </div>
 
-  <!-- Metodologia em 4 Passos -->
-  <section class="methodology shell" id="metodologia">
-    <div>
-      <p class="kicker">Metodologia B2B Comprovada</p>
-      <h2>Nossa Metodologia em<br><em>4 Passos Claros.</em></h2>
-      <p style="color: #745e61; font-size: 16px; line-height: 1.65; margin-top: 20px;">Processo estruturado para garantir previsibilidade, clareza e resultados reais para sua empresa.</p>
-    </div>
-    <ol>
-      <li>
+    <section class="authority shell" aria-label="Experiência e atuação da Kaldy Digital">
+      <div class="authorityFacts reveal-group">
+        <article class="reveal-item"><b>+980</b><span>clientes<br>atendidos</span></article>
+        <article class="reveal-item"><b>+R$ Milhões</b><span>gerenciados em<br>anúncios e campanhas</span></article>
+        <article class="reveal-item"><b>360°</b><span>conteúdo, estratégia<br>e tráfego pago</span></article>
+        <article class="reveal-item"><b>Ao vivo</b><span>cobertura de eventos<br>em tempo real</span></article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       03 - OS 6 CARDS DE SERVIÇOS (INCLUINDO 06 · COMERCIAL)
+       ==================================================================== -->
+    <section class="services shell reveal-group" id="servicos">
+      <!-- 01 - Social Media -->
+      <article class="reveal-item">
         <span>01</span>
         <div>
-          <b>Onboarding &amp; Imersão</b>
-          <p>Mapeamento profundo do seu negócio, estudo dos seus diferenciais, público-alvo, concorrentes e definição da linha editorial.</p>
+          <h3>Social Media</h3>
+          <p>Estratégia, direção criativa e conteúdo consistente para transformar presença em posicionamento.</p>
         </div>
-      </li>
-      <li>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 02 - Tráfego Pago -->
+      <article class="reveal-item">
         <span>02</span>
         <div>
-          <b>Planejamento &amp; Roteiros</b>
-          <p>Elaboração do Calendário Editorial mensal e roteiros estratégicos para Reels/Shorts focados em retenção e autoridade.</p>
+          <h3>Tráfego Pago</h3>
+          <p>Captação ativa de novos clientes através de anúncios cirúrgicos no Meta Ads (Instagram/Facebook) e Google
+            Ads. Páginas de alta conversão e inteligência de vendas.</p>
         </div>
-      </li>
-      <li>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 03 - Storymaker -->
+      <article class="reveal-item">
         <span>03</span>
         <div>
-          <b>Captação Presencial &amp; Design</b>
-          <p>Gravações no seu estabelecimento com câmeras e iluminação profissional, além da criação de peças gráficas de alto padrão.</p>
+          <h3>Storymaker</h3>
+          <p>Seu evento acontecendo também no digital: bastidores, emoção e publicações em tempo real.</p>
         </div>
-      </li>
-      <li>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 04 - Filmmaker -->
+      <article class="reveal-item">
         <span>04</span>
         <div>
-          <b>Publicação &amp; Métricas</b>
-          <p>Postagens nos melhores horários, aprovação ágil no Portal do Cliente e relatórios mensais com métricas de crescimento.</p>
+          <h3>Filmmaker</h3>
+          <p>Filmes e conteúdos verticais com ritmo, estética e narrativa que fazem o momento permanecer.</p>
         </div>
-      </li>
-    </ol>
-  </section>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
 
-  <!-- O que está incluso na Gestão -->
-  <section class="deliverables shell" id="incluso">
-    <div class="deliverablesHead">
-      <p class="kicker">Entrega Completa 360°</p>
-      <h2>O que está incluso na<br><em>Gestão da Kaldy Digital.</em></h2>
-      <p style="color: #745e61; font-size: 16px; line-height: 1.65;">Tudo o que sua empresa precisa para dominar o mercado e gerar novos leads todos os dias.</p>
-    </div>
-    <div class="deliverablesGrid">
-      <div class="deliverableCard">
-        <span class="icon">🎨</span>
-        <h3>Posicionamento &amp; Design</h3>
-        <ul>
-          <li>Identidade visual padronizada para o feed</li>
-          <li>Design magnético para posts estáticos e carrosséis</li>
-          <li>Capas estilizadas para Reels e Destaques</li>
-          <li>Otimização de biografia e links de conversão</li>
-        </ul>
-      </div>
-      <div class="deliverableCard">
-        <span class="icon">🎥</span>
-        <h3>Produção Audiovisual</h3>
-        <ul>
-          <li>Gravações presenciais com equipamentos 4K</li>
-          <li>Roteiros pré-aprovados focados em retenção</li>
-          <li>Edição dinâmica de Reels e TikToks</li>
-          <li>Trilhas em alta e sound design profissional</li>
-        </ul>
-      </div>
-      <div class="deliverableCard">
-        <span class="icon">📱</span>
-        <h3>Gestão &amp; Relatórios</h3>
-        <ul>
-          <li>Planejamento mensal de publicações</li>
-          <li>Aprovação de conteúdos no Portal do Cliente</li>
-          <li>Monitoramento e atendimento rápido via WhatsApp</li>
-          <li>Relatórios mensais de alcance e engajamento</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Depoimentos (Tomadores de Decisão) -->
-  <section class="proof" id="avaliacoes">
-    <div class="shell">
-      <div class="proofIntro">
-        <p class="kicker">Autoridade &amp; Resultados</p>
-        <h2>O que dizem os<br><em>tomadores de decisão.</em></h2>
-        <p>Depoimentos reais de diretores, médicos e empresários que confiaram seu posicionamento à Kaldy Digital.</p>
-      </div>
-      <div class="carouselWrap">
-        <div class="testimonialsTrack" id="testimonialTrack">
-          <!-- Injetado via script.js -->
+      <!-- 05 - Criativos de Conversão -->
+      <article class="reveal-item">
+        <span>05</span>
+        <div>
+          <h3>Criativos de Conversão</h3>
+          <p>Filmes institucionais e vídeos verticais (Reels/TikTok) com ritmo dinâmico, estética refinada e ganchos
+            persuasivos pensados para engajar e vender.</p>
         </div>
-        <div class="carouselNav">
-          <button id="testimonialPrev" aria-label="Depoimento anterior"><i class="carouselArrow previous"></i></button>
-          <div id="testimonialDots"></div>
-          <span id="testimonialCount">01 / 03</span>
-          <button id="testimonialNext" aria-label="Próximo depoimento"><i class="carouselArrow next"></i></button>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+
+      <!-- 06 - Comercial -->
+      <article class="reveal-item">
+        <span>06</span>
+        <div>
+          <h3>Comercial</h3>
+          <p>Alinhamento e estruturação de processos comerciais para transformar os contatos e leads em clientes
+            pagantes no seu caixa.</p>
         </div>
-      </div>
-    </div>
-  </section>
+        <b><span class="arrowIcon" aria-hidden="true"></span></b>
+      </article>
+    </section>
 
-  <!-- FAQ Interativo -->
-  <section class="faqSection shell" id="faq">
-    <div class="faqHead">
-      <p class="kicker">Tire suas dúvidas</p>
-      <h2>Perguntas Frequentes de<br><em>Empresários &amp; Líderes.</em></h2>
-      <p style="color: #745e61; font-size: 16px; line-height: 1.65;">Respostas diretas para as principais dúvidas sobre nossa gestão corporativa.</p>
-    </div>
-    <div class="faqList">
-      <div class="faqItem open">
-        <button class="faqQuestion" onclick="toggleFaq(this)">
-          <span>Como funcionam os dias de gravação no meu estabelecimento?</span>
-          <span class="icon">+</span>
-        </button>
-        <div class="faqAnswer">
-          Agendamos os dias de captação com antecedência, munidos de roteiros pré-aprovados. Nossa equipe leva câmeras e iluminação profissional e realiza a gravação de múltiplos vídeos de uma só vez para otimizar o tempo da sua equipe e do seu dia a dia.
-        </div>
-      </div>
-      <div class="faqItem">
-        <button class="faqQuestion" onclick="toggleFaq(this)">
-          <span>Quem cria as legendas, artes e roteiros?</span>
-          <span class="icon">+</span>
-        </button>
-        <div class="faqAnswer">
-          A equipe da Kaldy Digital cuida de 100% do processo! Criamos a estratégia, os roteiros de vídeo com ganchos de retenção, o design das peças e as legendas persuasivas focadas em engajamento e atração de clientes.
-        </div>
-      </div>
-      <div class="faqItem">
-        <button class="faqQuestion" onclick="toggleFaq(this)">
-          <span>Como funciona o processo de aprovação dos conteúdos?</span>
-          <span class="icon">+</span>
-        </button>
-        <div class="faqAnswer">
-          Sua empresa recebe acesso exclusivo ao nosso Portal do Cliente. Lá você visualiza o calendário mensal completo e pode aprovar ou solicitar ajustes em 1 clique antes de qualquer publicação ir ao ar. Zero estresse com mensagens perdidas no WhatsApp.
-        </div>
-      </div>
-      <div class="faqItem">
-        <button class="faqQuestion" onclick="toggleFaq(this)">
-          <span>Qual é o tempo mínimo de contrato?</span>
-          <span class="icon">+</span>
-        </button>
-        <div class="faqAnswer">
-          Trabalhamos com planos flexíveis. Recomendamos um período inicial de 3 a 6 meses para maturação do algoritmo, aprendizado dos públicos e consolidação dos resultados de crescimento consistente da sua marca.
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- ====================================================================
+       02 - SEÇÃO "A FUNDADORA" (SESSÃO COMPLETA E INDEPENDENTE)
+       ==================================================================== -->
+    <style>
+      .founderSection {
+        padding: 130px 0 120px !important;
+        margin-top: 70px !important;
+        margin-bottom: 30px !important;
+        border-top: 1px solid rgba(89, 10, 22, 0.12) !important;
+        position: relative !important;
+        background: #ffffff !important;
+      }
 
-  <!-- Contato Final -->
-  <section class="contact shell" id="contato" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 110px 0;">
-    <p class="kicker">Pronto para elevar o padrão?</p>
-    <h2 style="font-family: var(--font-display); font-size: clamp(34px, 5vw, 62px); margin: 20px 0 40px; font-weight: 600;">Transforme a presença digital da sua<br><em>empresa em resultados reais.</em></h2>
-    <div class="contactRow" style="border: none; padding: 0; display: flex; justify-content: center; width: 100%;">
-      <a class="btn-primary" href="#" onclick="openQuoteModal(event)" style="margin-top: 0; width: 100%; max-width: 380px; padding: 20px 32px; border-radius: 9999px; background: var(--wine); color: var(--cream); font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; box-shadow: 0 12px 30px rgba(89, 10, 22, 0.3); cursor: pointer;">
-        Solicitar Orçamento Empresarial <span class="arrowIcon" aria-hidden="true"></span>
-      </a>
-    </div>
-  </section>
+      .founder {
+        padding: 0 !important;
+        display: grid !important;
+        grid-template-columns: 1.08fr 0.92fr !important;
+        gap: 80px !important;
+        align-items: center !important;
+      }
 
-  <!-- Rodapé -->
-  <footer class="shell">
-    <div class="brand">
-      <img src="logo-kaldy.png" alt="Kaldy Digital" onerror="this.src='https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png'">
-      <span>KALDY<br>DIGITAL</span>
-    </div>
-    <p>Estratégia, design e produção audiovisual para empresas.</p>
-    <a href="https://www.instagram.com/kaldydigital/" target="_blank" rel="noopener">@kaldydigital <span class="arrowIcon" aria-hidden="true"></span></a>
-    <small>© 2026 Kaldy Digital Agência. Todos os direitos reservados.</small>
-  </footer>
+      .founder h2 {
+        font-size: clamp(32px, 4vw, 48px);
+        margin: 20px 0 30px;
+      }
 
-  <!-- WhatsApp Flutuante -->
-  <a class="whatsappFloat" href="#" onclick="openQuoteModal(event)" aria-label="Pedir orçamento pelo WhatsApp" style="cursor: pointer;">
-    <b><small>Atendimento corporativo</small>Peça seu orçamento</b>
-    <div style="width: 50px; height: 50px; background: #25D366; border-radius: 50%; display: grid; place-items: center; box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="#ffffff">
-        <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.41-1.75-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.71 4.3 3.8.6.26 1.07.42 1.44.54.61.19 1.16.17 1.6.1.49-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.18-.48-.3"/>
-      </svg>
-    </div>
-  </a>
+      .founder p {
+        color: #745e61;
+        line-height: 1.7;
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
 
-  <!-- Sticky Mobile Bar -->
-  <div class="stickyMobileBar" id="stickyMobileBar">
-    <div class="stickyInfo">
-      <span class="stickyTitle">Kaldy Digital B2B</span>
-      <span class="stickySubtitle">⚡ Resposta em até 15 min</span>
-    </div>
-    <button class="stickyBtn" onclick="openQuoteModal(event)">
-      Pedir Proposta <span class="arrowIcon" aria-hidden="true"></span>
-    </button>
-  </div>
+      .founderImageContainer {
+        position: relative;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+      }
 
-  <!-- Modal Solicitar Orçamento B2B -->
-  <div class="modalBackdrop" id="quoteModal" aria-hidden="true" role="dialog">
-    <div class="modalCard">
-      <div class="modalHeader">
-        <h2>Solicitar Orçamento B2B</h2>
-        <button class="modalCloseBtn" id="modalClose" aria-label="Fechar modal" onclick="closeQuoteModal()">&times;</button>
-      </div>
-      <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
-        <div class="formGrid">
-          <!-- Nome -->
-          <div class="formGroup">
-            <label for="formNome">Seu nome <span class="req">*</span></label>
-            <input type="text" id="formNome" name="nome" placeholder="Nome completo" required>
-          </div>
+      .photoStack {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        min-height: 380px;
+      }
 
-          <!-- Telefone / WhatsApp -->
-          <div class="formGroup">
-            <label for="formPhone">Telefone / WhatsApp <span class="req">*</span></label>
-            <input type="tel" id="formPhone" name="telefone" placeholder="(11) 99999-9999" required oninput="maskPhone(this)">
-          </div>
-
-          <!-- E-mail -->
-          <div class="formGroup">
-            <label for="formEmail">E-mail corporativo <span class="req">*</span></label>
-            <input type="email" id="formEmail" name="email" placeholder="voce@empresa.com" required>
-          </div>
-
-          <!-- Plano / Serviço de Interesse -->
-          <div class="formGroup">
-            <label for="formPlano">Plano ou Serviço de Interesse <span class="req">*</span></label>
-            <select id="formPlano" name="plano" required>
-              <option value="Social Media Completo + Gravações In-Loco">★ Estratégico &amp; Audiovisual (Mais Escolhido)</option>
-              <option value="Posicionamento & Design Editorial">Posicionamento &amp; Design Editorial</option>
-              <option value="Performance 360° (Social Media + Audiovisual + Tráfego Pago)">Performance 360° (Social Media + Audiovisual + Tráfego)</option>
-              <option value="Apenas Produção Audiovisual (Filmmaker / Reels)">Apenas Produção Audiovisual (Filmmaker / Reels)</option>
-              <option value="Não tenho certeza (Quero recomendação)">Não tenho certeza (Quero recomendação)</option>
-            </select>
-          </div>
-
-          <!-- Tipo de Empresa -->
-          <div class="formGroup">
-            <label for="formTipoEmpresa">Segmento / Tipo de Empresa <span class="req">*</span></label>
-            <input type="text" id="formTipoEmpresa" name="tipo_empresa" placeholder="Ex: Clínica, Advocacia, Gastronomia..." required>
-          </div>
-
-          <!-- Instagram da Empresa -->
-          <div class="formGroup">
-            <label for="formInstaEmpresa">Instagram da Empresa <span class="req">*</span></label>
-            <input type="text" id="formInstaEmpresa" name="instagram_empresa" placeholder="@suaempresa" required>
-          </div>
-
-          <!-- Endereço / Cidade -->
-          <div class="formGroup fullWidth">
-            <label for="formEnderecoEmpresa">Cidade / Bairro da Empresa (para captações presenciais) <span class="req">*</span></label>
-            <input type="text" id="formEnderecoEmpresa" name="endereco_empresa" placeholder="Ex: São Paulo - SP (Jardins)" required>
-          </div>
-
-          <!-- Descreva a sua necessidade -->
-          <div class="formGroup fullWidth">
-            <label for="formNecessidade">Descreva seu momento atual e objetivo principal</label>
-            <textarea id="formNecessidade" name="necessidade" rows="3" placeholder="Ex: Queremos melhorar nossa autoridade visual e atrair mais pacientes particulares..."></textarea>
-          </div>
-        </div>
-
-        <button type="submit" class="modalSubmitBtn btn-primary">
-          ✈ Enviar Solicitação no WhatsApp <span class="arrowIcon" aria-hidden="true"></span>
-        </button>
-
-        <ul class="trustList" style="margin-top: 18px;">
-          <li>⚡ Resposta prioritária em até 15 minutos via WhatsApp</li>
-          <li>🔒 Dados 100% protegidos</li>
-          <li>📋 Proposta completa sem compromisso</li>
-        </ul>
-      </form>
-    </div>
-  </div>
-</main>
-
-<!-- Scripts -->
-<script src="script.js"></script>
-<!-- Lenis Smooth Scroll -->
-<script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
-<script>
-  // Inicialização Suave do Lenis 60fps
-  const lenis = new Lenis({
-    duration: 1.15,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    orientation: 'vertical',
-    gestureOrientation: 'vertical',
-    smoothWheel: true,
-    wheelMultiplier: 1.0,
-    touchMultiplier: 1.5,
-    infinite: false,
-  });
-
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
-
-  // Smooth scroll links com offset da navbar fixa
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const targetId = this.getAttribute('href');
-      if (targetId && targetId !== '#') {
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          e.preventDefault();
-          lenis.scrollTo(targetElement, { offset: -30 });
+      @keyframes led-spin {
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
         }
       }
-    });
-  });
 
-  // Cursor Customizado de Câmera
-  const customCursor = document.querySelector('.customCursor');
-  if (customCursor) {
-    window.addEventListener("mousemove", (e) => {
-      customCursor.style.transform = 'translate(' + (e.clientX - 23) + 'px, ' + (e.clientY - 50) + 'px)';
-    }, { passive: true });
-    window.addEventListener("mousedown", () => document.body.classList.add("clicking"), { passive: true });
-    window.addEventListener("mouseup", () => document.body.classList.remove("clicking"), { passive: true });
-  }
-</script>
+      .photoCard {
+        position: absolute;
+        width: 65%;
+        aspect-ratio: 4 / 5;
+        border-radius: 20px;
+        padding: 7px;
+        background: #2b0409;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .photoCard::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 250%;
+        height: 250%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        background: conic-gradient(transparent 0deg, transparent 120deg,
+            #feda75 160deg, #fa7e1e 210deg, #d62976 260deg, #962fbf 310deg, #4f5bd5 360deg);
+        animation: led-spin 3s linear infinite;
+        z-index: -2;
+      }
+
+      .photoCard::after {
+        content: '';
+        position: absolute;
+        inset: 5px;
+        background: #590A16;
+        border-radius: 15px;
+        z-index: -1;
+      }
+
+      .photoCard img {
+        width: 100%;
+        height: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+        object-position: center 12%;
+        background: #fff;
+        display: block;
+        filter: saturate(0.95);
+        transition: filter 0.4s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      .photoCard.back {
+        top: 0;
+        left: 0;
+        transform: rotate(-12deg);
+        z-index: 1;
+        opacity: 0.9;
+      }
+
+      .photoCard.front {
+        bottom: 0;
+        right: 0;
+        transform: rotate(8deg);
+        z-index: 2;
+      }
+
+      .founderImageContainer:hover .photoCard.back {
+        transform: rotate(-16deg) translate(-15px, -5px);
+        opacity: 1;
+      }
+
+      .founderImageContainer:hover .photoCard.back img {
+        filter: saturate(1.1);
+      }
+
+      .founderImageContainer:hover .photoCard.front {
+        transform: rotate(12deg) translate(15px, 5px);
+      }
+
+      .founderImageContainer:hover .photoCard.front img {
+        filter: saturate(1.1);
+      }
+
+      .founderNameBox {
+        margin: 15px 0 30px;
+        border-left: 3px solid #590A16;
+        padding-left: 18px;
+      }
+
+      .founderNameBox h3 {
+        font-family: var(--font-display);
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--deep);
+        margin: 0 0 5px;
+        letter-spacing: -0.02em;
+      }
+
+      .founderNameBox span {
+        font-family: var(--font-body);
+        font-size: 11px;
+        color: #a64c58;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-weight: 600;
+      }
+
+      @media (max-width: 850px) {
+        .founderSection {
+          padding: 70px 0 60px !important;
+          margin-top: 40px !important;
+          margin-bottom: 20px !important;
+        }
+
+        .founder {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 24px !important;
+          padding: 0 !important;
+        }
+
+        .founderContent {
+          display: contents !important;
+        }
+
+        .founderHead {
+          order: 1 !important;
+          width: 100% !important;
+        }
+
+        .founderHead h2 {
+          margin: 15px 0 20px !important;
+        }
+
+        .founderImageContainer {
+          order: 2 !important;
+          max-width: 100% !important;
+          padding: 10px 0 20px !important;
+        }
+
+        .founderBioText {
+          order: 3 !important;
+          width: 100% !important;
+        }
+
+        .photoStack {
+          position: relative;
+          width: 100%;
+          max-width: 420px;
+          aspect-ratio: auto;
+          min-height: auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 16px;
+          margin: 0 auto;
+          padding: 15px 10px;
+        }
+
+        .photoCard {
+          position: relative;
+          width: calc(50% - 10px);
+          max-width: 195px;
+          aspect-ratio: 4 / 5;
+          padding: 6px;
+        }
+
+        .photoCard.back {
+          top: auto;
+          left: auto;
+          transform: rotate(-4deg) translateY(-10px);
+          opacity: 1;
+          z-index: 1;
+        }
+
+        .photoCard.front {
+          bottom: auto;
+          right: auto;
+          transform: rotate(4deg) translateY(10px);
+          z-index: 2;
+        }
+
+        .founderImageContainer:hover .photoCard.back {
+          transform: rotate(-6deg) translateY(-12px);
+        }
+
+        .founderImageContainer:hover .photoCard.front {
+          transform: rotate(6deg) translateY(12px);
+        }
+      }
+    </style>
+
+    <section class="founderSection reveal" id="sobre-fundadora">
+      <div class="founder shell">
+        <div class="founderContent">
+          <div class="founderHead">
+            <p class="kicker">A Fundadora</p>
+            <div class="founderNameBox">
+              <h3>Brenda Kaldy</h3>
+              <span>CEO & Fundadora</span>
+            </div>
+            <h2>A visão de quem<br><em>movimenta tudo.</em></h2>
+          </div>
+          <div class="founderBioText">
+            <p>A Kaldy Digital nasceu da paixão por conectar marcas e pessoas através de narrativas autênticas.
+              Acreditamos que cada projeto tem uma essência única que merece ser traduzida em conteúdo e posicionamento.
+            </p>
+            <p>Nossa fundadora lidera a equipe com um olhar apurado para a estética e um pensamento estratégico focado
+              em resultados, garantindo que sua presença digital não apenas exista, mas seja sentida.</p>
+          </div>
+        </div>
+        <div class="founderImageContainer">
+          <div class="photoStack">
+            <div class="photoCard back">
+              <img src="fotos/Brenda 04 - Ensaio.jpg" alt="Brenda Kaldy (Bastidores & Direção)" loading="eager" fetchpriority="high"
+                onerror="this.onerror=null; this.src='brenda-kaldy-02.jpg';">
+            </div>
+            <div class="photoCard front">
+              <img src="fotos/Brenda 01 - Ensaio.jpg" alt="Brenda Kaldy - CEO & Fundadora" loading="eager" fetchpriority="high"
+                onerror="this.onerror=null; this.src='brenda-kaldy.jpg';">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       04 - TRANSPARÊNCIA TOTAL COM CARDS BRANCOS
+       ==================================================================== -->
+    <section class="transparency shell" id="transparencia">
+      <div class="transparencyHead reveal">
+        <p class="kicker">Transparência Total</p>
+        <h2>
+          <span class="t-line">Por que nosso modelo é diferente</span>
+          <span class="t-line">das <em>agências tradicionais?</em></span>
+        </h2>
+        <p>A maioria das agências precisa inflar a carteira de clientes com processos genéricos. Nós preferimos entrar
+          na sua empresa como verdadeiros parceiros de crescimento.</p>
+      </div>
+
+      <div class="transparencyGrid reveal-group">
+        <!-- 01 - Carteira Seletiva -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+          </div>
+          <h3>Carteira Seletiva</h3>
+          <p>Atendemos um número restrito de marcas para garantir profundidade, foco e dedicação máxima em cada projeto.
+          </p>
+        </div>
+
+        <!-- 02 - Atenção na Operação -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="6" />
+              <circle cx="12" cy="12" r="2" />
+            </svg>
+          </div>
+          <h3>Atenção na Operação</h3>
+          <p>Acompanhamento detalhado do seu funil comercial, criativos de conversão e de cada centavo aportado em
+            anúncios.</p>
+        </div>
+
+        <!-- 03 - Comunicação Direta -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+            </svg>
+          </div>
+          <h3>Comunicação Direta</h3>
+          <p>Sem passar por intermediários ou estagiários. Contato ágil, transparente e direto com os estrategistas da
+            sua conta.</p>
+        </div>
+
+        <!-- 04 - Relatórios Focados em Vendas -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+          </div>
+          <h3>Relatórios Focados em Vendas</h3>
+          <p>Nada de métricas vazias de vaidade. Mostramos com clareza quanto foi investido e quanto retornou em
+            faturamento.</p>
+        </div>
+
+        <!-- 05 - Sem Contratos Abusivos -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <polyline points="9 12 11 14 15 10" />
+            </svg>
+          </div>
+          <h3>Sem Contratos Abusivos</h3>
+          <p>Trabalhamos para que sua empresa continue conosco pela rentabilidade e pelo valor real que geramos na sua
+            marca.</p>
+        </div>
+
+        <!-- 06 - Visão Comercial 360° -->
+        <div class="transparencyCard reveal-item">
+          <div class="transparencyIconWrap">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          </div>
+          <h3>Visão Comercial 360°</h3>
+          <p>Unimos conteúdo, autoridade visual e tráfego pago ao processo comercial para fechar negócios no seu caixa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       PORTFÓLIO EDITORIAL
+       ==================================================================== -->
+    <section class="portfolio" id="portfolio">
+      <div class="shell portfolioHead reveal">
+        <div>
+          <p class="kicker">Trabalhos selecionados</p>
+          <h2>Ideias que saíram<br>do briefing e <em>ganharam vida.</em></h2>
+        </div><a href="https://www.instagram.com/kaldydigital/" target="_blank" rel="noopener">Ver Instagram <span
+            class="arrowIcon" aria-hidden="true"></span></a>
+      </div>
+      <div class="projectGrid shell reveal-group">
+        <figure class="wide reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-01.png"
+            alt="Campanha — Produto em cena">
+          <figcaption><small>Campanha</small><strong>Produto em cena</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-02.png"
+            alt="Casamentos — Elegância em cada detalhe">
+          <figcaption><small>Casamentos</small><strong>Elegância em cada detalhe</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-03.png"
+            alt="Família — Momentos que ficam">
+          <figcaption><small>Família</small><strong>Momentos que ficam</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-04.png"
+            alt="Shows — A energia do palco">
+          <figcaption><small>Shows</small><strong>A energia do palco</strong></figcaption>
+        </figure>
+        <figure class="wide reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-05.png"
+            alt="Celebrações — Histórias de amor">
+          <figcaption><small>Celebrações</small><strong>Histórias de amor</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-06.png"
+            alt="Experiências — Atmosfera e personalidade">
+          <figcaption><small>Experiências</small><strong>Atmosfera e personalidade</strong></figcaption>
+        </figure>
+        <figure class="reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-07.png"
+            alt="Produção — Bastidores que contam">
+          <figcaption><small>Produção</small><strong>Bastidores que contam</strong></figcaption>
+        </figure>
+        <figure class="wide reveal-item"><img
+            src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/portfolio/portfolio-08.png"
+            alt="Eventos — Uma noite inesquecível">
+          <figcaption><small>Eventos</small><strong>Uma noite inesquecível</strong></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       VÍDEOS VERTICAIS / STORIES
+       ==================================================================== -->
+    <section class="videoStories shell">
+      <div class="videoStoriesHead reveal">
+        <div>
+          <p class="kicker">Conteúdo em movimento</p>
+          <h2>Presença que continua<br><em>depois do momento.</em></h2>
+        </div>
+        <p>Do registro emocional ao conteúdo estratégico: histórias verticais prontas para conectar.</p>
+      </div>
+      <div class="videoGrid reveal-group">
+        <article class="reveal-item">
+          <div class="videoFrame">
+            <video muted loop playsinline preload="metadata" style="cursor: pointer;">
+              <source
+                src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/media/eternize-seu-evento.mp4#t=3.0"
+                type="video/mp4">
+            </video>
+            <div class="centerPlayBtn">
+              <button class="playToggle bigPlayBtn" aria-label="Reproduzir vídeo">
+                <div class="pulseRing"></div>
+                <i class="iconPlay"></i>
+              </button>
+              <span>reproduzir</span>
+            </div>
+            <div class="videoControls">
+              <button class="soundToggle" aria-label="Ativar som" aria-pressed="false"><i
+                  class="iconSound muted"></i></button>
+            </div>
+          </div>
+          <div><span>01 · Eventos</span>
+            <h3>Eternize seu evento</h3>
+            <p>Transformamos os momentos que passam rápido em memórias que continuam vivas.</p>
+          </div>
+        </article>
+        <article class="reveal-item">
+          <div class="videoFrame">
+            <video muted loop playsinline preload="metadata" style="cursor: pointer;">
+              <source
+                src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/media/por-que-storymaker.mp4#t=3.0"
+                type="video/mp4">
+            </video>
+            <div class="centerPlayBtn">
+              <button class="playToggle bigPlayBtn" aria-label="Reproduzir vídeo">
+                <div class="pulseRing"></div>
+                <i class="iconPlay"></i>
+              </button>
+              <span>reproduzir</span>
+            </div>
+            <div class="videoControls">
+              <button class="soundToggle" aria-label="Ativar som" aria-pressed="false"><i
+                  class="iconSound muted"></i></button>
+            </div>
+          </div>
+          <div><span>02 · Storymaker</span>
+            <h3>Por que contratar um Storymaker?</h3>
+            <p>Conteúdo pensado, captado e publicado enquanto o seu evento acontece.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       PROCESSO
+       ==================================================================== -->
+    <section class="process shell reveal" id="processo">
+      <div>
+        <p class="kicker">Nosso processo</p>
+        <h2>Estratégia antes do <em>REC.</em><br>Intenção depois do <em>POST.</em></h2>
+      </div>
+      <ol class="reveal-group">
+        <li class="reveal-item"><span>01</span><b>Imersão</b>
+          <p>Entendemos a marca, o momento e o objetivo.</p>
+        </li>
+        <li class="reveal-item"><span>02</span><b>Direção</b>
+          <p>Definimos narrativa, estética e plano de conteúdo.</p>
+        </li>
+        <li class="reveal-item"><span>03</span><b>Produção</b>
+          <p>Captamos, criamos e editamos com olhar estratégico.</p>
+        </li>
+        <li class="reveal-item"><span>04</span><b>Movimento</b>
+          <p>Publicamos, analisamos e fazemos a presença evoluir.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ====================================================================
+       PROVA SOCIAL (COMENTÁRIOS INSTAGRAM)
+       ==================================================================== -->
+    <section class="proof reveal">
+      <div class="shell">
+        <div class="proofIntro">
+          <p class="kicker">Reações do Instagram</p>
+          <h2>Quando o conteúdo<br><em>faz sentir.</em></h2>
+          <p>Comentários públicos em trabalhos da Kaldy.</p>
+        </div>
+        <div class="carouselWrap">
+          <div class="testimonialsTrack" id="testimonialTrack"></div>
+          <div class="carouselNav"><button id="testimonialPrev" aria-label="Comentário anterior"><i
+                class="carouselArrow previous"></i></button>
+            <div id="testimonialDots"></div><span id="testimonialCount">01 / 05</span><button id="testimonialNext"
+              aria-label="Próximo comentário"><i class="carouselArrow next"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+       CONTATO FINAL & FOOTER
+       ==================================================================== -->
+    <section class="contact shell reveal" id="contato"
+      style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+      <p class="kicker">Vamos criar juntos?</p>
+      <h2>Sua próxima história<br>começa com uma <em>conversa.</em></h2>
+      <div class="contactRow" style="border: none; padding: 0; display: flex; justify-content: center; width: 100%;"><a
+          class="btn-primary whatsappLink" href="#" target="_blank"
+          style="margin-top: 0; width: 100%; max-width: 340px;">Falar no WhatsApp <span class="arrowIcon"
+            aria-hidden="true"></span></a></div>
+    </section>
+
+    <footer class="shell">
+      <div class="brand"><img
+          src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/logo-kaldy.png"
+          alt=""><span>KALDY<br>DIGITAL</span></div>
+      <p>Estratégia para marcas.<br>Presença para eventos.</p><a href="https://www.instagram.com/kaldydigital/"
+        target="_blank" rel="noopener">@kaldydigital <span class="arrowIcon" aria-hidden="true"></span></a><small>© 2026
+        Kaldy Digital</small>
+    </footer>
+
+    <a class="whatsappFloat whatsappLink" href="#" target="_blank"
+      aria-label="Pedir orçamento pelo WhatsApp"><b><small>Atendimento rápido</small>Peça seu orçamento</b><img
+        src="https://kaldy-digital-preview.hugo0412victor.chatgpt.site/kaldy-preview/assets/whatsapp-logo-cropped.png"
+        alt="WhatsApp"></a>
+  </main>
+
+  <script src="script.js"></script>
+  <script>(function () { function c() { var b = a.contentDocument || (a.contentWindow && a.contentWindow.document); if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'a2b301d50e186272',t:'MTc4Njc0MjQ2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+  <script>
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    const customCursor = document.querySelector('.customCursor');
+    if (window.matchMedia('(pointer: fine)').matches && window.innerWidth > 1024) {
+      window.addEventListener("mousemove", (e) => {
+        if (customCursor) {
+          customCursor.style.transform = `translate(${e.clientX - 23}px, ${e.clientY - 50}px)`;
+        }
+      });
+      window.addEventListener("mousedown", () => document.body.classList.add("clicking"));
+      window.addEventListener("mouseup", () => document.body.classList.remove("clicking"));
+    } else if (customCursor) {
+      customCursor.style.display = 'none';
+    }
+  </script>
 </body>
+
 </html>

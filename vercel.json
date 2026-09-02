@@ -15,10 +15,6 @@
       "destination": "/marketing/script.js"
     },
     {
-      "source": "/logo-kaldy.png",
-      "destination": "/marketing/logo-kaldy.png"
-    },
-    {
       "source": "/fotos/:path*",
       "destination": "/marketing/fotos/:path*"
     },
