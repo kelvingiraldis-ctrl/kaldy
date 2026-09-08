@@ -6,10 +6,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ================= CONFIGURAÇÕES PRINCIPAIS =================
     // WhatsApp oficial da Kaldy Digital
-    const WHATSAPP_NUMBER = '5511945367699';
+    const WHATSAPP_NUMBER = '5511999382989';
     
-    // Webhook opcional do Google Sheets (desconectado por padrão)
-    const GOOGLE_SHEETS_WEBHOOK_URL = ''; 
+    // URL do Web App do Apps Script vinculado à planilha da Kaldy.
+    // Preencha depois da publicação do Apps Script.
+    const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwhl5TulkxVLY8zBqAFuq5hZ6NEGpiMLGDVQ_NnLJ5xfq0EwfQzr4zQ44okEuSXv_P8-Q/exec';
 
     const form = document.getElementById('leadForm');
     const stepCards = document.querySelectorAll('.step-card');
@@ -48,12 +49,37 @@ document.addEventListener('DOMContentLoaded', () => {
         evento:  ['1', '2', '3', '4', '5v', '6v', '7v', '8v', '9v', '10']
     };
 
+    function requiresPaidTraffic() {
+        if (selectedSegmento !== 'empresa') return false;
+        return getCheckedValues('servicos_empresa').some(service =>
+            service.toLowerCase().includes('tráfego')
+        );
+    }
+
+    function getCurrentFlow() {
+        const baseFlow = FLOW_MAP[selectedSegmento] || FLOW_MAP.empresa;
+
+        if (selectedSegmento === 'empresa' && !requiresPaidTraffic()) {
+            return baseFlow.filter(stepId => !['7e', '8e'].includes(stepId));
+        }
+
+        return baseFlow;
+    }
+
     let leadSessionId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7);
     let hasTriggeredSuccess = false;
+    let hasTriggeredLeadEvent = false;
+    let syncDebounceTimer = null;
+    let syncQueue = Promise.resolve();
 
     function initNewLeadSession() {
         leadSessionId = 'lead_' + Date.now() + '_' + Math.random().toString(36).substring(2, 7);
         hasTriggeredSuccess = false;
+        hasTriggeredLeadEvent = false;
+        if (syncDebounceTimer) {
+            clearTimeout(syncDebounceTimer);
+            syncDebounceTimer = null;
+        }
     }
 
     // ================= CAPTURA DE UTMS =================
@@ -61,37 +87,118 @@ document.addEventListener('DOMContentLoaded', () => {
     const utmSource = urlParams.get('utm_source') || urlParams.get('src') || 'Direto';
     const utmMedium = urlParams.get('utm_medium') || 'organic';
     const utmCampaign = urlParams.get('utm_campaign') || 'Não informada';
+    const utmContent = urlParams.get('utm_content') || 'Não informado';
+    const utmTerm = urlParams.get('utm_term') || 'Não informado';
+    const pageSource = window.location.pathname || 'Kaldy - Diagnostico';
+    const referrer = document.referrer || 'Direto';
 
-    // ================= SINCRONIZAÇÃO OPCIONAL =================
-    function syncLeadToSheet(statusText) {
-        if (!GOOGLE_SHEETS_WEBHOOK_URL) return;
+    // ================= EVENTOS PARA GTM / META PIXEL =================
+    function pushKaldyEvent(eventName, eventData) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+            event: eventName,
+            form_name: 'kaldy_diagnostico',
+            ...eventData
+        });
+    }
 
-        const nome = inputNome ? inputNome.value.trim() : '';
-        const whatsapp = inputWhatsapp ? inputWhatsapp.value.trim() : '';
-        if (!nome && !whatsapp) return;
+    // ================= SINCRONIZAÇÃO COM A PLANILHA =================
+    function getCheckedValues(fieldName) {
+        return Array.from(document.querySelectorAll(`input[name="${fieldName}"]:checked`))
+            .map(input => input.value)
+            .filter(Boolean);
+    }
 
-        const payload = {
+    function collectLeadPayload(statusText) {
+        const faturamento = document.querySelector('input[name="faturamento"]:checked');
+        const investimento = document.querySelector('input[name="investimento"]:checked');
+        const tipoEvento = document.querySelector('input[name="tipo_evento"]:checked');
+        const duracaoEvento = document.querySelector('input[name="duracao_evento"]:checked');
+        const porteEvento = document.querySelector('input[name="porte_evento"]:checked');
+        const segmento = document.querySelector('input[name="segmento"]:checked');
+
+        return {
             lead_id: leadSessionId,
-            data_hora: new Date().toLocaleString('pt-BR'),
-            segmento: selectedSegmento,
-            nome: nome,
-            whatsapp: whatsapp,
+            data_hora: new Date().toISOString(),
             status: statusText || 'Em andamento',
+            segmento: segmento ? segmento.value : 'Aguardando escolha',
+            nome: inputNome ? inputNome.value.trim() : '',
+            whatsapp: inputWhatsapp ? inputWhatsapp.value.trim() : '',
+            instagram_empresa: inputInstagramEmpresa ? inputInstagramEmpresa.value.trim().replace(/^@+/, '') : '',
+            servicos_empresa: getCheckedValues('servicos_empresa'),
+            faturamento_empresa: faturamento ? faturamento.value : '',
+            investimento: investimento ? investimento.value : '',
+            email_empresa: inputEmailEmpresa ? inputEmailEmpresa.value.trim() : '',
+            site_empresa: inputSiteEmpresa ? inputSiteEmpresa.value.trim() : '',
+            tipo_evento: tipoEvento ? tipoEvento.value : '',
+            instagram_evento: inputInstagramEvento ? inputInstagramEvento.value.trim().replace(/^@+/, '') : '',
+            servicos_evento: getCheckedValues('servicos_evento'),
+            data_evento: inputDataEvento ? inputDataEvento.value : '',
+            duracao_evento: duracaoEvento ? duracaoEvento.value : '',
+            porte_evento: porteEvento ? porteEvento.value : '',
+            local_evento: inputLocalEvento ? inputLocalEvento.value.trim() : '',
+            email_evento: inputEmailEvento ? inputEmailEvento.value.trim() : '',
             utm_source: utmSource,
+            utm_medium: utmMedium,
             utm_campaign: utmCampaign,
-            utm_medium: utmMedium
+            utm_content: utmContent,
+            utm_term: utmTerm,
+            pagina_origem: pageSource,
+            referrer: referrer
         };
+    }
 
-        try {
-            fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+    function syncLeadToSheet(statusText) {
+        if (syncDebounceTimer) {
+            clearTimeout(syncDebounceTimer);
+            syncDebounceTimer = null;
+        }
+
+        if (!GOOGLE_SHEETS_WEBHOOK_URL) return Promise.resolve();
+
+        const payload = collectLeadPayload(statusText);
+        if (!payload.nome && !payload.whatsapp) return Promise.resolve();
+
+        syncQueue = syncQueue
+            .catch(() => {})
+            .then(() => fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
                 method: 'POST',
                 mode: 'no-cors',
                 headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-                body: JSON.stringify(payload)
-            }).catch(err => console.warn('Sync aviso:', err));
-        } catch (err) {
-            console.warn('Sync aviso:', err);
-        }
+                body: JSON.stringify(payload),
+                keepalive: true
+            }))
+            .catch(err => console.warn('Sync aviso:', err));
+
+        return syncQueue;
+    }
+
+    function scheduleLeadSync(statusText = 'Em andamento') {
+        if (syncDebounceTimer) clearTimeout(syncDebounceTimer);
+
+        syncDebounceTimer = setTimeout(() => {
+            syncDebounceTimer = null;
+            syncLeadToSheet(statusText);
+        }, 350);
+    }
+
+    function triggerLeadEventAtWhatsapp() {
+        if (hasTriggeredLeadEvent) return;
+
+        const nome = inputNome ? inputNome.value.trim() : '';
+        const whatsapp = inputWhatsapp ? inputWhatsapp.value.trim() : '';
+        const whatsappDigits = whatsapp.replace(/\D/g, '');
+
+        if (!nome || whatsappDigits.length < 10) return;
+
+        hasTriggeredLeadEvent = true;
+        pushKaldyEvent('generate_lead', {
+            lead_stage: 'whatsapp_filled',
+            lead_id: leadSessionId,
+            lead_name: nome,
+            lead_whatsapp: whatsapp,
+            lead_segment: 'aguardando_escolha'
+        });
     }
 
     // ================= MÁSCARAS & INPUT LISTENERS =================
@@ -213,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (formCardProgress) formCardProgress.classList.remove('visible');
         } else {
             if (formCardProgress) formCardProgress.classList.add('visible');
-            const currentFlow = FLOW_MAP[selectedSegmento];
+            const currentFlow = getCurrentFlow();
             const currentIndex = currentFlow.indexOf(stepId);
             const totalSteps = currentFlow.length - 1; // excluindo etapa final
 
@@ -388,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (c) c.classList.remove('selected');
             });
             clearError('errorFaturamento');
-            goToStep('8e');
+            goToStep(requiresPaidTraffic() ? '8e' : '9e');
         });
     }
 
@@ -403,9 +510,15 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', function () {
             const nextStep = this.getAttribute('data-next');
             if (validateStep(currentStep)) {
+                if (currentStep === '3') {
+                    syncLeadToSheet('Nome e WhatsApp validados');
+                    triggerLeadEventAtWhatsapp();
+                }
                 if (currentStep === '4') {
                     const nextTarget = selectedSegmento === 'empresa' ? '5e' : '5v';
                     goToStep(nextTarget);
+                } else if (currentStep === '6e') {
+                    goToStep(requiresPaidTraffic() ? '7e' : '9e');
                 } else {
                     goToStep(nextStep);
                 }
@@ -415,12 +528,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     prevBtns.forEach(btn => {
         btn.addEventListener('click', function () {
-            const prevStep = this.getAttribute('data-prev');
+            let prevStep = this.getAttribute('data-prev');
+            if (currentStep === '9e' && !requiresPaidTraffic()) {
+                prevStep = '6e';
+            }
             goToStep(prevStep);
         });
     });
 
     if (form) {
+        // Sincroniza cada preenchimento/alteração sem criar outra linha:
+        // o Apps Script atualiza o mesmo registro pelo lead_id.
+        form.addEventListener('input', () => scheduleLeadSync('Em andamento'));
+        form.addEventListener('change', () => scheduleLeadSync('Em andamento'));
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (validateStep(currentStep)) {
@@ -439,7 +560,11 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (['2', '3', '5e', '6e', '7e', '8e', '9e', '5v', '6v', '7v', '8v'].includes(currentStep)) {
                 e.preventDefault();
                 if (validateStep(currentStep)) {
-                    const currentFlow = FLOW_MAP[selectedSegmento];
+                    if (currentStep === '3') {
+                        syncLeadToSheet('Nome e WhatsApp validados');
+                        triggerLeadEventAtWhatsapp();
+                    }
+                    const currentFlow = getCurrentFlow();
                     const currentIndex = currentFlow.indexOf(currentStep);
                     if (currentIndex !== -1 && currentIndex + 1 < currentFlow.length) {
                         goToStep(currentFlow[currentIndex + 1]);
@@ -476,6 +601,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const invChecked = document.querySelector('input[name="investimento"]:checked');
             const investimento = invChecked ? invChecked.value : 'Não informado';
+            const trafficDetails = requiresPaidTraffic()
+                ? `📊 *Faturamento Mensal:* ${faturamento}\n💰 *Investimento em Anúncios:* ${investimento}\n`
+                : '';
+            const closingMessage = requiresPaidTraffic()
+                ? 'Gostaria de entender a melhor estratégia de posicionamento e tráfego pago para o meu negócio!'
+                : 'Gostaria de entender a melhor estratégia de posicionamento e conteúdo para o meu negócio!';
 
             const email = inputEmailEmpresa ? inputEmailEmpresa.value.trim() : 'Não informado';
             const site = inputSiteEmpresa ? (inputSiteEmpresa.value.trim() || 'Não informado') : 'Não informado';
@@ -489,12 +620,10 @@ document.addEventListener('DOMContentLoaded', () => {
 📱 *WhatsApp:* ${whatsapp}
 📸 *Instagram da Empresa:* @${insta}
 🎯 *Serviços de Interesse:* ${srvsText}
-📊 *Faturamento Mensal:* ${faturamento}
-💰 *Investimento em Anúncios:* ${investimento}
-✉️ *E-mail:* ${email}
+${trafficDetails}✉️ *E-mail:* ${email}
 🌐 *Site:* ${site}
 
-Gostaria de entender a melhor estratégia de posicionamento e tráfego pago para o meu negócio!`;
+${closingMessage}`;
 
         } else {
             // RAMO EVENTO
